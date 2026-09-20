@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { LINK_CANDIDATE_MAX, LINK_WINDOW_DAYS } from './config.ts';
-import { type Db, liveClaim, locked, pool } from './db.ts';
+import { type Connection, type Db, liveClaim } from './db.ts';
 import { completeJson } from './llm.ts';
 import { idEnum, maxWords, pid, render, unpid } from './prompts.ts';
 
@@ -31,8 +31,8 @@ async function loadEvents(db: Db, ids: string[]): Promise<EventView[]> {
 // Step 7 for a new event, or a re-run when an existing event gained claims.
 // A re-run considers only events not already connected to it, so it costs
 // nothing when there is nothing new to judge. Returns the links inserted.
-export async function linkEvent(eventId: string, rejected: string[], relink = false): Promise<number> {
-  const related = await pool.query<{ id: string }>(
+export async function linkEvent(conn: Connection, eventId: string, rejected: string[], relink = false): Promise<number> {
+  const related = await conn.pool.query<{ id: string }>(
     `(select e.id from events e
       where e.id <> $1
         and e.occurred_at between (select occurred_at from events where id = $1) - $2::int
@@ -47,7 +47,7 @@ export async function linkEvent(eventId: string, rejected: string[], relink = fa
   );
   let candidateIds = [...new Set([...rejected.filter((id) => id !== eventId), ...related.rows.map((r) => r.id)])];
   if (relink) {
-    const known = await pool.query<{ id: string }>(
+    const known = await conn.pool.query<{ id: string }>(
       `select case when src = $1 then dst else src end as id from links where src = $1 or dst = $1
        union
        select id from events where storyline_id = (select storyline_id from events where id = $1) and id <> $1`,
@@ -59,9 +59,9 @@ export async function linkEvent(eventId: string, rejected: string[], relink = fa
   candidateIds = candidateIds.slice(0, LINK_CANDIDATE_MAX);
   if (candidateIds.length === 0) return 0;
 
-  const [event, ...candidates] = await loadEvents(pool, [eventId, ...candidateIds]);
+  const [event, ...candidates] = await loadEvents(conn.pool, [eventId, ...candidateIds]);
   const newId = pid('E', eventId);
-  const user = await render('link', {
+  const user = await render(conn, 'link', {
     'E-id': newId,
     title: event!.title,
     date: event!.occurred_at,
@@ -107,9 +107,9 @@ export async function linkEvent(eventId: string, rejected: string[], relink = fa
     .refine((r) => r.continues === null || storylineOf.get(r.continues) !== null || r.storyline_title !== null, {
       message: 'storyline_title is required: the continued candidate has no storyline',
     });
-  const reply = await completeJson(await render('shared'), user, schema);
+  const reply = await completeJson(await render(conn, 'shared'), user, schema);
 
-  return locked(async (db) => {
+  return conn.locked(async (db) => {
     let inserted = 0;
     for (const link of reply.links) {
       const res = await db.query(

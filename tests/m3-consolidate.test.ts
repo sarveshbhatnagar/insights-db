@@ -1,9 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { ingest } from '../src/ingest.ts';
-import { detachDocument } from '../src/maintain.ts';
-import { getEvent, renderEvent } from '../src/query.ts';
+import { detachDocument, getEvent, ingest } from '../src/index.ts';
+import { renderEvent } from '../src/query.ts';
 import * as f from './fixtures/index.ts';
-import { fake, freshDb, q } from './helpers.ts';
+import { db, fake, freshDb, q } from './helpers.ts';
 
 freshDb();
 
@@ -42,7 +41,7 @@ describe('milestone 3: consolidation and write', () => {
     const event = await getEvent(eventId);
     expect(event.speculation.map((c) => c.text)).toEqual(f.bankExtraction3.speculation);
     expect(event.documents).toHaveLength(3);
-    expect(await renderEvent(eventId)).toBe([f.bankExtraction.title, ...f.bankDistinctFacts.map((t) => `- ${t}`)].join('\n'));
+    expect(await renderEvent(db, eventId)).toBe([f.bankExtraction.title, ...f.bankDistinctFacts.map((t) => `- ${t}`)].join('\n'));
     // The FDIC alias was merged in step 3 rather than creating a second entity.
     expect(await q("select id from entities where type = 'org'")).toHaveLength(2);
   });
@@ -84,7 +83,7 @@ describe('milestone 3: consolidation and write', () => {
     const [row] = await q<{ superseded_by: string; text: string }>(
       'select s.superseded_by, n.text from claims s join claims n on n.id = s.superseded_by where s.id = $1', [old]);
     expect(row!.text).toBe(f.bankExtraction5.claims[0]);
-    const history = await getEvent(eventId, true);
+    const history = await getEvent(eventId, { includeHistory: true });
     expect(history.claims.find((c) => c.claimId === old)!.supersededBy).toBe(row!.superseded_by);
   });
 

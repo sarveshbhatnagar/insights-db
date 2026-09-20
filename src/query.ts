@@ -1,21 +1,12 @@
 import { z } from 'zod';
 import { QUERY_MAX_TOOL_CALLS } from './config.ts';
-import { documentDate, hiddenClaim, liveClaim, pool, vec } from './db.ts';
+import { type Connection, documentDate, hiddenClaim, liveClaim, observedAt, vec } from './db.ts';
+import { type AsOf, type Claim, loadClaims, similar } from './events.ts';
 import { LINK_TYPES } from './link.ts';
 import { embed, runTools, type Tool } from './llm.ts';
 import { maxWords, pid, render, unpid } from './prompts.ts';
 
-export type Claim = {
-  claimId: string;
-  text: string;
-  assertedAt: Date;
-  kind: 'fact' | 'speculation';
-  disputedWith: string[];
-  verdict: 'refuted' | 'unsupported' | null;
-  evidenceUrl: string | null;
-  supersededBy: string | null;
-  hidden: boolean;
-};
+export type { Claim } from './events.ts';
 
 export type EventDetail = {
   eventId: string;
@@ -23,6 +14,7 @@ export type EventDetail = {
   eventType: string;
   pattern: string;
   occurredAt: string;
+  observedAt: Date;
   storyline: { storylineId: string; title: string } | null;
   entities: { entityId: string; name: string; type: string; role: string }[];
   claims: Claim[];
@@ -34,55 +26,56 @@ export type EventDetail = {
 // Tool arguments may carry the prompt prefix (E17) or not (17).
 const rawId = (s: string): string => (/^[A-Z]\d+$/.test(s) ? unpid(s) : s);
 
-export async function getEvent(eventId: string, includeHistory = false): Promise<EventDetail> {
-  const event = await pool.query<{
-    id: string; title: string; event_type: string; pattern: string; occurred_at: string;
+export type GetEventOptions = {
+  // Adds superseded claims, and hidden claims with their verdict and evidence URL.
+  includeHistory?: boolean | undefined;
+  // The event as it stood then: claims asserted and documents dated by `asOf`.
+  // An event not yet observed at `asOf` does not exist.
+  asOf?: AsOf | undefined;
+};
+
+export async function getEvent(conn: Connection, eventId: string, opts: GetEventOptions = {}): Promise<EventDetail> {
+  const asOf = opts.asOf ?? null;
+  const event = await conn.pool.query<{
+    id: string; title: string; event_type: string; pattern: string; occurred_at: string; observed_at: Date;
     storyline_id: string | null; storyline_title: string | null;
   }>(
-    `select e.id, e.title, e.event_type, e.pattern, e.occurred_at, e.storyline_id, s.title as storyline_title
-     from events e left join storylines s on s.id = e.storyline_id where e.id = $1`,
-    [eventId],
+    `select e.id, e.title, e.event_type, e.pattern, e.occurred_at, ${observedAt('e')} as observed_at,
+            e.storyline_id, s.title as storyline_title
+     from events e left join storylines s on s.id = e.storyline_id
+     where e.id = $1 and ($2::timestamptz is null or ${observedAt('e')} <= $2)`,
+    [eventId, asOf],
   );
   const e = event.rows[0];
   if (!e) throw new Error(`no event ${eventId}`);
   const [entities, claims, links, documents] = await Promise.all([
-    pool.query<{ id: string; name: string; type: string; role: string }>(
+    conn.pool.query<{ id: string; name: string; type: string; role: string }>(
       `select n.id, n.name, n.type, ee.role from event_entities ee join entities n on n.id = ee.entity_id
        where ee.event_id = $1 order by n.id`,
       [eventId],
     ),
-    pool.query<{
-      id: string; text: string; asserted_at: Date; kind: 'fact' | 'speculation'; verdict: Claim['verdict'];
-      evidence_url: string | null; superseded_by: string | null; disputed_with: string[]; hidden: boolean;
-    }>(
-      `select c.id, c.text, c.asserted_at, c.kind, c.verdict, c.evidence_url, c.superseded_by, (${hiddenClaim('c')}) as hidden,
-              array(select o.id from claims o where o.id = c.conflicts_with or o.conflicts_with = c.id order by o.id) as disputed_with
-       from claims c where c.event_id = $1 order by c.asserted_at, c.id`,
-      [eventId],
-    ),
-    pool.query<{ id: string; title: string; type: string; direction: 'out' | 'in'; reason: string }>(
+    loadClaims(conn, [eventId], opts.asOf),
+    conn.pool.query<{ id: string; title: string; type: string; direction: 'out' | 'in'; reason: string }>(
       `select e.id, e.title, l.type, case when l.src = $1 then 'out' else 'in' end as direction, l.reason
        from links l join events e on e.id = case when l.src = $1 then l.dst else l.src end
        where l.src = $1 or l.dst = $1 order by l.id`,
       [eventId],
     ),
-    pool.query<{ id: string; title: string | null; source: string | null; url: string | null; published_at: Date }>(
+    conn.pool.query<{ id: string; title: string | null; source: string | null; url: string | null; published_at: Date }>(
       `select id, title, source, url, ${documentDate('documents')} as published_at from documents
-       where event_id = $1 order by id`,
-      [eventId],
+       where event_id = $1 and ($2::timestamptz is null or ${documentDate('documents')} <= $2) order by id`,
+      [eventId, asOf],
     ),
   ]);
-  const all: Claim[] = claims.rows.map((c) => ({
-    claimId: c.id, text: c.text, assertedAt: c.asserted_at, kind: c.kind, disputedWith: c.disputed_with,
-    verdict: c.verdict, evidenceUrl: c.evidence_url, supersededBy: c.superseded_by, hidden: c.hidden,
-  }));
-  const current = (c: Claim): boolean => includeHistory || (c.supersededBy === null && !c.hidden);
+  const all = claims.get(eventId) ?? [];
+  const current = (c: Claim): boolean => opts.includeHistory === true || (c.supersededBy === null && !c.hidden);
   return {
     eventId: e.id,
     title: e.title,
     eventType: e.event_type,
     pattern: e.pattern,
     occurredAt: e.occurred_at,
+    observedAt: e.observed_at,
     storyline: e.storyline_id ? { storylineId: e.storyline_id, title: e.storyline_title! } : null,
     entities: entities.rows.map((r) => ({ entityId: r.id, name: r.name, type: r.type, role: r.role })),
     claims: all.filter((c) => c.kind === 'fact' && current(c)),
@@ -94,19 +87,19 @@ export async function getEvent(eventId: string, includeHistory = false): Promise
   };
 }
 
-export async function renderEvent(eventId: string): Promise<string> {
-  const event = await getEvent(eventId);
+export async function renderEvent(conn: Connection, eventId: string): Promise<string> {
+  const event = await getEvent(conn, eventId);
   return [event.title, ...event.claims.map((c) => `- ${c.text}`)].join('\n');
 }
 
-export async function getStoryline(storylineId: string): Promise<{
+export async function getStoryline(conn: Connection, storylineId: string): Promise<{
   storylineId: string;
   title: string;
   events: { eventId: string; title: string; occurredAt: string }[];
 }> {
-  const s = await pool.query<{ title: string }>('select title from storylines where id = $1', [storylineId]);
+  const s = await conn.pool.query<{ title: string }>('select title from storylines where id = $1', [storylineId]);
   if (!s.rows[0]) throw new Error(`no storyline ${storylineId}`);
-  const events = await pool.query<{ id: string; title: string; occurred_at: string }>(
+  const events = await conn.pool.query<{ id: string; title: string; occurred_at: string }>(
     'select id, title, occurred_at from events where storyline_id = $1 order by occurred_at, id',
     [storylineId],
   );
@@ -117,22 +110,12 @@ export async function getStoryline(storylineId: string): Promise<{
   };
 }
 
-type SimilarEvent = { eventId: string; title: string; occurredAt: string; pattern: string; score: number };
+export type SimilarEvent = { eventId: string; title: string; occurredAt: string; pattern: string; score: number };
 
-async function similarByVector(v: string, k: number, exclude: string | null): Promise<SimilarEvent[]> {
-  const { rows } = await pool.query<{ id: string; title: string; occurred_at: string; pattern: string; score: number }>(
-    `select id, title, occurred_at, pattern, 1 - (pattern_embedding <=> $1::vector) as score
-     from events where $3::bigint is null or id <> $3
-     order by pattern_embedding <=> $1::vector limit $2`,
-    [v, k, exclude],
-  );
-  return rows.map((r) => ({ eventId: r.id, title: r.title, occurredAt: r.occurred_at, pattern: r.pattern, score: Number(r.score) }));
-}
-
-export async function similarEvents(eventId: string, k = 5): Promise<SimilarEvent[]> {
-  const { rows } = await pool.query<{ v: string }>('select pattern_embedding::text as v from events where id = $1', [eventId]);
-  if (!rows[0]) throw new Error(`no event ${eventId}`);
-  return similarByVector(rows[0].v, k, eventId);
+// Events with a pattern like this one's, nearest first, by the immutable pattern embedding.
+export async function similarEvents(conn: Connection, eventId: string, k = 5): Promise<SimilarEvent[]> {
+  const hits = await similar(conn, { eventId, k });
+  return hits.map((h) => ({ eventId: h.id, title: h.title, occurredAt: h.occurredAt, pattern: h.pattern, score: h.score }));
 }
 
 // The query's lexemes ORed together, so partial matches still rank.
@@ -144,12 +127,13 @@ export type EventHit = { eventId: string; title: string; occurredAt: string };
 
 // Hybrid: vector rank and full-text rank fused with reciprocal rank fusion.
 export async function searchEvents(
+  conn: Connection,
   query: string,
   opts: { k?: number | undefined; dateFrom?: string | undefined; dateTo?: string | undefined } = {},
 ): Promise<EventHit[]> {
   const k = opts.k ?? 8;
   const [v] = await embed([query]);
-  const { rows } = await pool.query<{ id: string; title: string; occurred_at: string }>(
+  const { rows } = await conn.pool.query<{ id: string; title: string; occurred_at: string }>(
     `with q as (select $1::vector as v, ${TSQUERY} as tsq),
      scope as (
        select e.* from events e
@@ -196,12 +180,13 @@ export type ClaimHit = {
 // that failed verification. Same hybrid ranking as searchEvents; without a
 // query, newest first.
 export async function listClaims(
+  conn: Connection,
   opts: { query?: string | undefined; speculation?: boolean | undefined; verdict?: 'refuted' | 'unsupported' | undefined; k?: number | undefined } = {},
 ): Promise<ClaimHit[]> {
   const k = opts.k ?? 20;
   const kind = opts.speculation === undefined ? null : opts.speculation ? 'speculation' : 'fact';
   const v = opts.query ? vec((await embed([opts.query]))[0]!) : null;
-  const { rows } = await pool.query<{
+  const { rows } = await conn.pool.query<{
     id: string; event_id: string; text: string; kind: 'fact' | 'speculation'; asserted_at: Date;
     verdict: ClaimHit['verdict']; against: string[]; disputed_with: string[]; evidence_url: string | null; hidden: boolean;
   }>(
@@ -236,9 +221,9 @@ export async function listClaims(
 export type EntityHit = { entityId: string; name: string; type: string; aliases: string[]; events: number };
 
 // Entities by name or alias, nearest first; the way to spot duplicates for mergeEntities.
-export async function listEntities(opts: { query?: string | undefined; type?: string | undefined; k?: number | undefined } = {}): Promise<EntityHit[]> {
+export async function listEntities(conn: Connection, opts: { query?: string | undefined; type?: string | undefined; k?: number | undefined } = {}): Promise<EntityHit[]> {
   const v = opts.query ? vec((await embed([opts.query]))[0]!) : null;
-  const { rows } = await pool.query<{ id: string; name: string; type: string; aliases: string[]; events: string }>(
+  const { rows } = await conn.pool.query<{ id: string; name: string; type: string; aliases: string[]; events: string }>(
     `select n.id, n.name, n.type, n.aliases, (select count(*) from event_entities ee where ee.entity_id = n.id) as events
      from entities n
      where ($2::text is null or n.type = $2)
@@ -260,7 +245,7 @@ const toolClaim = (c: Claim) => ({
   ...(c.verdict ? { verdict: c.verdict } : {}),
 });
 
-function queryTools(seen: Set<string>): Tool[] {
+function queryTools(conn: Connection, seen: Set<string>): Tool[] {
   return [
     {
       name: 'search_events',
@@ -272,7 +257,7 @@ function queryTools(seen: Set<string>): Tool[] {
         date_to: z.string().optional(),
       }),
       run: async (a: { query: string; k: number; date_from?: string; date_to?: string }) =>
-        (await searchEvents(a.query, { k: a.k, dateFrom: a.date_from, dateTo: a.date_to })).map((e) => ({
+        (await searchEvents(conn, a.query, { k: a.k, dateFrom: a.date_from, dateTo: a.date_to })).map((e) => ({
           event_id: pid('E', e.eventId), title: e.title, occurred_at: e.occurredAt,
         })),
     },
@@ -281,7 +266,7 @@ function queryTools(seen: Set<string>): Tool[] {
       description: "An event's entities, live claims and speculation, with its storyline id. History adds superseded and hidden claims.",
       parameters: z.strictObject({ event_id: z.string(), include_history: z.boolean().default(false) }),
       run: async (a: { event_id: string; include_history: boolean }) => {
-        const e = await getEvent(rawId(a.event_id), a.include_history);
+        const e = await getEvent(conn, rawId(a.event_id), { includeHistory: a.include_history });
         for (const c of [...e.claims, ...e.speculation]) seen.add(pid('C', c.claimId));
         return {
           title: e.title,
@@ -298,7 +283,7 @@ function queryTools(seen: Set<string>): Tool[] {
       description: "A storyline's title and its events, oldest first.",
       parameters: z.strictObject({ storyline_id: z.string() }),
       run: async (a: { storyline_id: string }) => {
-        const s = await getStoryline(rawId(a.storyline_id));
+        const s = await getStoryline(conn, rawId(a.storyline_id));
         return { title: s.title, events: s.events.map((e) => ({ event_id: pid('E', e.eventId), title: e.title, occurred_at: e.occurredAt })) };
       },
     },
@@ -307,7 +292,7 @@ function queryTools(seen: Set<string>): Tool[] {
       description: 'Events linked to this one, with link type and direction.',
       parameters: z.strictObject({ event_id: z.string(), types: z.array(z.enum(LINK_TYPES)).optional() }),
       run: async (a: { event_id: string; types?: string[] }) => {
-        const e = await getEvent(rawId(a.event_id));
+        const e = await getEvent(conn, rawId(a.event_id));
         return e.links
           .filter((l) => !a.types || a.types.includes(l.type))
           .map((l) => ({ event_id: pid('E', l.eventId), title: l.title, type: l.type, direction: l.direction, reason: l.reason }));
@@ -321,9 +306,9 @@ function queryTools(seen: Set<string>): Tool[] {
         .refine((a) => Boolean(a.pattern) !== Boolean(a.event_id), 'give pattern or event_id'),
       run: async (a: { pattern?: string; event_id?: string; k: number }) => {
         const hits = a.event_id
-          ? await similarEvents(rawId(a.event_id), a.k)
-          : await similarByVector(vec((await embed([a.pattern!]))[0]!), a.k, null);
-        return hits.map((h) => ({ event_id: pid('E', h.eventId), title: h.title, occurred_at: h.occurredAt, pattern: h.pattern }));
+          ? await similar(conn, { eventId: rawId(a.event_id), k: a.k })
+          : await similar(conn, { embedding: (await embed([a.pattern!]))[0]!, k: a.k });
+        return hits.map((h) => ({ event_id: pid('E', h.id), title: h.title, occurred_at: h.occurredAt, pattern: h.pattern }));
       },
     },
     {
@@ -336,7 +321,7 @@ function queryTools(seen: Set<string>): Tool[] {
         k: z.number().int().min(1).max(20).default(10),
       }),
       run: async (a: { query: string; speculation?: boolean; verdict?: 'refuted' | 'unsupported'; k: number }) => {
-        const hits = await listClaims({ query: a.query, k: a.k, speculation: a.speculation, verdict: a.verdict });
+        const hits = await listClaims(conn, { query: a.query, k: a.k, speculation: a.speculation, verdict: a.verdict });
         for (const h of hits) seen.add(pid('C', h.claimId));
         return hits.map((h) => ({
           claim_id: pid('C', h.claimId), event_id: pid('E', h.eventId), text: h.text, kind: h.kind,
@@ -351,15 +336,15 @@ function queryTools(seen: Set<string>): Tool[] {
 
 export type Citation = { claimId: string; text: string; source: string | null; url: string | null; publishedAt: Date };
 
-export async function ask(question: string): Promise<{ answer: string; citations: Citation[] }> {
+export async function ask(conn: Connection, question: string): Promise<{ answer: string; citations: Citation[] }> {
   const seen = new Set<string>();
   const schema = z.strictObject({
     answer: maxWords(120),
     claim_ids: z.array(z.string().refine((id) => seen.has(id), 'claim id was not retrieved')),
   });
-  const reply = await runTools(await render('query'), question, queryTools(seen), schema, QUERY_MAX_TOOL_CALLS);
+  const reply = await runTools(await render(conn, 'query'), question, queryTools(conn, seen), schema, QUERY_MAX_TOOL_CALLS);
   const ids = [...new Set(reply.claim_ids)].map(unpid);
-  const { rows } = await pool.query<{ id: string; text: string; source: string | null; url: string | null; published_at: Date }>(
+  const { rows } = await conn.pool.query<{ id: string; text: string; source: string | null; url: string | null; published_at: Date }>(
     `select c.id, c.text, d.source, d.url, ${documentDate('d')} as published_at
      from claims c join documents d on d.id = c.document_id where c.id = any($1::bigint[]) order by c.id`,
     [ids],

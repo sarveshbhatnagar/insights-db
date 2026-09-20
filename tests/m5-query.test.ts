@@ -5,9 +5,8 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { QUERY_MAX_TOOL_CALLS } from '../src/config.ts';
 import * as api from '../src/index.ts';
-import { ingest } from '../src/ingest.ts';
+import { ask, getEvent, ingest, similarEvents } from '../src/index.ts';
 import { wordCount } from '../src/prompts.ts';
-import { ask, getEvent, similarEvents } from '../src/query.ts';
 import * as f from './fixtures/index.ts';
 import { fake, freshDb, q } from './helpers.ts';
 
@@ -125,8 +124,9 @@ describe('milestone 5: similar events and package', () => {
 
   it('exports the public functions', () => {
     expect(Object.keys(api).sort()).toEqual([
-      'ask', 'detachDocument', 'getEvent', 'getGuidance', 'getStoryline', 'ingest', 'ingestMany', 'init', 'listClaims',
-      'listEntities', 'mergeEntities', 'relink', 'retryFailed', 'searchEvents', 'setGuidance', 'similarEvents',
+      'Insights', 'ask', 'detachDocument', 'getEvent', 'getGuidance', 'getStoryline', 'ingest', 'ingestMany', 'init',
+      'listClaims', 'listEntities', 'mergeEntities', 'openInsights', 'relink', 'retryFailed', 'searchEvents', 'setGuidance',
+      'similarEvents',
     ]);
   });
 

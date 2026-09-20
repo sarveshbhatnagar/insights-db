@@ -1,10 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { pool } from '../src/db.ts';
-import { ingest } from '../src/ingest.ts';
+import { getEvent, getStoryline, ingest } from '../src/index.ts';
 import { linkEvent } from '../src/link.ts';
-import { getEvent, getStoryline } from '../src/query.ts';
 import * as f from './fixtures/index.ts';
-import { fake, freshDb, q } from './helpers.ts';
+import { db, fake, freshDb, q } from './helpers.ts';
 
 freshDb();
 
@@ -59,9 +57,9 @@ describe('milestone 4: links', () => {
     await ingest(f.mortgageArticle);
 
     fake.reply('link', { continues: null, storyline_title: null, links: [link] });
-    expect(await linkEvent('2', [])).toBe(0);
+    expect(await linkEvent(db, '2', [])).toBe(0);
     fake.reply('link', { continues: null, storyline_title: null, links: [{ ...link, src: 'E2', dst: `E${rateId}`, type: 'reacts_to' }] });
-    expect(await linkEvent('2', [])).toBe(0);
+    expect(await linkEvent(db, '2', [])).toBe(0);
     expect(await links()).toHaveLength(1);
     expect(await q('select id from storylines')).toHaveLength(0);
   });
@@ -78,7 +76,7 @@ describe('milestone 4: links', () => {
     fake.reply('link',
       { continues: null, storyline_title: null, links: [{ src: `E${rate.eventId}`, dst: 'E2', type: 'reacts_to', reason: 'r' }] },
       { continues: null, storyline_title: null, links: [{ src: `E${rate.eventId}`, dst: 'E2', type: 'reacts_to', reason: 'r' }] });
-    await expect(linkEvent('2', [])).rejects.toThrow(/invalid reply after retry/);
+    await expect(linkEvent(db, '2', [])).rejects.toThrow(/invalid reply after retry/);
     expect(await links()).toHaveLength(1);
   });
 

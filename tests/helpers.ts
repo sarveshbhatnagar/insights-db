@@ -1,10 +1,14 @@
 import { afterEach, beforeEach } from 'vitest';
-import { applySchema, pool } from '../src/db.ts';
+import { openInsights } from '../src/index.ts';
 import { fake } from './fake.ts';
 
+// A handle of its own for raw SQL and internal functions; the public functions
+// under test go through src/index.ts and its DATABASE_URL connection.
+export const db = openInsights();
+
 export async function resetDb(): Promise<void> {
-  await pool.query('drop schema public cascade; create schema public;');
-  await applySchema();
+  await db.pool.query('drop schema public cascade; create schema public;');
+  await db.init();
 }
 
 export function freshDb(): void {
@@ -21,6 +25,6 @@ export function freshDb(): void {
 }
 
 export const q = <T extends Record<string, unknown>>(sql: string, params: unknown[] = []) =>
-  pool.query<T>(sql, params).then((r) => r.rows);
+  db.pool.query<T>(sql, params).then((r) => r.rows);
 
 export { fake };

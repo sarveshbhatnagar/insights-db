@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 import { readFileSync } from 'node:fs';
 import { parseArgs } from 'node:util';
-import { pool } from './db.ts';
-import { ask, ingestMany, init, listClaims, listEntities, relink, retryFailed, searchEvents, setGuidance, similarEvents } from './index.ts';
+import { openInsights } from './index.ts';
 
 const usage = `usage:
   insights-db init                             create or update the schema
@@ -18,6 +17,8 @@ const usage = `usage:
 
 const json = (v: unknown): void => console.log(JSON.stringify(v, null, 2));
 
+const db = openInsights();
+
 async function main(argv: string[]): Promise<number> {
   const { positionals, values } = parseArgs({
     args: argv,
@@ -29,10 +30,10 @@ async function main(argv: string[]): Promise<number> {
   const concurrency = values.concurrency ? Number(values.concurrency) : undefined;
   switch (command) {
     case 'init':
-      await init();
+      await db.init();
       return 0;
     case 'retry':
-      json(await retryFailed({ concurrency }));
+      json(await db.retryFailed({ concurrency }));
       return 0;
   }
   if (!command || !arg) {
@@ -42,11 +43,11 @@ async function main(argv: string[]): Promise<number> {
   switch (command) {
     case 'ingest': {
       const docs = readFileSync(arg, 'utf8').split('\n').filter((l) => l.trim()).map((l) => JSON.parse(l));
-      for (const r of await ingestMany(docs, { concurrency })) console.log(JSON.stringify(r));
+      for (const r of await db.ingestMany(docs, { concurrency })) console.log(JSON.stringify(r));
       return 0;
     }
     case 'ask': {
-      const { answer, citations } = await ask(arg);
+      const { answer, citations } = await db.ask(arg);
       console.log(answer);
       for (const c of citations) {
         console.log(`\n[C${c.claimId}] ${c.text}\n  ${[c.source, c.url, c.publishedAt.toISOString().slice(0, 10)].filter(Boolean).join(' · ')}`);
@@ -54,23 +55,23 @@ async function main(argv: string[]): Promise<number> {
       return 0;
     }
     case 'search':
-      json(await searchEvents(arg, { k }));
+      json(await db.searchEvents(arg, { k }));
       return 0;
     case 'claims':
-      json(await listClaims({ query: arg, k, speculation: values.speculation ? true : undefined }));
+      json(await db.listClaims({ query: arg, k, speculation: values.speculation ? true : undefined }));
       return 0;
     case 'entities':
-      json(await listEntities({ query: arg, k }));
+      json(await db.listEntities({ query: arg, k }));
       return 0;
     case 'similar':
-      json(await similarEvents(arg, k ?? 5));
+      json(await db.similarEvents(arg, k ?? 5));
       return 0;
     case 'relink':
-      json({ newLinks: await relink(arg) });
+      json({ newLinks: await db.relink(arg) });
       return 0;
     case 'guidance': {
       const steps = JSON.parse(readFileSync(arg, 'utf8')) as Record<string, string | null>;
-      for (const [step, text] of Object.entries(steps)) await setGuidance(step, text);
+      for (const [step, text] of Object.entries(steps)) await db.setGuidance(step, text);
       return 0;
     }
     default:
@@ -87,4 +88,4 @@ main(process.argv.slice(2))
     console.error(err.message);
     process.exitCode = 1;
   })
-  .finally(() => pool.end());
+  .finally(() => db.end());

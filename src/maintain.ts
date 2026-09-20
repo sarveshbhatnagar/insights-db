@@ -1,17 +1,17 @@
-import { pool, withTransaction } from './db.ts';
+import type { Connection } from './db.ts';
 import type { DocumentRow } from './extract.ts';
 import { type IngestOptions, type IngestResult, recomputeContentEmbedding, runPipeline } from './ingest.ts';
 import { linkEvent } from './link.ts';
 
 // Re-judges an event's connections against events it is not yet linked to,
 // for example after it gained claims. Returns the links inserted.
-export const relink = (eventId: string): Promise<number> => linkEvent(eventId, [], true);
+export const relink = (conn: Connection, eventId: string): Promise<number> => linkEvent(conn, eventId, [], true);
 
 // Re-runs failed documents in place: steps 2 to 7 for a document with no event,
 // the link step alone for one whose only failure was there.
-export async function retryFailed(opts: IngestOptions & { limit?: number | undefined } = {}): Promise<IngestResult[]> {
+export async function retryFailed(conn: Connection, opts: IngestOptions & { limit?: number | undefined } = {}): Promise<IngestResult[]> {
   const concurrency = Math.max(1, opts.concurrency ?? 4);
-  const { rows } = await pool.query<{
+  const { rows } = await conn.pool.query<{
     id: string; title: string | null; body: string; source: string | null; document_date: Date; event_id: string | null;
   }>(
     `select id, title, body, source, coalesce(published_at, ingested_at) as document_date, event_id
@@ -27,15 +27,15 @@ export async function retryFailed(opts: IngestOptions & { limit?: number | undef
         const d = rows[i]!;
         const row: DocumentRow = { id: d.id, title: d.title, body: d.body, source: d.source, documentDate: d.document_date };
         if (d.event_id === null) {
-          await pool.query('update documents set error = null where id = $1', [d.id]);
-          results[i] = await runPipeline(row);
+          await conn.pool.query('update documents set error = null where id = $1', [d.id]);
+          results[i] = await runPipeline(conn, row);
         } else {
           let newLinks = 0;
           try {
-            newLinks = await relink(d.event_id);
-            await pool.query('update documents set error = null where id = $1', [d.id]);
+            newLinks = await relink(conn, d.event_id);
+            await conn.pool.query('update documents set error = null where id = $1', [d.id]);
           } catch (err) {
-            await pool.query('update documents set error = $2 where id = $1', [d.id, `link: ${(err as Error).message}`]);
+            await conn.pool.query('update documents set error = $2 where id = $1', [d.id, `link: ${(err as Error).message}`]);
           }
           results[i] = { documentId: d.id, eventId: d.event_id, outcome: 'merged', newClaims: 0, newLinks,
             usage: { calls: 0, inputTokens: 0, outputTokens: 0, reasoningTokens: 0 } };
@@ -46,9 +46,9 @@ export async function retryFailed(opts: IngestOptions & { limit?: number | undef
   return results;
 }
 
-export async function mergeEntities(keepId: string, dropId: string): Promise<void> {
+export async function mergeEntities(conn: Connection, keepId: string, dropId: string): Promise<void> {
   if (keepId === dropId) throw new Error('keepId and dropId are the same entity');
-  await withTransaction(async (db) => {
+  await conn.withTransaction(async (db) => {
     const drop = await db.query<{ name: string; aliases: string[] }>('select name, aliases from entities where id = $1', [dropId]);
     if (!drop.rows[0]) throw new Error(`no entity ${dropId}`);
     await db.query(
@@ -67,8 +67,8 @@ export async function mergeEntities(keepId: string, dropId: string): Promise<voi
   });
 }
 
-export async function detachDocument(documentId: string): Promise<IngestResult> {
-  const row = await withTransaction(async (db) => {
+export async function detachDocument(conn: Connection, documentId: string): Promise<IngestResult> {
+  const row = await conn.withTransaction(async (db) => {
     const doc = await db.query<{
       id: string; title: string | null; body: string; source: string | null; document_date: Date; event_id: string | null;
     }>(
@@ -118,9 +118,9 @@ export async function detachDocument(documentId: string): Promise<IngestResult> 
   });
 
   // The extraction was never stored, so the re-run starts at step 2.
-  const result = await runPipeline(row.row, row.eventId);
+  const result = await runPipeline(conn, row.row, row.eventId);
   if (result.eventId) {
-    await pool.query('update documents set event_id = $2 where duplicate_of = $1', [documentId, result.eventId]);
+    await conn.pool.query('update documents set event_id = $2 where duplicate_of = $1', [documentId, result.eventId]);
   }
   return result;
 }
