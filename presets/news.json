@@ -1,0 +1,6 @@
+{
+  "domain": "News articles from many outlets. One event is usually reported several times, and wire copy is republished with small edits.",
+  "extract": "Leave out the outlet's own analysis and any recap of earlier coverage. Never name the outlet in a title or claim unless the outlet is itself part of the event.",
+  "consolidate": "Outlets differ in wording and rounding. \"About 40\" and \"at least 38\" reported on the same day are the same fact unless one is clearly a later count.",
+  "query": "When claims are disputed, say that reports differ rather than naming outlets."
+}

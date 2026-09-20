@@ -1,0 +1,1367 @@
+{
+ "articles": [
+  {
+   "title": "Jury orders Veltra to pay 1.4 billion dollars in patent case",
+   "body": "A federal jury in Marshall, Texas, ordered smartphone maker Veltra on Tuesday to pay 1.4 billion dollars to Halden Wireless for infringing two patents covering battery charging circuits. The jury found the infringement wilful after a two-week trial, which allows the judge to increase the award. Halden, a licensing company based in Austin, had sought 2.1 billion dollars. Veltra said it would ask the court to set the verdict aside and, if necessary, appeal. The patents at issue expire in 2029. Veltra shares fell 3 percent in after-hours trading.",
+   "publishedAt": "2026-07-14T21:00:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/jury-orders-veltra-to-pay-1-4-billion-dollars-in-patent-case",
+   "event": "veltra_verdict",
+   "forecasts": []
+  },
+  {
+   "title": "Texas jury finds Veltra wilfully infringed Halden charging patents",
+   "body": "Jurors in the Eastern District of Texas returned a verdict on Tuesday evening against Veltra, finding that the company's phones infringed two Halden Wireless patents on fast-charging circuitry and that the infringement was wilful. They awarded 1.4 billion dollars in damages, less than the 2.1 billion Halden had requested. Because of the wilfulness finding, Judge Rosa Aldana may enhance the award by up to three times. Veltra's lead counsel, Simon Achterberg, said the company would seek judgment as a matter of law and appeal to the Federal Circuit if that failed.",
+   "publishedAt": "2026-07-14T23:30:00Z",
+   "source": "Court Reporter",
+   "url": "https://courtreporter.example/texas-jury-finds-veltra-wilfully-infringed-halden-charging-p",
+   "event": "veltra_verdict",
+   "forecasts": []
+  },
+  {
+   "title": "Veltra hit with 1.4 billion dollar verdict; what it means for its phones",
+   "body": "Veltra faces a 1.4 billion dollar damages bill after a Texas jury found on Tuesday that the fast-charging circuits in its phones infringe two patents held by Halden Wireless. The jury also found the infringement wilful. Halden, which does not make products, had asked for 2.1 billion. Veltra said it would challenge the verdict. Legal analysts said the Federal Circuit reverses or reduces a large share of Eastern District of Texas awards, and several expected the damages to be cut on appeal. The two patents run until 2029.",
+   "publishedAt": "2026-07-15T08:00:00Z",
+   "source": "Tech Ledger",
+   "url": "https://techledger.example/veltra-hit-with-1-4-billion-dollar-verdict-what-it-means-for",
+   "event": "veltra_verdict",
+   "forecasts": [
+    "Legal analysts said the Federal Circuit reverses or reduces a large share of Eastern District of Texas awards, and several expected the damages to be cut on appeal."
+   ]
+  },
+  {
+   "title": "Smartphone maker loses 1.4 billion dollar patent verdict",
+   "body": "A federal jury in Marshall,  Texas,  ordered smartphone maker Veltra on Tuesday to pay 1.4 billion dollars to Halden Wireless for infringing two patents covering battery charging circuits.\n\nThe jury found the infringement wilful after a two-week trial,  which allows the judge to increase the award.\n\nHalden,  a licensing company based in Austin,  had sought 2.1 billion dollars.\n\nVeltra said it would ask the court to set the verdict aside and,  if necessary,  appeal.\n\nThe patents at issue expire in 2029.\n\nVeltra shares fell 3 percent in after-hours trading.",
+   "publishedAt": "2026-07-15T06:00:00Z",
+   "source": "Evening Standard Post",
+   "url": "https://eveningpost.example/smartphone-maker-loses-1-4-billion-dollar-patent-verdict",
+   "event": "veltra_verdict",
+   "forecasts": []
+  },
+  {
+   "title": "Judge cuts Veltra patent award to 620 million dollars",
+   "body": "Judge Rosa Aldana reduced the damages Veltra owes Halden Wireless from 1.4 billion dollars to 620 million dollars on Wednesday, ruling that the jury's figure was not supported by the evidence on royalty rates. She declined to enhance the award despite the jury's wilfulness finding and denied Veltra's motion to overturn the verdict entirely. Halden has 14 days to accept the reduced amount or face a new trial on damages. Both companies said they were reviewing the ruling.",
+   "publishedAt": "2026-08-19T20:00:00Z",
+   "source": "Court Reporter",
+   "url": "https://courtreporter.example/judge-cuts-veltra-patent-award-to-620-million-dollars",
+   "event": "veltra_remittitur",
+   "forecasts": []
+  },
+  {
+   "title": "Veltra damages more than halved by trial judge",
+   "body": "The judge overseeing Halden Wireless's patent case against Veltra cut the jury's 1.4 billion dollar award to 620 million dollars on Wednesday, finding the original figure unsupported by the royalty evidence. Judge Rosa Aldana left the infringement verdict in place and refused to add enhanced damages for wilfulness. Halden must decide within two weeks whether to accept the lower figure or retry damages. Veltra shares rose 2 percent.",
+   "publishedAt": "2026-08-19T22:30:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/veltra-damages-more-than-halved-by-trial-judge",
+   "event": "veltra_remittitur",
+   "forecasts": []
+  },
+  {
+   "title": "Halden weighs options after judge slashes Veltra award",
+   "body": "Halden Wireless said on Thursday it was considering whether to accept a reduced 620 million dollar award against Veltra or seek a new damages trial, a day after Judge Rosa Aldana cut the jury's 1.4 billion dollar figure. The judge found the jury's royalty calculation unsupported but upheld the infringement finding. Veltra called the ruling a partial vindication.",
+   "publishedAt": "2026-08-20T07:30:00Z",
+   "source": "Tech Ledger",
+   "url": "https://techledger.example/halden-weighs-options-after-judge-slashes-veltra-award",
+   "event": "veltra_remittitur",
+   "forecasts": []
+  },
+  {
+   "title": "Veltra appeals Halden patent verdict to Federal Circuit",
+   "body": "Veltra filed a notice of appeal on Thursday with the US Court of Appeals for the Federal Circuit, challenging the infringement verdict and the 620 million dollar damages award won by Halden Wireless. Halden accepted the reduced award last week rather than retry damages, and filed its own cross-appeal seeking to restore the jury's 1.4 billion dollar figure. Briefing is expected to take most of next year.",
+   "publishedAt": "2026-09-03T18:00:00Z",
+   "source": "Court Reporter",
+   "url": "https://courtreporter.example/veltra-appeals-halden-patent-verdict-to-federal-circuit",
+   "event": "veltra_appeal",
+   "forecasts": []
+  },
+  {
+   "title": "Both sides appeal in Veltra-Halden patent fight",
+   "body": "Veltra asked the Federal Circuit on Thursday to overturn a verdict that its phones infringe two Halden Wireless charging patents, and to vacate the 620 million dollar award. Halden, which accepted the reduced award on August 28, cross-appealed to reinstate the jury's original 1.4 billion dollars. Neither company commented beyond confirming the filings.",
+   "publishedAt": "2026-09-03T21:00:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/both-sides-appeal-in-veltra-halden-patent-fight",
+   "event": "veltra_appeal",
+   "forecasts": []
+  },
+  {
+   "title": "Sprint champion Tobi Okoro tests positive for banned steroid",
+   "body": "World 200 metres champion Tobi Okoro has tested positive for the anabolic steroid trenbolone in an out-of-competition test taken on June 28, the Athletics Integrity Unit said on Monday. Okoro, 26, who won gold at last year's world championships in a time of 19.62 seconds, denied knowingly taking any banned substance and said he would request analysis of his B sample. He faces a ban of up to four years if the finding is upheld. His management said he was cooperating with the investigation.",
+   "publishedAt": "2026-07-20T16:00:00Z",
+   "source": "Sportsline",
+   "url": "https://sportsline.example/sprint-champion-tobi-okoro-tests-positive-for-banned-steroid",
+   "event": "okoro_positive",
+   "forecasts": []
+  },
+  {
+   "title": "World 200m champion Okoro fails drug test",
+   "body": "Tobi Okoro, the reigning world champion over 200 metres, returned a positive test for trenbolone, an anabolic steroid, the Athletics Integrity Unit announced on Monday. The sample was collected out of competition on June 28. Okoro denied deliberate doping and asked for his B sample to be tested. The 26-year-old could be banned for up to four years. Sponsors including sportswear brand Velocita said they were monitoring the situation.",
+   "publishedAt": "2026-07-20T18:30:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/world-200m-champion-okoro-fails-drug-test",
+   "event": "okoro_positive",
+   "forecasts": []
+  },
+  {
+   "title": "Okoro doping case stuns athletics ahead of Diamond League final",
+   "body": "The positive test announced on Monday for world 200m champion Tobi Okoro has cast a shadow over next month's Diamond League final, where he had been the headline attraction. The Athletics Integrity Unit said Okoro's June 28 out-of-competition sample contained trenbolone. He denies knowingly taking it and has requested his B sample be analysed. A four-year ban is the standard sanction for a first steroid offence.",
+   "publishedAt": "2026-07-21T07:00:00Z",
+   "source": "Morning Courier",
+   "url": "https://morningcourier.example/okoro-doping-case-stuns-athletics-ahead-of-diamond-league-fi",
+   "event": "okoro_positive",
+   "forecasts": []
+  },
+  {
+   "title": "Okoro provisionally suspended after B sample confirms steroid",
+   "body": "Tobi Okoro was provisionally suspended from all competition on Wednesday after analysis of his B sample confirmed the presence of trenbolone, the Athletics Integrity Unit said. The suspension rules the world 200 metres champion out of the Diamond League final on August 28. Okoro's lawyer, Maria Kessler, said her client would argue at a tribunal that the steroid came from contaminated meat eaten during a training camp. Velocita said it was suspending its sponsorship pending the outcome.",
+   "publishedAt": "2026-07-22T12:00:00Z",
+   "source": "Sportsline",
+   "url": "https://sportsline.example/okoro-provisionally-suspended-after-b-sample-confirms-steroi",
+   "event": "okoro_suspension",
+   "forecasts": []
+  },
+  {
+   "title": "B sample confirms Okoro positive; sprinter suspended",
+   "body": "The Athletics Integrity Unit provisionally suspended Tobi Okoro on Wednesday after his B sample confirmed a positive test for trenbolone. Okoro will miss the Diamond League final on August 28. His legal team intends to argue that contaminated meat caused the result. Sportswear sponsor Velocita has suspended its contract with the sprinter.",
+   "publishedAt": "2026-07-22T14:00:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/b-sample-confirms-okoro-positive-sprinter-suspended",
+   "event": "okoro_suspension",
+   "forecasts": []
+  },
+  {
+   "title": "Okoro banned for four years as tribunal rejects contaminated meat defence",
+   "body": "World 200 metres champion Tobi Okoro was banned for four years on Tuesday after an Athletics Integrity Unit disciplinary tribunal rejected his claim that a positive test for trenbolone was caused by contaminated meat. The panel said Okoro had produced no evidence of where or when the meat was eaten. The ban runs from July 22, the date of his provisional suspension, and his results since June 28 are annulled, including a Diamond League win in Zurich. Okoro said he would appeal to the Court of Arbitration for Sport.",
+   "publishedAt": "2026-09-15T17:00:00Z",
+   "source": "Sportsline",
+   "url": "https://sportsline.example/okoro-banned-for-four-years-as-tribunal-rejects-contaminated",
+   "event": "okoro_ban",
+   "forecasts": []
+  },
+  {
+   "title": "Sprinter Tobi Okoro receives four-year doping ban",
+   "body": "Tobi Okoro, the world 200m champion, was handed a four-year ban on Tuesday by an Athletics Integrity Unit tribunal, which dismissed his argument that contaminated meat explained a positive test for the steroid trenbolone. The panel found no evidence supporting the meat claim. The ban is backdated to July 22 and his results from June 28 onward are disqualified. Okoro plans to appeal to the Court of Arbitration for Sport.",
+   "publishedAt": "2026-09-15T19:30:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/sprinter-tobi-okoro-receives-four-year-doping-ban",
+   "event": "okoro_ban",
+   "forecasts": []
+  },
+  {
+   "title": "Four-year ban ends Okoro's hopes of defending world title",
+   "body": "Tobi Okoro will not defend his world 200m title next year after a tribunal imposed a four-year doping ban on Tuesday. The Athletics Integrity Unit panel rejected his contaminated meat defence for lack of evidence. The ban is backdated to his provisional suspension on July 22. Okoro has said he will appeal to the Court of Arbitration for Sport.",
+   "publishedAt": "2026-09-16T06:30:00Z",
+   "source": "Morning Courier",
+   "url": "https://morningcourier.example/four-year-ban-ends-okoro-s-hopes-of-defending-world-title",
+   "event": "okoro_ban",
+   "forecasts": []
+  },
+  {
+   "title": "Stellar Launch rocket fails two minutes after liftoff, destroying weather satellite",
+   "body": "A Stellar Launch Arcus-5 rocket broke apart about two minutes after lifting off from Cape Canaveral on Tuesday morning, destroying the 410 million dollar Meteor-9 weather satellite it was carrying for the National Weather Service. Video showed the rocket's first stage tumbling before it disintegrated at an altitude of about 40 kilometres. No one was injured and debris fell into the Atlantic. Stellar Launch chief executive Ana Ferreira said the company was forming an investigation board with the Federal Aviation Administration. The Arcus-5 had flown 31 successful missions.",
+   "publishedAt": "2026-06-30T15:00:00Z",
+   "source": "Science Beat",
+   "url": "https://sciencebeat.example/stellar-launch-rocket-fails-two-minutes-after-liftoff-destro",
+   "event": "kestrel_launch_failure",
+   "forecasts": []
+  },
+  {
+   "title": "Weather satellite lost as Arcus-5 rocket disintegrates after launch",
+   "body": "The Meteor-9 weather satellite was destroyed on Tuesday when its Stellar Launch Arcus-5 rocket disintegrated roughly two minutes into flight from Cape Canaveral. The 410 million dollar satellite was to replace an ageing spacecraft over the eastern United States. The FAA grounded the Arcus-5 pending an investigation. Stellar Launch's Ana Ferreira said telemetry indicated a problem in the first stage. It was the vehicle's first failure in 32 flights.",
+   "publishedAt": "2026-06-30T17:00:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/weather-satellite-lost-as-arcus-5-rocket-disintegrates-after",
+   "event": "kestrel_launch_failure",
+   "forecasts": []
+  },
+  {
+   "title": "Rocket failure leaves forecasters relying on ageing satellite",
+   "body": "The loss of the Meteor-9 satellite in Tuesday's Arcus-5 launch failure means National Weather Service forecasters will depend on the 14-year-old Meteor-6 satellite for at least another two years, agency officials said. The Arcus-5 broke apart two minutes after liftoff from Cape Canaveral; the rocket had 31 successes before the failure. The satellite cost about 410 million dollars. A replacement is not expected to be ready before 2028.",
+   "publishedAt": "2026-07-01T07:00:00Z",
+   "source": "Morning Courier",
+   "url": "https://morningcourier.example/rocket-failure-leaves-forecasters-relying-on-ageing-satellit",
+   "event": "kestrel_launch_failure",
+   "forecasts": [
+    "A replacement is not expected to be ready before 2028."
+   ]
+  },
+  {
+   "title": "Rocket carrying weather satellite breaks apart after Cape Canaveral launch",
+   "body": "A Stellar Launch Arcus-5 rocket broke apart about two minutes after lifting off from Cape Canaveral on Tuesday morning,  destroying the 410 million dollar Meteor-9 weather satellite it was carrying for the National Weather Service.\n\nVideo showed the rocket's first stage tumbling before it disintegrated at an altitude of about 40 kilometres.\n\nNo one was injured and debris fell into the Atlantic.\n\nStellar Launch chief executive Ana Ferreira said the company was forming an investigation board with the Federal Aviation Administration.\n\nThe Arcus-5 had flown 31 successful missions.",
+   "publishedAt": "2026-06-30T19:00:00Z",
+   "source": "Regional Times",
+   "url": "https://regionaltimes.example/rocket-carrying-weather-satellite-breaks-apart-after-cape-ca",
+   "event": "kestrel_launch_failure",
+   "forecasts": []
+  },
+  {
+   "title": "Investigators trace Arcus-5 failure to cracked fuel valve",
+   "body": "The June 30 failure of a Stellar Launch Arcus-5 rocket was caused by a cracked valve in the first-stage fuel system that let kerosene leak and ignite, the company and the Federal Aviation Administration said on Tuesday. The investigation board found the valve had been manufactured from a batch of alloy that did not meet specification and that the flaw was not detected in pre-flight inspection. Stellar Launch said it would replace the valves on all six rockets in its inventory and add ultrasonic inspection. The FAA said the Arcus-5 would remain grounded until the changes were verified.",
+   "publishedAt": "2026-07-28T14:00:00Z",
+   "source": "Science Beat",
+   "url": "https://sciencebeat.example/investigators-trace-arcus-5-failure-to-cracked-fuel-valve",
+   "event": "kestrel_failure_cause",
+   "forecasts": []
+  },
+  {
+   "title": "Faulty valve blamed for rocket loss that destroyed weather satellite",
+   "body": "A cracked fuel valve made from out-of-specification alloy caused the Arcus-5 rocket to break apart on June 30, destroying the Meteor-9 weather satellite, investigators said on Tuesday. The leak ignited in the first stage two minutes into flight. Stellar Launch will swap the valves on its six remaining rockets and introduce ultrasonic checks. The FAA has kept the rocket grounded until it approves the fixes.",
+   "publishedAt": "2026-07-28T16:30:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/faulty-valve-blamed-for-rocket-loss-that-destroyed-weather-s",
+   "event": "kestrel_failure_cause",
+   "forecasts": []
+  },
+  {
+   "title": "Stellar Launch to replace valves across fleet after failure probe",
+   "body": "Stellar Launch said on Tuesday it would replace first-stage fuel valves on all six Arcus-5 rockets it has built after an investigation with the FAA blamed a cracked valve, made from a substandard alloy batch, for the June 30 launch failure. The company will also add ultrasonic inspection of the part. Chief executive Ana Ferreira said the company hoped to return to flight within two months.",
+   "publishedAt": "2026-07-29T08:00:00Z",
+   "source": "Tech Ledger",
+   "url": "https://techledger.example/stellar-launch-to-replace-valves-across-fleet-after-failure-",
+   "event": "kestrel_failure_cause",
+   "forecasts": [
+    "Chief executive Ana Ferreira said the company hoped to return to flight within two months."
+   ]
+  },
+  {
+   "title": "Arcus-5 returns to flight with successful communications satellite launch",
+   "body": "Stellar Launch's Arcus-5 rocket flew for the first time since its June failure on Saturday, placing a commercial communications satellite for operator Skyward into orbit from Cape Canaveral. The FAA cleared the rocket to fly on September 4 after verifying replacement of the fuel valves blamed for the June 30 loss of the Meteor-9 weather satellite. Chief executive Ana Ferreira said the company had four more launches planned this year.",
+   "publishedAt": "2026-09-12T13:00:00Z",
+   "source": "Science Beat",
+   "url": "https://sciencebeat.example/arcus-5-returns-to-flight-with-successful-communications-sat",
+   "event": "kestrel_return_to_flight",
+   "forecasts": []
+  },
+  {
+   "title": "Stellar Launch rocket flies again after June failure",
+   "body": "An Arcus-5 rocket lifted off successfully from Cape Canaveral on Saturday, carrying a Skyward communications satellite, in Stellar Launch's first flight since a valve failure destroyed a weather satellite on June 30. The FAA lifted its grounding order on September 4. The company plans four further launches before the end of the year.",
+   "publishedAt": "2026-09-12T15:30:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/stellar-launch-rocket-flies-again-after-june-failure",
+   "event": "kestrel_return_to_flight",
+   "forecasts": []
+  },
+  {
+   "title": "Brookfield issues boil-water notice after lead found in tap samples",
+   "body": "The city of Brookfield told its 180,000 residents on Wednesday not to drink unfiltered tap water after routine sampling found lead above the federal action limit in 31 of 90 homes tested. Mayor Denise Okafor said the city would distribute bottled water at six sites from Thursday and provide filters to households with children under six. The samples, taken in July, showed lead levels as high as 48 parts per billion in some homes, more than three times the 15 parts per billion action level. The city's water utility said the source of the contamination was under investigation.",
+   "publishedAt": "2026-08-05T19:00:00Z",
+   "source": "Regional Times",
+   "url": "https://regionaltimes.example/brookfield-issues-boil-water-notice-after-lead-found-in-tap-",
+   "event": "brookfield_boil_notice",
+   "forecasts": []
+  },
+  {
+   "title": "Lead in Brookfield water: city tells residents to use bottled water",
+   "body": "Brookfield officials issued a do-not-drink advisory on Wednesday evening covering the entire city after tests found lead in a third of sampled homes above 15 parts per billion, the level at which federal rules require action. The highest reading was 48 parts per billion. Mayor Denise Okafor announced bottled water distribution at six locations and free filters for families with young children. Brookfield Water Utility director Paul Sandoval said engineers were trying to determine why levels had risen since the last round of tests in 2024.",
+   "publishedAt": "2026-08-05T21:30:00Z",
+   "source": "Civic Journal",
+   "url": "https://civicjournal.example/lead-in-brookfield-water-city-tells-residents-to-use-bottled",
+   "event": "brookfield_boil_notice",
+   "forecasts": []
+  },
+  {
+   "title": "Brookfield residents queue for water as lead advisory takes effect",
+   "body": "Long lines formed at distribution sites in Brookfield on Thursday morning as the city began handing out bottled water following Wednesday's advisory against drinking tap water. Tests had found lead above the federal action level in 31 of 90 homes, with readings up to 48 parts per billion. State health officials advised pregnant women and children to avoid tap water entirely. The utility has not yet identified the cause.",
+   "publishedAt": "2026-08-06T07:00:00Z",
+   "source": "Morning Courier",
+   "url": "https://morningcourier.example/brookfield-residents-queue-for-water-as-lead-advisory-takes-",
+   "event": "brookfield_boil_notice",
+   "forecasts": []
+  },
+  {
+   "title": "Brookfield lead traced to corrosion after water source switch",
+   "body": "Brookfield's elevated lead levels were caused by corrosion of the city's lead service lines after the utility switched its supply from the Alder Reservoir to the Sable River in March without adjusting corrosion control chemicals, Brookfield Water Utility said on Sunday. The river water is more acidic, stripping the protective coating inside roughly 22,000 lead pipes that connect homes to the mains. Director Paul Sandoval said the utility would resume adding orthophosphate immediately but that restoring the coating could take months. Mayor Denise Okafor said the switch had been made to save about 2 million dollars a year.",
+   "publishedAt": "2026-08-09T18:00:00Z",
+   "source": "Regional Times",
+   "url": "https://regionaltimes.example/brookfield-lead-traced-to-corrosion-after-water-source-switc",
+   "event": "brookfield_cause",
+   "forecasts": []
+  },
+  {
+   "title": "Water source change without treatment adjustment blamed for Brookfield lead",
+   "body": "Brookfield Water Utility admitted on Sunday that a March switch to the more acidic Sable River, made without changing corrosion control treatment, had stripped the protective lining from about 22,000 lead service lines and caused the lead contamination found this month. The utility will restart orthophosphate dosing at once. Director Paul Sandoval said it could take several months for pipe coatings to rebuild. The mayor said the source change had been intended to save 2 million dollars a year.",
+   "publishedAt": "2026-08-09T20:30:00Z",
+   "source": "Civic Journal",
+   "url": "https://civicjournal.example/water-source-change-without-treatment-adjustment-blamed-for-",
+   "event": "brookfield_cause",
+   "forecasts": []
+  },
+  {
+   "title": "Cost-saving water switch behind Brookfield lead contamination, utility says",
+   "body": "A decision to draw Brookfield's drinking water from the Sable River instead of the Alder Reservoir, taken in March to save around 2 million dollars a year, caused the city's lead contamination, its water utility said on Sunday. The change was made without adjusting corrosion control, allowing the acidic river water to corrode some 22,000 lead service lines. Orthophosphate treatment is being restored. Residents remain under a do-not-drink advisory issued on August 5.",
+   "publishedAt": "2026-08-10T08:00:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/cost-saving-water-switch-behind-brookfield-lead-contaminatio",
+   "event": "brookfield_cause",
+   "forecasts": []
+  },
+  {
+   "title": "Brookfield council approves 410 million dollar plan to replace all lead pipes",
+   "body": "Brookfield's city council voted 9 to 2 on Tuesday night to replace all of the city's roughly 22,000 lead service lines within five years at an estimated cost of 410 million dollars, funded by a state loan and a water rate increase of about 8 percent a year. The vote followed the lead contamination discovered in August after a change in the city's water source. Mayor Denise Okafor said work would begin in the most affected neighbourhoods in November. Councillors Ray Thibodeaux and Ellen Park voted against, citing the rate increases.",
+   "publishedAt": "2026-09-01T23:00:00Z",
+   "source": "Regional Times",
+   "url": "https://regionaltimes.example/brookfield-council-approves-410-million-dollar-plan-to-repla",
+   "event": "brookfield_council_vote",
+   "forecasts": []
+  },
+  {
+   "title": "Council backs five-year lead pipe replacement for Brookfield",
+   "body": "Brookfield councillors approved a five-year, 410 million dollar programme on Tuesday to dig up and replace every lead service line in the city, by a vote of 9 to 2. Water rates will rise about 8 percent annually to repay a state loan. Work starts in November in the neighbourhoods with the highest lead readings. The two dissenting councillors objected to the cost to ratepayers.",
+   "publishedAt": "2026-09-02T06:30:00Z",
+   "source": "Civic Journal",
+   "url": "https://civicjournal.example/council-backs-five-year-lead-pipe-replacement-for-brookfield",
+   "event": "brookfield_council_vote",
+   "forecasts": []
+  },
+  {
+   "title": "Brookfield to spend 410 million dollars removing lead pipes after contamination",
+   "body": "Brookfield will replace all 22,000 of its lead service lines over five years after the city council approved a 410 million dollar plan on Tuesday by nine votes to two. The programme, paid for through a state loan and yearly water rate rises of about 8 percent, is the council's response to lead contamination detected in August. Digging begins in November.",
+   "publishedAt": "2026-09-02T08:00:00Z",
+   "source": "Morning Courier",
+   "url": "https://morningcourier.example/brookfield-to-spend-410-million-dollars-removing-lead-pipes-",
+   "event": "brookfield_council_vote",
+   "forecasts": []
+  },
+  {
+   "title": "Thieves steal Vermeer-attributed painting from Lindqvist Museum",
+   "body": "A painting attributed to Johannes Vermeer, \"Woman at a Window\", was stolen from the Lindqvist Museum in Gothenburg early on Thursday by thieves who broke through a skylight and cut the canvas from its frame, police said. The work, on loan from a private collection, is insured for 60 million euros. The museum's alarm was triggered at 3:12 a.m. but the thieves were gone when guards reached the gallery four minutes later. Museum director Karin Ahlgren said the painting was one of only two Vermeer-attributed works in Scandinavia. Police appealed for witnesses who saw a grey van near the museum.",
+   "publishedAt": "2026-07-02T10:00:00Z",
+   "source": "Screen Daily",
+   "url": "https://screendaily.example/thieves-steal-vermeer-attributed-painting-from-lindqvist-mus",
+   "event": "museum_theft",
+   "forecasts": []
+  },
+  {
+   "title": "Vermeer painting worth 60 million euros stolen in Gothenburg raid",
+   "body": "Thieves cut a Vermeer-attributed painting from its frame at Gothenburg's Lindqvist Museum in the early hours of Thursday, escaping within four minutes of triggering the alarm at 3:12 a.m. \"Woman at a Window\", insured for 60 million euros, was on loan from a private owner. Police said the thieves entered through a skylight and are seeking a grey van seen nearby. Director Karin Ahlgren called the loss devastating.",
+   "publishedAt": "2026-07-02T12:30:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/vermeer-painting-worth-60-million-euros-stolen-in-gothenburg",
+   "event": "museum_theft",
+   "forecasts": []
+  },
+  {
+   "title": "Four minutes: how thieves took a Vermeer from the Lindqvist",
+   "body": "The theft of \"Woman at a Window\" from the Lindqvist Museum on Thursday took less than four minutes, according to police who have reviewed security footage. Two masked figures dropped through a skylight, cut the Vermeer-attributed canvas from its frame and left the way they came before guards arrived. The painting is insured for 60 million euros. Investigators are tracing a grey van captured on street cameras. Art crime experts said stolen works of this profile are rarely sold and are more often used as bargaining chips.",
+   "publishedAt": "2026-07-03T07:00:00Z",
+   "source": "Morning Courier",
+   "url": "https://morningcourier.example/four-minutes-how-thieves-took-a-vermeer-from-the-lindqvist",
+   "event": "museum_theft",
+   "forecasts": []
+  },
+  {
+   "title": "Painting attributed to Vermeer stolen from Swedish museum",
+   "body": "A painting attributed to Johannes Vermeer,  \"Woman at a Window\",  was stolen from the Lindqvist Museum in Gothenburg early on Thursday by thieves who broke through a skylight and cut the canvas from its frame,  police said.\n\nThe work,  on loan from a private collection,  is insured for 60 million euros.\n\nThe museum's alarm was triggered at 3:12 a.m.\n\nbut the thieves were gone when guards reached the gallery four minutes later.\n\nMuseum director Karin Ahlgren said the painting was one of only two Vermeer-attributed works in Scandinavia.\n\nPolice appealed for witnesses who saw a grey van near the museum.",
+   "publishedAt": "2026-07-02T14:00:00Z",
+   "source": "Regional Times",
+   "url": "https://regionaltimes.example/painting-attributed-to-vermeer-stolen-from-swedish-museum",
+   "event": "museum_theft",
+   "forecasts": []
+  },
+  {
+   "title": "Three arrested over Lindqvist Museum Vermeer theft",
+   "body": "Swedish police arrested three men on Tuesday in connection with the theft of the Vermeer-attributed painting \"Woman at a Window\" from the Lindqvist Museum in Gothenburg on July 2. The suspects, aged 29, 34 and 41, were detained in raids in Malmö and Copenhagen carried out with Danish police. Prosecutor Lena Stromberg said the grey van seen near the museum had been recovered but the painting had not. The men are being held on suspicion of aggravated theft.",
+   "publishedAt": "2026-08-11T15:00:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/three-arrested-over-lindqvist-museum-vermeer-theft",
+   "event": "museum_arrests",
+   "forecasts": []
+  },
+  {
+   "title": "Arrests in Vermeer theft but painting still missing",
+   "body": "Three men were arrested in Malmö and Copenhagen on Tuesday over the July theft of \"Woman at a Window\" from Gothenburg's Lindqvist Museum, prosecutors said. The grey van used in the raid has been found. The painting, insured for 60 million euros, has not. Prosecutor Lena Stromberg said the investigation was continuing and did not rule out further arrests.",
+   "publishedAt": "2026-08-11T17:30:00Z",
+   "source": "Screen Daily",
+   "url": "https://screendaily.example/arrests-in-vermeer-theft-but-painting-still-missing",
+   "event": "museum_arrests",
+   "forecasts": []
+  },
+  {
+   "title": "Stolen Vermeer recovered undamaged in Rotterdam storage unit",
+   "body": "The Vermeer-attributed painting \"Woman at a Window\", stolen from Gothenburg's Lindqvist Museum on July 2, was recovered on Saturday in a rented storage unit in Rotterdam, Dutch and Swedish police said. The canvas, which had been rolled, was examined by a conservator and found to be undamaged apart from the frame cuts. Prosecutor Lena Stromberg said information from one of the three men arrested on August 11 led investigators to the unit. A fourth suspect was detained in Rotterdam. The painting will return to Sweden after forensic examination.",
+   "publishedAt": "2026-08-30T11:00:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/stolen-vermeer-recovered-undamaged-in-rotterdam-storage-unit",
+   "event": "museum_recovery",
+   "forecasts": []
+  },
+  {
+   "title": "Lindqvist Museum's Vermeer found in Rotterdam eight weeks after theft",
+   "body": "Police found \"Woman at a Window\" rolled up in a Rotterdam storage unit on Saturday, ending an eight-week hunt for the Vermeer-attributed painting taken from the Lindqvist Museum. A conservator said the work was undamaged beyond the cuts made when it was removed from its frame. A fourth man was arrested at the scene. Museum director Karin Ahlgren said she was overjoyed and expected the painting back in Gothenburg within weeks.",
+   "publishedAt": "2026-08-30T13:00:00Z",
+   "source": "Screen Daily",
+   "url": "https://screendaily.example/lindqvist-museum-s-vermeer-found-in-rotterdam-eight-weeks-af",
+   "event": "museum_recovery",
+   "forecasts": []
+  },
+  {
+   "title": "Corvid releases Nimbus OS 12 with redesigned home screen",
+   "body": "Corvid began rolling out Nimbus OS 12, the twelfth major version of its phone operating system, on Tuesday to about 300 million compatible devices. The update introduces a redesigned home screen, an on-device assistant that summarises notifications, and a battery mode the company says extends life by up to 20 percent. Corvid said the rollout would reach all devices within a week. Within hours, users on the company's forums reported that some phones were restarting repeatedly after installing the update.",
+   "publishedAt": "2026-09-08T17:00:00Z",
+   "source": "Tech Ledger",
+   "url": "https://techledger.example/corvid-releases-nimbus-os-12-with-redesigned-home-screen",
+   "event": "nimbus_release",
+   "forecasts": []
+  },
+  {
+   "title": "Corvid launches Nimbus OS 12 amid early reports of reboot loops",
+   "body": "Corvid released Nimbus OS 12 on Tuesday, bringing a new home screen and an on-device assistant to roughly 300 million phones. Some users reported within hours that their devices were stuck in restart loops after installing it. Corvid said it was investigating a small number of reports. The company claims the new battery mode extends battery life by up to 20 percent.",
+   "publishedAt": "2026-09-08T19:30:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/corvid-launches-nimbus-os-12-amid-early-reports-of-reboot-lo",
+   "event": "nimbus_release",
+   "forecasts": []
+  },
+  {
+   "title": "Nimbus OS 12 arrives, and so do the complaints",
+   "body": "Corvid's Nimbus OS 12 update reached phones on Tuesday with a fresh home screen design and an assistant that summarises notifications on the device. By Tuesday night, thousands of posts on Corvid's forums and social media described phones restarting endlessly after the update. Corvid said it was looking into the reports. The company had promised a week-long rollout to about 300 million devices.",
+   "publishedAt": "2026-09-09T06:00:00Z",
+   "source": "Morning Courier",
+   "url": "https://morningcourier.example/nimbus-os-12-arrives-and-so-do-the-complaints",
+   "event": "nimbus_release",
+   "forecasts": []
+  },
+  {
+   "title": "Corvid halts Nimbus OS 12 rollout after reboot bug hits 1.2 million phones",
+   "body": "Corvid suspended the rollout of Nimbus OS 12 on Thursday after confirming that a bug in the update's storage driver caused about 1.2 million phones to enter continuous restart loops. The company said the fault affected devices with a particular flash memory chip made by Sunwave Semiconductor and that phones already updated could be recovered by connecting them to a computer and running a repair tool released on Thursday morning. Corvid apologised and said it would issue a corrected update within days. About 40 million devices had installed Nimbus OS 12 before the halt.",
+   "publishedAt": "2026-09-10T14:00:00Z",
+   "source": "Tech Ledger",
+   "url": "https://techledger.example/corvid-halts-nimbus-os-12-rollout-after-reboot-bug-hits-1-2-",
+   "event": "nimbus_pulled",
+   "forecasts": []
+  },
+  {
+   "title": "Corvid pulls Nimbus OS 12 as 1.2 million phones stuck rebooting",
+   "body": "Corvid stopped distributing Nimbus OS 12 on Thursday after a storage driver bug left about 1.2 million phones restarting endlessly. The problem affects handsets containing a Sunwave Semiconductor memory chip. A repair tool that restores affected phones via a computer was released on Thursday. Roughly 40 million devices had received the update. Corvid said a fixed version would follow within days.",
+   "publishedAt": "2026-09-10T16:00:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/corvid-pulls-nimbus-os-12-as-1-2-million-phones-stuck-reboot",
+   "event": "nimbus_pulled",
+   "forecasts": []
+  },
+  {
+   "title": "Nimbus OS 12 halted; Corvid offers repair tool for bricked phones",
+   "body": "Corvid paused its Nimbus OS 12 rollout on Thursday, a day after the company confirmed that a driver bug had trapped about 1.2 million phones in reboot loops. Affected owners can restore their devices with a computer-based repair tool. The bug is tied to a Sunwave memory chip used in some models. About 40 million phones had already installed the update. Analysts at Greyline Research said the episode could cost Corvid market share in the holiday quarter.",
+   "publishedAt": "2026-09-11T07:00:00Z",
+   "source": "Morning Courier",
+   "url": "https://morningcourier.example/nimbus-os-12-halted-corvid-offers-repair-tool-for-bricked-ph",
+   "event": "nimbus_pulled",
+   "forecasts": [
+    "Analysts at Greyline Research said the episode could cost Corvid market share in the holiday quarter."
+   ]
+  },
+  {
+   "title": "Phone maker suspends software update after mass reboot failures",
+   "body": "Corvid suspended the rollout of Nimbus OS 12 on Thursday after confirming that a bug in the update's storage driver caused about 1.2 million phones to enter continuous restart loops.\n\nThe company said the fault affected devices with a particular flash memory chip made by Sunwave Semiconductor and that phones already updated could be recovered by connecting them to a computer and running a repair tool released on Thursday morning.\n\nCorvid apologised and said it would issue a corrected update within days.\n\nAbout 40 million devices had installed Nimbus OS 12 before the halt.",
+   "publishedAt": "2026-09-10T18:00:00Z",
+   "source": "Regional Times",
+   "url": "https://regionaltimes.example/phone-maker-suspends-software-update-after-mass-reboot-failu",
+   "event": "nimbus_pulled",
+   "forecasts": []
+  },
+  {
+   "title": "Corvid CEO apologises, resumes Nimbus OS 12 rollout with fixed build",
+   "body": "Corvid chief executive Mei-Lin Zhao apologised on Friday for the Nimbus OS 12 failure that disabled about 1.2 million phones and said the rollout was resuming with a corrected build, version 12.0.2, that replaces the faulty storage driver. Zhao said 96 percent of affected phones had been restored with the repair tool and that owners of the remainder would receive replacement devices. The company will give every affected customer a 50 dollar credit. Corvid also said it was adding a staged rollout that pauses automatically if failure rates rise.",
+   "publishedAt": "2026-09-18T16:00:00Z",
+   "source": "Tech Ledger",
+   "url": "https://techledger.example/corvid-ceo-apologises-resumes-nimbus-os-12-rollout-with-fixe",
+   "event": "nimbus_relaunch",
+   "forecasts": []
+  },
+  {
+   "title": "Corvid resumes Nimbus OS 12 with apology and 50 dollar credits",
+   "body": "Corvid restarted its Nimbus OS 12 rollout on Friday with a fixed version, 12.0.2, eight days after halting it over a bug that disabled 1.2 million phones. Chief executive Mei-Lin Zhao apologised and said 96 percent of affected devices had been repaired, with the rest to be replaced. Affected customers get a 50 dollar credit. Future updates will roll out in stages with automatic pauses if failures spike.",
+   "publishedAt": "2026-09-18T18:30:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/corvid-resumes-nimbus-os-12-with-apology-and-50-dollar-credi",
+   "event": "nimbus_relaunch",
+   "forecasts": []
+  },
+  {
+   "title": "Measles outbreak declared in Fairmont County with 23 cases",
+   "body": "Fairmont County health officials declared a measles outbreak on Friday after confirming 23 cases since July 10, the county's first outbreak in over a decade. Nineteen of the cases are in unvaccinated children, and four people have been hospitalised. Health director Dr Samuel Reyes said most cases were linked to a summer camp in Millbrook. The county is offering free vaccination clinics at three sites and has asked unvaccinated people exposed to the virus to stay home for 21 days. Vaccination coverage among Fairmont County kindergartners fell to 84 percent last year.",
+   "publishedAt": "2026-08-01T15:00:00Z",
+   "source": "Health Desk",
+   "url": "https://healthdesk.example/measles-outbreak-declared-in-fairmont-county-with-23-cases",
+   "event": "measles_outbreak",
+   "forecasts": []
+  },
+  {
+   "title": "Fairmont County declares measles outbreak; 23 cases linked to summer camp",
+   "body": "Health officials in Fairmont County declared a measles outbreak on Friday with 23 confirmed cases, most traced to a summer camp in Millbrook. Nineteen patients are unvaccinated children; four have been hospitalised. Dr Samuel Reyes, the county health director, urged parents to vaccinate and opened free clinics. Kindergarten vaccination coverage in the county was 84 percent last year, below the 95 percent needed to prevent spread.",
+   "publishedAt": "2026-08-01T17:30:00Z",
+   "source": "Regional Times",
+   "url": "https://regionaltimes.example/fairmont-county-declares-measles-outbreak-23-cases-linked-to",
+   "event": "measles_outbreak",
+   "forecasts": []
+  },
+  {
+   "title": "Fairmont measles cases rise to 41",
+   "body": "The measles outbreak in Fairmont County has grown to 41 confirmed cases, the health department said on Friday, up from 23 a week earlier. Seven people have been hospitalised, including an infant too young to be vaccinated. Dr Samuel Reyes said new cases were now appearing outside the Millbrook summer camp cluster, including two in neighbouring Dorset County. About 1,100 people have been vaccinated at county clinics since the outbreak was declared on August 1.",
+   "publishedAt": "2026-08-08T14:00:00Z",
+   "source": "Health Desk",
+   "url": "https://healthdesk.example/fairmont-measles-cases-rise-to-41",
+   "event": "measles_outbreak",
+   "forecasts": []
+  },
+  {
+   "title": "Measles outbreak reaches 68 cases as school year approaches",
+   "body": "Fairmont County reported 68 measles cases on Friday, up from 41 the previous week, with 11 hospitalisations. Dr Samuel Reyes said the outbreak was the largest in the state since 1992. Cases have now been confirmed in three counties. More than 2,400 people have been vaccinated at county clinics. Officials said the return to school on August 24 could accelerate spread among unvaccinated children.",
+   "publishedAt": "2026-08-15T14:30:00Z",
+   "source": "Health Desk",
+   "url": "https://healthdesk.example/measles-outbreak-reaches-68-cases-as-school-year-approaches",
+   "event": "measles_outbreak",
+   "forecasts": [
+    "Officials said the return to school on August 24 could accelerate spread among unvaccinated children."
+   ]
+  },
+  {
+   "title": "Largest measles outbreak in state since 1992 grows to 68 cases",
+   "body": "Fairmont County's measles outbreak now stands at 68 cases with 11 people hospitalised, the health department said on Friday, making it the state's largest since 1992. Cases have spread to two neighbouring counties. Around 2,400 residents have received vaccinations at county clinics since August 1.",
+   "publishedAt": "2026-08-16T08:00:00Z",
+   "source": "Morning Courier",
+   "url": "https://morningcourier.example/largest-measles-outbreak-in-state-since-1992-grows-to-68-cas",
+   "event": "measles_outbreak",
+   "forecasts": []
+  },
+  {
+   "title": "Fairmont school board requires measles vaccination for in-person attendance",
+   "body": "The Fairmont County school board voted 5 to 2 on Thursday to require students to show proof of measles vaccination or a medical exemption to attend school in person when classes resume on August 24, removing the district's personal-belief exemption for the rest of the outbreak. Unvaccinated students will be offered online instruction. About 2,300 of the district's 31,000 students currently hold personal-belief exemptions. Superintendent Angela Marsh said the measure would be reviewed once the county has gone 42 days without a new case. Several parents at the meeting said they would challenge the decision in court.",
+   "publishedAt": "2026-08-20T22:00:00Z",
+   "source": "Regional Times",
+   "url": "https://regionaltimes.example/fairmont-school-board-requires-measles-vaccination-for-in-pe",
+   "event": "measles_mandate",
+   "forecasts": []
+  },
+  {
+   "title": "School district suspends belief exemptions amid measles outbreak",
+   "body": "Fairmont County's school board voted on Thursday to suspend personal-belief vaccine exemptions during the measles outbreak, requiring proof of vaccination for in-person attendance from August 24. Around 2,300 students have such exemptions and will be offered remote learning. The board voted 5 to 2. Superintendent Angela Marsh said the rule lapses after 42 days without a new case. Some parents said they intend to sue.",
+   "publishedAt": "2026-08-21T09:00:00Z",
+   "source": "Health Desk",
+   "url": "https://healthdesk.example/school-district-suspends-belief-exemptions-amid-measles-outb",
+   "event": "measles_mandate",
+   "forecasts": []
+  },
+  {
+   "title": "Teachers strike closes schools across Kingsford district",
+   "body": "About 4,200 teachers in the Kingsford Unified School District went on strike on Tuesday, closing 68 schools serving 52,000 students, after contract talks with the district broke down over pay and class sizes. The Kingsford Teachers Association is seeking a 15 percent raise over three years and a cap of 28 students per class; the district's last offer was 9 percent with no class size limits. Union president Carla Mendes said teachers would stay out until a deal was reached. Superintendent David Lin said the district could not afford the union's demands without cutting programmes.",
+   "publishedAt": "2026-09-01T13:00:00Z",
+   "source": "Civic Journal",
+   "url": "https://civicjournal.example/teachers-strike-closes-schools-across-kingsford-district",
+   "event": "teachers_strike",
+   "forecasts": []
+  },
+  {
+   "title": "Kingsford schools shut as 4,200 teachers walk out",
+   "body": "Kingsford's 68 public schools were closed on Tuesday as 4,200 members of the Kingsford Teachers Association began a strike over pay and class sizes. The union wants 15 percent over three years and class sizes capped at 28; the district has offered 9 percent. Some 52,000 students are affected. The district opened 12 community centres for childcare. No talks were scheduled.",
+   "publishedAt": "2026-09-01T16:30:00Z",
+   "source": "Regional Times",
+   "url": "https://regionaltimes.example/kingsford-schools-shut-as-4-200-teachers-walk-out",
+   "event": "teachers_strike",
+   "forecasts": []
+  },
+  {
+   "title": "Kingsford strike enters third day; talks resume with mediator",
+   "body": "Teachers in Kingsford stayed on picket lines for a third day on Thursday as the union and district returned to the bargaining table with a state mediator. The Kingsford Teachers Association is holding out for a 15 percent raise and a 28-student class cap; the district's offer stands at 9 percent. Schools remain closed for 52,000 students. Parents' groups have called on both sides to settle before next week.",
+   "publishedAt": "2026-09-03T07:00:00Z",
+   "source": "Morning Courier",
+   "url": "https://morningcourier.example/kingsford-strike-enters-third-day-talks-resume-with-mediator",
+   "event": "teachers_strike",
+   "forecasts": []
+  },
+  {
+   "title": "Kingsford teachers reach tentative deal, schools to reopen Monday",
+   "body": "The Kingsford Teachers Association and the Kingsford Unified School District reached a tentative three-year agreement late on Friday, ending a strike that closed schools for four days. The deal gives teachers a 12 percent raise over three years and caps class sizes at 30 students from next autumn, with the district hiring 120 additional teachers. Union president Carla Mendes said members would vote on Sunday. Schools reopen on Monday, September 8. Superintendent David Lin said the agreement would cost about 38 million dollars a year.",
+   "publishedAt": "2026-09-06T02:00:00Z",
+   "source": "Civic Journal",
+   "url": "https://civicjournal.example/kingsford-teachers-reach-tentative-deal-schools-to-reopen-mo",
+   "event": "teachers_deal",
+   "forecasts": []
+  },
+  {
+   "title": "Strike over: Kingsford teachers win 12 percent raise and class size cap",
+   "body": "Kingsford's four-day teachers' strike ended with a tentative agreement reached late on Friday. Teachers get a 12 percent raise over three years and class sizes will be capped at 30 from next school year, with 120 new hires. Members of the Kingsford Teachers Association vote on Sunday and schools reopen on Monday. The district put the annual cost at about 38 million dollars.",
+   "publishedAt": "2026-09-06T08:00:00Z",
+   "source": "Regional Times",
+   "url": "https://regionaltimes.example/strike-over-kingsford-teachers-win-12-percent-raise-and-clas",
+   "event": "teachers_deal",
+   "forecasts": []
+  },
+  {
+   "title": "Kingsford students return as teachers ratify contract",
+   "body": "Students in Kingsford returned to classrooms on Monday after teachers voted 91 percent in favour of a three-year contract on Sunday, formally ending a four-day strike. The agreement, reached on Friday, includes a 12 percent raise and a 30-student class size cap from next autumn. The district says it will hire 120 teachers to meet the cap.",
+   "publishedAt": "2026-09-08T07:30:00Z",
+   "source": "Morning Courier",
+   "url": "https://morningcourier.example/kingsford-students-return-as-teachers-ratify-contract",
+   "event": "teachers_deal",
+   "forecasts": []
+  },
+  {
+   "title": "Tanker runs aground off Cape Marrow, spilling oil",
+   "body": "The oil tanker Aurelia Star ran aground on rocks off Cape Marrow, Nova Scotia, at about 2 a.m. on Friday in heavy fog, tearing open two cargo tanks. The coast guard estimated that about 800 tonnes of crude oil had leaked by midday and said the ship was carrying 90,000 tonnes. All 24 crew were taken off safely. Booms were deployed around the vessel and salvage tugs were en route from Halifax. The ship, registered in Liberia and operated by Meridian Tankers of Athens, had been bound for the Irving refinery in Saint John. Environment officials warned that the spill threatened a seabird colony on nearby Gull Island.",
+   "publishedAt": "2026-07-10T12:00:00Z",
+   "source": "Harbor News",
+   "url": "https://harbornews.example/tanker-runs-aground-off-cape-marrow-spilling-oil",
+   "event": "tanker_grounding",
+   "forecasts": []
+  },
+  {
+   "title": "Crude oil leaks from grounded tanker off Nova Scotia",
+   "body": "The Liberian-flagged tanker Aurelia Star struck rocks off Cape Marrow, Nova Scotia, in fog early on Friday and began leaking crude oil from two breached tanks. The Canadian Coast Guard put the spill at roughly 800 tonnes by midday, out of a 90,000 tonne cargo. The 24 crew were evacuated without injury. Operator Meridian Tankers said it was cooperating with authorities. Containment booms have been placed around the ship; salvage tugs are expected on Saturday.",
+   "publishedAt": "2026-07-10T14:30:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/crude-oil-leaks-from-grounded-tanker-off-nova-scotia",
+   "event": "tanker_grounding",
+   "forecasts": []
+  },
+  {
+   "title": "Aurelia Star spill grows to 2,500 tonnes as weather hampers salvage",
+   "body": "The volume of oil spilled from the grounded tanker Aurelia Star off Cape Marrow has risen to about 2,500 tonnes, the Canadian Coast Guard said on Sunday, after a third tank was breached by wave action on Saturday night. High winds have prevented salvage crews from pumping the remaining cargo to a lightering vessel. Oil has reached beaches along 30 kilometres of coast. About 400 oiled seabirds have been collected from Gull Island. Salvors hope to begin transferring cargo on Monday if conditions allow.",
+   "publishedAt": "2026-07-12T16:00:00Z",
+   "source": "Harbor News",
+   "url": "https://harbornews.example/aurelia-star-spill-grows-to-2-500-tonnes-as-weather-hampers-",
+   "event": "tanker_grounding",
+   "forecasts": []
+  },
+  {
+   "title": "Oil from Aurelia Star reaches Nova Scotia beaches",
+   "body": "Crude oil from the tanker Aurelia Star, aground off Cape Marrow since Friday, has come ashore along about 30 kilometres of coastline, officials said on Sunday. The coast guard now estimates 2,500 tonnes have spilled after a third tank ruptured. Volunteers have recovered around 400 oiled birds. Salvage crews are waiting for the weather to ease before pumping the remaining oil off the ship.",
+   "publishedAt": "2026-07-13T07:00:00Z",
+   "source": "Morning Courier",
+   "url": "https://morningcourier.example/oil-from-aurelia-star-reaches-nova-scotia-beaches",
+   "event": "tanker_grounding",
+   "forecasts": []
+  },
+  {
+   "title": "Tanker aground off Canadian coast, oil spilling",
+   "body": "The oil tanker Aurelia Star ran aground on rocks off Cape Marrow,  Nova Scotia,  at about 2 a.m.\n\non Friday in heavy fog,  tearing open two cargo tanks.\n\nThe coast guard estimated that about 800 tonnes of crude oil had leaked by midday and said the ship was carrying 90,000 tonnes.\n\nAll 24 crew were taken off safely.\n\nBooms were deployed around the vessel and salvage tugs were en route from Halifax.\n\nThe ship,  registered in Liberia and operated by Meridian Tankers of Athens,  had been bound for the Irving refinery in Saint John.\n\nEnvironment officials warned that the spill threatened a seabird colony on nearby Gull Island.",
+   "publishedAt": "2026-07-10T16:00:00Z",
+   "source": "Regional Times",
+   "url": "https://regionaltimes.example/tanker-aground-off-canadian-coast-oil-spilling",
+   "event": "tanker_grounding",
+   "forecasts": []
+  },
+  {
+   "title": "Aurelia Star cleanup to cost at least 180 million dollars, coast guard says",
+   "body": "Cleaning up the oil spilled by the tanker Aurelia Star off Cape Marrow will cost at least 180 million Canadian dollars, the Canadian Coast Guard estimated on Friday, with the final total depending on how much oil is buried in beach sediment. About 3,100 tonnes leaked before salvors finished pumping the remaining cargo off the ship on July 18. The vessel's insurer, the West of England P&I Club, has accepted liability up to the ship's limit of about 140 million dollars; the federal Ship-source Oil Pollution Fund will cover the rest. More than 1,200 seabirds have died.",
+   "publishedAt": "2026-07-25T15:00:00Z",
+   "source": "Harbor News",
+   "url": "https://harbornews.example/aurelia-star-cleanup-to-cost-at-least-180-million-dollars-co",
+   "event": "tanker_cleanup_cost",
+   "forecasts": []
+  },
+  {
+   "title": "Nova Scotia spill cleanup estimated at 180 million dollars",
+   "body": "The Canadian Coast Guard said on Friday the Aurelia Star spill would cost at least 180 million Canadian dollars to clean up. Some 3,100 tonnes of crude escaped before the remaining cargo was pumped off on July 18. The ship's insurer has accepted liability up to about 140 million dollars, with a federal fund covering the balance. The seabird death toll has passed 1,200.",
+   "publishedAt": "2026-07-25T17:30:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/nova-scotia-spill-cleanup-estimated-at-180-million-dollars",
+   "event": "tanker_cleanup_cost",
+   "forecasts": []
+  },
+  {
+   "title": "Aurelia Star captain charged over Cape Marrow grounding",
+   "body": "The captain of the tanker Aurelia Star, Dimitrios Kallas, was charged on Friday with negligent operation of a vessel and with causing pollution under the Canada Shipping Act over the July 10 grounding off Cape Marrow. Transport Canada investigators said the ship had been travelling at 14 knots in fog with its radar set to the wrong range and that the officer on watch had not called the captain when visibility dropped. Kallas, 58, faces up to 18 months in prison and a fine of up to 1 million dollars. He is due in court in Halifax on September 20. Meridian Tankers said it would support its captain.",
+   "publishedAt": "2026-08-15T18:00:00Z",
+   "source": "Harbor News",
+   "url": "https://harbornews.example/aurelia-star-captain-charged-over-cape-marrow-grounding",
+   "event": "tanker_captain_charged",
+   "forecasts": []
+  },
+  {
+   "title": "Tanker captain faces charges over Nova Scotia oil spill",
+   "body": "Canadian prosecutors charged Dimitrios Kallas, master of the Aurelia Star, on Friday with negligence and pollution offences over the tanker's grounding off Cape Marrow on July 10. Investigators found the ship was making 14 knots in fog with radar misconfigured and that the watch officer had failed to summon the captain. Kallas could face 18 months in prison. He appears in court in Halifax on September 20.",
+   "publishedAt": "2026-08-15T20:30:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/tanker-captain-faces-charges-over-nova-scotia-oil-spill",
+   "event": "tanker_captain_charged",
+   "forecasts": []
+  },
+  {
+   "title": "Anand Rao wins world chess championship in tiebreak",
+   "body": "India's Anand Rao, 22, became world chess champion on Sunday, beating defending champion Viktor Belov of Russia 2.5 to 1.5 in rapid tiebreaks after their 14 classical games in Singapore ended level at 7 to 7. Rao is the second-youngest champion in history. Belov had held the title since 2023. The match prize fund was 2.5 million dollars, split 60-40 in Rao's favour.",
+   "publishedAt": "2026-07-19T20:00:00Z",
+   "source": "Sportsline",
+   "url": "https://sportsline.example/anand-rao-wins-world-chess-championship-in-tiebreak",
+   "event": "chess_title",
+   "forecasts": []
+  },
+  {
+   "title": "Rao dethrones Belov to become chess world champion",
+   "body": "Anand Rao of India won the world chess championship in Singapore on Sunday, defeating Viktor Belov in rapid tiebreaks after a 7-7 tie in the classical games. The 22-year-old takes 1.5 million dollars of the 2.5 million prize fund. Belov had been champion since 2023.",
+   "publishedAt": "2026-07-19T22:00:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/rao-dethrones-belov-to-become-chess-world-champion",
+   "event": "chess_title",
+   "forecasts": []
+  },
+  {
+   "title": "Mount Teleki erupts, forcing evacuation of 12,000 in eastern Indonesia",
+   "body": "Mount Teleki on the Indonesian island of Flores erupted on Saturday morning, sending an ash column 9 kilometres into the sky and forcing about 12,000 people from villages within 7 kilometres of the crater, the national disaster agency said. Pyroclastic flows travelled 4 kilometres down the volcano's southern flank. No deaths were reported. Flights to Labuan Bajo were cancelled. The volcano last erupted in 2018.",
+   "publishedAt": "2026-08-22T09:00:00Z",
+   "source": "Science Beat",
+   "url": "https://sciencebeat.example/mount-teleki-erupts-forcing-evacuation-of-12-000-in-eastern-",
+   "event": "volcano_eruption",
+   "forecasts": []
+  },
+  {
+   "title": "Indonesian volcano erupts; thousands evacuated, flights halted",
+   "body": "Indonesia's Mount Teleki on Flores island erupted on Saturday, throwing ash 9 kilometres high and prompting the evacuation of around 12,000 residents from a 7-kilometre exclusion zone. Pyroclastic flows reached 4 kilometres from the crater. Authorities reported no casualties. Flights to the nearby town of Labuan Bajo were suspended.",
+   "publishedAt": "2026-08-22T12:00:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/indonesian-volcano-erupts-thousands-evacuated-flights-halted",
+   "event": "volcano_eruption",
+   "forecasts": []
+  },
+  {
+   "title": "Harlow Bridge closed indefinitely after inspection finds cracked girders",
+   "body": "The Harlow Bridge, which carries 60,000 vehicles a day across the Wren River, was closed to all traffic on Tuesday evening after an inspection found fatigue cracks in two of its main steel girders, the state transportation department said. Engineers said the cracks posed a risk of partial collapse under heavy loads. Traffic is being diverted to the Pine Street crossing, adding up to 40 minutes to journeys. The 1961 bridge was rated in poor condition in 2024. The department said repairs would take at least four months.",
+   "publishedAt": "2026-07-28T20:00:00Z",
+   "source": "Regional Times",
+   "url": "https://regionaltimes.example/harlow-bridge-closed-indefinitely-after-inspection-finds-cra",
+   "event": "bridge_closure",
+   "forecasts": []
+  },
+  {
+   "title": "Commuters face long detours as Harlow Bridge shut over cracks",
+   "body": "Traffic snarled across the city on Wednesday morning after the state closed the Harlow Bridge on Tuesday night when inspectors found fatigue cracks in two main girders. The bridge normally carries 60,000 vehicles a day. Detours via Pine Street are adding up to 40 minutes. Officials said the 65-year-old span would be closed for at least four months for repairs.",
+   "publishedAt": "2026-07-29T07:00:00Z",
+   "source": "Civic Journal",
+   "url": "https://civicjournal.example/commuters-face-long-detours-as-harlow-bridge-shut-over-crack",
+   "event": "bridge_closure",
+   "forecasts": []
+  },
+  {
+   "title": "New long-necked dinosaur species identified from Patagonian fossils",
+   "body": "Palaeontologists have identified a new species of sauropod dinosaur from fossils unearthed in Chubut province, Argentina, and named it Patagotitan lunae, a team led by Dr Lucia Ferrer of the Egidio Feruglio Museum reported on Wednesday in the journal Nature. The animal is estimated to have been 32 metres long and to have weighed about 55 tonnes, making it among the largest land animals known. The bones, from at least three individuals, were found in rocks dated to 98 million years ago.",
+   "publishedAt": "2026-09-03T15:00:00Z",
+   "source": "Science Beat",
+   "url": "https://sciencebeat.example/new-long-necked-dinosaur-species-identified-from-patagonian-",
+   "event": "dinosaur_discovery",
+   "forecasts": []
+  },
+  {
+   "title": "Argentine fossils reveal one of the largest dinosaurs ever found",
+   "body": "Researchers described a new giant sauropod, Patagotitan lunae, on Wednesday from bones found in Argentina's Chubut province. The team, led by Lucia Ferrer, estimates the dinosaur reached 32 metres in length and 55 tonnes in weight. The fossils are about 98 million years old and come from at least three animals. The findings appear in Nature.",
+   "publishedAt": "2026-09-03T17:00:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/argentine-fossils-reveal-one-of-the-largest-dinosaurs-ever-f",
+   "event": "dinosaur_discovery",
+   "forecasts": []
+  },
+  {
+   "title": "Single ticket in Ohio wins record 1.9 billion dollar lottery jackpot",
+   "body": "A single ticket sold at a petrol station in Dayton, Ohio, matched all six numbers in Tuesday night's MegaDraw lottery to win a jackpot of 1.9 billion dollars, the largest in the game's history, lottery officials said on Wednesday. The winner has not come forward. The cash option is worth about 920 million dollars before taxes. The jackpot had rolled over 41 times since April. The retailer receives a 100,000 dollar bonus.",
+   "publishedAt": "2026-08-13T14:00:00Z",
+   "source": "Morning Courier",
+   "url": "https://morningcourier.example/single-ticket-in-ohio-wins-record-1-9-billion-dollar-lottery",
+   "event": "lottery_jackpot",
+   "forecasts": []
+  },
+  {
+   "title": "Record 1.9 billion dollar MegaDraw jackpot won in Dayton",
+   "body": "Someone who bought a MegaDraw ticket at a Dayton petrol station is 1.9 billion dollars richer after matching all six numbers on Tuesday, lottery officials said. It is the largest jackpot in the game's history after 41 rollovers. The lump-sum option is about 920 million dollars. The winner had not been identified on Wednesday.",
+   "publishedAt": "2026-08-13T16:30:00Z",
+   "source": "Regional Times",
+   "url": "https://regionaltimes.example/record-1-9-billion-dollar-megadraw-jackpot-won-in-dayton",
+   "event": "lottery_jackpot",
+   "forecasts": []
+  },
+  {
+   "title": "Ferry collides with pier in Lisbon, injuring 34",
+   "body": "A commuter ferry carrying about 200 passengers struck a pier at Lisbon's Cais do Sodré terminal on Friday morning, injuring 34 people, six of them seriously, emergency services said. The vessel, the Tejo Azul, failed to slow on approach and hit the concrete structure at about 8:15 a.m. The operator, Transtejo, said the cause was under investigation and that the ferry's captain had been suspended pending inquiries. Services on the route were suspended for the day.",
+   "publishedAt": "2026-08-28T11:00:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/ferry-collides-with-pier-in-lisbon-injuring-34",
+   "event": "ferry_accident",
+   "forecasts": []
+  },
+  {
+   "title": "Dozens hurt as Lisbon commuter ferry hits terminal",
+   "body": "Thirty-four passengers were injured, six seriously, when the ferry Tejo Azul crashed into the pier at Cais do Sodré in Lisbon during Friday's morning rush hour. The ferry did not slow down as it approached the terminal, witnesses said. Operator Transtejo suspended the captain and opened an investigation. About 200 people were aboard.",
+   "publishedAt": "2026-08-28T13:30:00Z",
+   "source": "Morning Courier",
+   "url": "https://morningcourier.example/dozens-hurt-as-lisbon-commuter-ferry-hits-terminal",
+   "event": "ferry_accident",
+   "forecasts": []
+  },
+  {
+   "title": "Sofia Marchetti wins first Grand Slam title at US Open",
+   "body": "Italy's Sofia Marchetti won her first Grand Slam title on Saturday, beating world number one Hana Kimura of Japan 6-4, 3-6, 7-5 in the US Open women's final in New York. Marchetti, 21, saved two championship points at 4-5 in the third set. She will rise to a career-high fourth in Monday's rankings and takes home 3.6 million dollars in prize money. Kimura was seeking her third major title of the year.",
+   "publishedAt": "2026-09-13T22:00:00Z",
+   "source": "Sportsline",
+   "url": "https://sportsline.example/sofia-marchetti-wins-first-grand-slam-title-at-us-open",
+   "event": "tennis_final",
+   "forecasts": []
+  },
+  {
+   "title": "Marchetti stuns Kimura to take US Open crown",
+   "body": "Sofia Marchetti of Italy claimed her maiden Grand Slam at the US Open on Saturday, defeating top seed Hana Kimura 6-4, 3-6, 7-5. The 21-year-old saved two championship points in the deciding set. She earns 3.6 million dollars and will be ranked fourth in the world. Kimura had won the year's first two majors.",
+   "publishedAt": "2026-09-14T00:30:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/marchetti-stuns-kimura-to-take-us-open-crown",
+   "event": "tennis_final",
+   "forecasts": []
+  },
+  {
+   "title": "Giant panda cub born at Westbrook Zoo, the first in 15 years",
+   "body": "A giant panda cub was born at Westbrook Zoo early on Wednesday to 12-year-old Mei Mei, the zoo announced, its first panda birth since 2011. The cub, whose sex is not yet known, weighed about 120 grams. Keepers said mother and cub were doing well and that the cub would not go on public display for several months. Mei Mei was artificially inseminated in March. The zoo's pandas are on loan from China until 2029.",
+   "publishedAt": "2026-07-30T14:00:00Z",
+   "source": "Regional Times",
+   "url": "https://regionaltimes.example/giant-panda-cub-born-at-westbrook-zoo-the-first-in-15-years",
+   "event": "panda_birth",
+   "forecasts": []
+  },
+  {
+   "title": "Westbrook Zoo welcomes first panda cub since 2011",
+   "body": "Westbrook Zoo said on Wednesday that its giant panda Mei Mei had given birth to a cub weighing around 120 grams. It is the zoo's first panda birth in 15 years. The cub's sex has not been determined. It will stay off display for several months. Mei Mei was inseminated in March.",
+   "publishedAt": "2026-07-30T16:00:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/westbrook-zoo-welcomes-first-panda-cub-since-2011",
+   "event": "panda_birth",
+   "forecasts": []
+  },
+  {
+   "title": "Fire at Cloudline data centre knocks out services for 6 hours",
+   "body": "A fire in a battery room at Cloudline's data centre in Frankfurt early on Tuesday cut power to the facility and took down services for hundreds of the company's customers for about six hours, Cloudline said. The blaze began at 1:40 a.m. in a bank of lithium-ion backup batteries and was extinguished by 3:30 a.m.; no one was hurt. Affected customers included the payment processor Zentra and several German online retailers. Services were restored by 8 a.m. Cloudline said it would move backup batteries to a separate building at all its sites.",
+   "publishedAt": "2026-08-04T10:00:00Z",
+   "source": "Tech Ledger",
+   "url": "https://techledger.example/fire-at-cloudline-data-centre-knocks-out-services-for-6-hour",
+   "event": "datacentre_fire",
+   "forecasts": []
+  },
+  {
+   "title": "Frankfurt data centre fire disrupts payments and online shops",
+   "body": "A battery fire at a Cloudline data centre in Frankfurt on Tuesday caused a six-hour outage for hundreds of customers, including payment firm Zentra. The fire started at 1:40 a.m. among lithium-ion backup batteries and was out by 3:30 a.m. Nobody was injured. Cloudline said it would relocate backup batteries away from server halls across its facilities.",
+   "publishedAt": "2026-08-04T12:30:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/frankfurt-data-centre-fire-disrupts-payments-and-online-shop",
+   "event": "datacentre_fire",
+   "forecasts": []
+  },
+  {
+   "title": "Jury awards 85 million dollars to families in Coastal Rail crash case",
+   "body": "A jury in Portland, Oregon, awarded 85 million dollars on Wednesday to the families of three passengers killed in a 2024 Coastal Rail derailment, finding the railway negligent for failing to install a speed control system on the curve where the train left the tracks. The verdict followed a three-week trial. Coastal Rail said it would appeal. The award includes 60 million dollars in punitive damages. Eleven other passengers' claims were settled before trial.",
+   "publishedAt": "2026-08-26T19:00:00Z",
+   "source": "Court Reporter",
+   "url": "https://courtreporter.example/jury-awards-85-million-dollars-to-families-in-coastal-rail-c",
+   "event": "rail_verdict",
+   "forecasts": []
+  },
+  {
+   "title": "Coastal Rail found negligent in 2024 derailment; 85 million dollar verdict",
+   "body": "An Oregon jury found Coastal Rail negligent on Wednesday over a 2024 derailment that killed three people and awarded their families 85 million dollars, including 60 million in punitive damages. Jurors found the railway should have installed speed control on the curve. Coastal Rail plans to appeal.",
+   "publishedAt": "2026-08-26T21:30:00Z",
+   "source": "Continental Press",
+   "url": "https://continentalpress.example/coastal-rail-found-negligent-in-2024-derailment-85-million-d",
+   "event": "rail_verdict",
+   "forecasts": []
+  },
+  {
+   "title": "Nurses at St. Aldric hospitals begin three-day strike over staffing",
+   "body": "About 3,000 nurses at the four hospitals of the St. Aldric Health system in Minneapolis began a three-day strike on Tuesday over staffing levels and pay, the Minnesota Nurses Association said. The union is demanding enforceable nurse-to-patient ratios and a 20 percent raise over three years; the system has offered 10 percent and rejected ratios. St. Aldric said it had hired 900 temporary nurses and postponed non-urgent surgeries. The strike is scheduled to end on Friday morning.",
+   "publishedAt": "2026-08-18T13:00:00Z",
+   "source": "Health Desk",
+   "url": "https://healthdesk.example/nurses-at-st-aldric-hospitals-begin-three-day-strike-over-st",
+   "event": "nurses_strike",
+   "forecasts": []
+  },
+  {
+   "title": "3,000 St. Aldric nurses walk out for three days",
+   "body": "Nurses at St. Aldric Health's four Minneapolis hospitals began a planned three-day strike on Tuesday, seeking mandated staffing ratios and a 20 percent raise. The hospital system, which has offered 10 percent, brought in 900 replacement nurses and delayed elective procedures. The walkout ends Friday.",
+   "publishedAt": "2026-08-18T15:30:00Z",
+   "source": "Regional Times",
+   "url": "https://regionaltimes.example/3-000-st-aldric-nurses-walk-out-for-three-days",
+   "event": "nurses_strike",
+   "forecasts": []
+  }
+ ],
+ "links": [
+  {
+   "src": "veltra_verdict",
+   "dst": "veltra_remittitur",
+   "type": "background_for"
+  },
+  {
+   "src": "veltra_verdict",
+   "dst": "veltra_remittitur",
+   "type": "causes"
+  },
+  {
+   "src": "veltra_remittitur",
+   "dst": "veltra_verdict",
+   "type": "reacts_to"
+  },
+  {
+   "src": "veltra_remittitur",
+   "dst": "veltra_appeal",
+   "type": "background_for"
+  },
+  {
+   "src": "veltra_remittitur",
+   "dst": "veltra_appeal",
+   "type": "causes"
+  },
+  {
+   "src": "veltra_appeal",
+   "dst": "veltra_remittitur",
+   "type": "reacts_to"
+  },
+  {
+   "src": "veltra_verdict",
+   "dst": "veltra_appeal",
+   "type": "background_for"
+  },
+  {
+   "src": "veltra_appeal",
+   "dst": "veltra_verdict",
+   "type": "reacts_to"
+  },
+  {
+   "src": "okoro_positive",
+   "dst": "okoro_suspension",
+   "type": "causes"
+  },
+  {
+   "src": "okoro_positive",
+   "dst": "okoro_suspension",
+   "type": "background_for"
+  },
+  {
+   "src": "okoro_suspension",
+   "dst": "okoro_positive",
+   "type": "reacts_to"
+  },
+  {
+   "src": "okoro_positive",
+   "dst": "okoro_ban",
+   "type": "causes"
+  },
+  {
+   "src": "okoro_positive",
+   "dst": "okoro_ban",
+   "type": "background_for"
+  },
+  {
+   "src": "okoro_ban",
+   "dst": "okoro_positive",
+   "type": "reacts_to"
+  },
+  {
+   "src": "okoro_suspension",
+   "dst": "okoro_ban",
+   "type": "background_for"
+  },
+  {
+   "src": "okoro_ban",
+   "dst": "okoro_suspension",
+   "type": "reacts_to"
+  },
+  {
+   "src": "kestrel_launch_failure",
+   "dst": "kestrel_failure_cause",
+   "type": "causes"
+  },
+  {
+   "src": "kestrel_launch_failure",
+   "dst": "kestrel_failure_cause",
+   "type": "background_for"
+  },
+  {
+   "src": "kestrel_failure_cause",
+   "dst": "kestrel_launch_failure",
+   "type": "reacts_to"
+  },
+  {
+   "src": "kestrel_launch_failure",
+   "dst": "kestrel_return_to_flight",
+   "type": "background_for"
+  },
+  {
+   "src": "kestrel_failure_cause",
+   "dst": "kestrel_return_to_flight",
+   "type": "background_for"
+  },
+  {
+   "src": "kestrel_failure_cause",
+   "dst": "kestrel_return_to_flight",
+   "type": "causes"
+  },
+  {
+   "src": "kestrel_return_to_flight",
+   "dst": "kestrel_launch_failure",
+   "type": "reacts_to"
+  },
+  {
+   "src": "kestrel_return_to_flight",
+   "dst": "kestrel_failure_cause",
+   "type": "reacts_to"
+  },
+  {
+   "src": "brookfield_boil_notice",
+   "dst": "brookfield_cause",
+   "type": "background_for"
+  },
+  {
+   "src": "brookfield_boil_notice",
+   "dst": "brookfield_cause",
+   "type": "causes"
+  },
+  {
+   "src": "brookfield_cause",
+   "dst": "brookfield_boil_notice",
+   "type": "reacts_to"
+  },
+  {
+   "src": "brookfield_boil_notice",
+   "dst": "brookfield_council_vote",
+   "type": "causes"
+  },
+  {
+   "src": "brookfield_boil_notice",
+   "dst": "brookfield_council_vote",
+   "type": "background_for"
+  },
+  {
+   "src": "brookfield_council_vote",
+   "dst": "brookfield_boil_notice",
+   "type": "reacts_to"
+  },
+  {
+   "src": "brookfield_cause",
+   "dst": "brookfield_council_vote",
+   "type": "causes"
+  },
+  {
+   "src": "brookfield_cause",
+   "dst": "brookfield_council_vote",
+   "type": "background_for"
+  },
+  {
+   "src": "brookfield_council_vote",
+   "dst": "brookfield_cause",
+   "type": "reacts_to"
+  },
+  {
+   "src": "museum_theft",
+   "dst": "museum_arrests",
+   "type": "causes"
+  },
+  {
+   "src": "museum_theft",
+   "dst": "museum_arrests",
+   "type": "background_for"
+  },
+  {
+   "src": "museum_arrests",
+   "dst": "museum_theft",
+   "type": "reacts_to"
+  },
+  {
+   "src": "museum_theft",
+   "dst": "museum_recovery",
+   "type": "background_for"
+  },
+  {
+   "src": "museum_recovery",
+   "dst": "museum_theft",
+   "type": "reacts_to"
+  },
+  {
+   "src": "museum_arrests",
+   "dst": "museum_recovery",
+   "type": "causes"
+  },
+  {
+   "src": "museum_arrests",
+   "dst": "museum_recovery",
+   "type": "background_for"
+  },
+  {
+   "src": "museum_recovery",
+   "dst": "museum_arrests",
+   "type": "reacts_to"
+  },
+  {
+   "src": "nimbus_release",
+   "dst": "nimbus_pulled",
+   "type": "causes"
+  },
+  {
+   "src": "nimbus_release",
+   "dst": "nimbus_pulled",
+   "type": "background_for"
+  },
+  {
+   "src": "nimbus_pulled",
+   "dst": "nimbus_release",
+   "type": "reacts_to"
+  },
+  {
+   "src": "nimbus_pulled",
+   "dst": "nimbus_relaunch",
+   "type": "background_for"
+  },
+  {
+   "src": "nimbus_pulled",
+   "dst": "nimbus_relaunch",
+   "type": "causes"
+  },
+  {
+   "src": "nimbus_relaunch",
+   "dst": "nimbus_pulled",
+   "type": "reacts_to"
+  },
+  {
+   "src": "nimbus_release",
+   "dst": "nimbus_relaunch",
+   "type": "background_for"
+  },
+  {
+   "src": "nimbus_relaunch",
+   "dst": "nimbus_release",
+   "type": "reacts_to"
+  },
+  {
+   "src": "measles_outbreak",
+   "dst": "measles_mandate",
+   "type": "causes"
+  },
+  {
+   "src": "measles_outbreak",
+   "dst": "measles_mandate",
+   "type": "background_for"
+  },
+  {
+   "src": "measles_mandate",
+   "dst": "measles_outbreak",
+   "type": "reacts_to"
+  },
+  {
+   "src": "teachers_strike",
+   "dst": "teachers_deal",
+   "type": "causes"
+  },
+  {
+   "src": "teachers_strike",
+   "dst": "teachers_deal",
+   "type": "background_for"
+  },
+  {
+   "src": "teachers_deal",
+   "dst": "teachers_strike",
+   "type": "reacts_to"
+  },
+  {
+   "src": "tanker_grounding",
+   "dst": "tanker_cleanup_cost",
+   "type": "causes"
+  },
+  {
+   "src": "tanker_grounding",
+   "dst": "tanker_cleanup_cost",
+   "type": "background_for"
+  },
+  {
+   "src": "tanker_cleanup_cost",
+   "dst": "tanker_grounding",
+   "type": "reacts_to"
+  },
+  {
+   "src": "tanker_grounding",
+   "dst": "tanker_captain_charged",
+   "type": "causes"
+  },
+  {
+   "src": "tanker_grounding",
+   "dst": "tanker_captain_charged",
+   "type": "background_for"
+  },
+  {
+   "src": "tanker_captain_charged",
+   "dst": "tanker_grounding",
+   "type": "reacts_to"
+  }
+ ],
+ "storylines": [
+  [
+   "veltra_verdict",
+   "veltra_remittitur",
+   "veltra_appeal"
+  ],
+  [
+   "okoro_positive",
+   "okoro_suspension",
+   "okoro_ban"
+  ],
+  [
+   "kestrel_launch_failure",
+   "kestrel_failure_cause",
+   "kestrel_return_to_flight"
+  ],
+  [
+   "brookfield_boil_notice",
+   "brookfield_cause",
+   "brookfield_council_vote"
+  ],
+  [
+   "museum_theft",
+   "museum_arrests",
+   "museum_recovery"
+  ],
+  [
+   "nimbus_release",
+   "nimbus_pulled",
+   "nimbus_relaunch"
+  ],
+  [
+   "measles_outbreak",
+   "measles_mandate"
+  ],
+  [
+   "teachers_strike",
+   "teachers_deal"
+  ],
+  [
+   "tanker_grounding",
+   "tanker_cleanup_cost",
+   "tanker_captain_charged"
+  ]
+ ],
+ "questions": [
+  {
+   "question": "How much does Veltra owe Halden Wireless now, and how did the amount change?",
+   "events": [
+    "veltra_remittitur",
+    "veltra_verdict",
+    "veltra_appeal"
+   ],
+   "facts": [
+    "Jury awarded 1.4 billion; judge cut it to 620 million"
+   ]
+  },
+  {
+   "question": "Why was Tobi Okoro banned and for how long?",
+   "events": [
+    "okoro_ban",
+    "okoro_positive"
+   ],
+   "facts": [
+    "Four years; tribunal rejected contaminated meat defence for trenbolone positive"
+   ]
+  },
+  {
+   "question": "What caused the Arcus-5 rocket failure?",
+   "events": [
+    "kestrel_failure_cause"
+   ],
+   "facts": [
+    "Cracked fuel valve from out-of-spec alloy"
+   ]
+  },
+  {
+   "question": "Has the Arcus-5 flown again since the failure?",
+   "events": [
+    "kestrel_return_to_flight"
+   ],
+   "facts": [
+    "Yes, September 12, Skyward satellite"
+   ]
+  },
+  {
+   "question": "Why did lead levels rise in Brookfield's water?",
+   "events": [
+    "brookfield_cause",
+    "brookfield_council_vote"
+   ],
+   "facts": [
+    "Source switch to acidic Sable River without corrosion control"
+   ]
+  },
+  {
+   "question": "What did Brookfield decide to do about its lead pipes?",
+   "events": [
+    "brookfield_council_vote"
+   ],
+   "facts": [
+    "Replace all 22,000 lines over five years for 410 million dollars"
+   ]
+  },
+  {
+   "question": "Was the stolen Vermeer recovered, and where?",
+   "events": [
+    "museum_recovery",
+    "museum_arrests"
+   ],
+   "facts": [
+    "Yes, Rotterdam storage unit, undamaged"
+   ]
+  },
+  {
+   "question": "How many phones were affected by the Nimbus OS 12 bug and what is Corvid doing for customers?",
+   "events": [
+    "nimbus_pulled",
+    "nimbus_relaunch"
+   ],
+   "facts": [
+    "1.2 million; repair tool, replacements, 50 dollar credit"
+   ]
+  },
+  {
+   "question": "How many measles cases has Fairmont County reported?",
+   "events": [
+    "measles_outbreak"
+   ],
+   "facts": [
+    "68 as of August 15"
+   ]
+  },
+  {
+   "question": "How did the Kingsford teachers' strike end?",
+   "events": [
+    "teachers_deal",
+    "teachers_strike"
+   ],
+   "facts": [
+    "12 percent raise, class cap of 30, 120 hires; ratified 91 percent"
+   ]
+  },
+  {
+   "question": "How much oil spilled from the Aurelia Star in total?",
+   "events": [
+    "tanker_cleanup_cost",
+    "tanker_grounding"
+   ],
+   "facts": [
+    "About 3,100 tonnes"
+   ]
+  },
+  {
+   "question": "Who was charged over the Aurelia Star grounding and why?",
+   "events": [
+    "tanker_captain_charged"
+   ],
+   "facts": [
+    "Captain Dimitrios Kallas; 14 knots in fog, radar misconfigured"
+   ]
+  },
+  {
+   "question": "What do analysts expect to happen to the Veltra damages on appeal?",
+   "events": [
+    "veltra_verdict"
+   ],
+   "facts": [
+    "Analysts expected the damages to be cut on appeal (speculation)"
+   ]
+  },
+  {
+   "question": "Have there been other large jury verdicts against companies recently besides Veltra?",
+   "events": [
+    "rail_verdict",
+    "veltra_verdict"
+   ],
+   "facts": [
+    "Coastal Rail 85 million dollar verdict"
+   ]
+  }
+ ]
+}

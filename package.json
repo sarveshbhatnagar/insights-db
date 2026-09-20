@@ -1,0 +1,31 @@
+{
+  "name": "insights-db",
+  "version": "0.1.0",
+  "description": "Ingests documents, stores each real-world event once with its facts, links related events, and answers questions over the result.",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "bin": { "insights-db": "dist/cli.js" },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist", "db", "prompts", "presets"],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "eval": "node --disable-warning=ExperimentalWarning eval/run.ts",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "openai": "^7.0.0",
+    "pg": "^8.13.0",
+    "pgvector": "^0.3.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/pg": "^8.11.0",
+    "typescript": "^5.6.0",
+    "vitest": "^5.0.0"
+  }
+}

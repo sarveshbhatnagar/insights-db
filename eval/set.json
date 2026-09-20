@@ -1,0 +1,1344 @@
+{
+ "articles": [
+  {
+   "title": "Meridian Bank collapses after two-day deposit run",
+   "body": "Meridian Bank, a mid-size lender based in Columbus, Ohio, was closed by state regulators on Thursday after depositors withdrew more than 4 billion dollars in two days. The run began on Tuesday after the bank disclosed a 1.8 billion dollar loss on the sale of long-dated Treasury bonds it had bought when rates were near zero. The Federal Deposit Insurance Corporation was named receiver and said insured depositors would have access to their money on Monday. Chief executive Dana Whitfield said in a statement that the bank had been in advanced talks to raise capital when the withdrawals accelerated. Meridian had about 22 billion dollars in assets at the end of June and 41 branches across Ohio and Indiana. It is the largest bank failure in the state since 2008.",
+   "publishedAt": "2026-09-11T08:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/meridian-bank-collapses-after-two-day-deposit-run",
+   "event": "meridian_collapse",
+   "forecasts": []
+  },
+  {
+   "title": "Regulators seize Ohio lender Meridian after run on deposits",
+   "body": "State banking regulators in Ohio seized Meridian Bank late on Thursday and appointed the FDIC as receiver, ending a 48-hour run in which customers pulled roughly 4 billion dollars from the lender. Trading in Meridian shares was halted before the open on Thursday after they fell 61 percent on Wednesday. The run followed the bank's disclosure that it had lost 1.8 billion dollars selling bonds to cover withdrawals. The FDIC said all 41 branches would reopen on Monday under its control. Meridian reported 22 billion dollars in assets at the end of the second quarter. Regulators declined to say whether a buyer had been lined up.",
+   "publishedAt": "2026-09-11T12:00:00Z",
+   "source": "Daily Ledger",
+   "url": "https://dailyledger.example/regulators-seize-ohio-lender-meridian-after-run-on-deposits",
+   "event": "meridian_collapse",
+   "forecasts": []
+  },
+  {
+   "title": "How a bond bet sank Meridian Bank in 48 hours",
+   "body": "Meridian Bank's failure on Thursday was set in motion two years ago, when the Columbus lender poured deposits into long-dated Treasuries yielding under 2 percent. As the Federal Reserve raised rates, those bonds lost value. On Tuesday the bank sold a large block at a 1.8 billion dollar loss and said it would seek to raise 2 billion dollars in new equity. Depositors, many of them businesses with balances above the insurance limit, withdrew more than 4 billion dollars by Thursday afternoon. Ohio's Division of Financial Institutions closed the bank at 5 p.m. and named the FDIC receiver. Chief executive Dana Whitfield had run the bank since 2019.",
+   "publishedAt": "2026-09-11T15:30:00Z",
+   "source": "Capital Times",
+   "url": "https://capitaltimes.example/how-a-bond-bet-sank-meridian-bank-in-48-hours",
+   "event": "meridian_collapse",
+   "forecasts": []
+  },
+  {
+   "title": "Meridian failure to cost deposit fund about 2 billion, FDIC estimates",
+   "body": "The FDIC estimated on Friday that the failure of Meridian Bank would cost the deposit insurance fund about 2 billion dollars. The Ohio bank was closed on Thursday after a two-day run in which more than 4 billion dollars left the bank. The agency said roughly 38 percent of Meridian's deposits were above the 250,000 dollar insurance limit. Uninsured depositors will receive an advance dividend next week and certificates for the remainder, it said. Analysts at Harbor Research said more regional banks could fail if rates stay high through next year.",
+   "publishedAt": "2026-09-12T09:00:00Z",
+   "source": "Metro Post",
+   "url": "https://metropost.example/meridian-failure-to-cost-deposit-fund-about-2-billion-fdic-e",
+   "event": "meridian_collapse",
+   "forecasts": [
+    "Analysts at Harbor Research said more regional banks could fail if rates stay high through next year."
+   ]
+  },
+  {
+   "title": "Ohio bank shut after depositors pull 4 billion dollars",
+   "body": "Meridian Bank,  a mid-size lender based in Columbus,  Ohio,  was closed by state regulators on Thursday after depositors withdrew more than 4 billion dollars in two days.\n\nThe run began on Tuesday after the bank disclosed a 1.8 billion dollar loss on the sale of long-dated Treasury bonds it had bought when rates were near zero.\n\nThe Federal Deposit Insurance Corporation was named receiver and said insured depositors would have access to their money on Monday.\n\nChief executive Dana Whitfield said in a statement that the bank had been in advanced talks to raise capital when the withdrawals accelerated.\n\nMeridian had about 22 billion dollars in assets at the end of June and 41 branches across Ohio and Indiana.\n\nIt is the largest bank failure in the state since 2008.",
+   "publishedAt": "2026-09-11T10:15:00Z",
+   "source": "Coastal Gazette",
+   "url": "https://coastalgazette.example/ohio-bank-shut-after-depositors-pull-4-billion-dollars",
+   "event": "meridian_collapse",
+   "forecasts": []
+  },
+  {
+   "title": "Meridian withdrawals reached 6 billion dollars before closure, receiver says",
+   "body": "Depositors withdrew more than 6 billion dollars from Meridian Bank before it was closed on Thursday, the FDIC said on Saturday, revising an earlier estimate of 4 billion. The higher figure includes wire transfers that were queued but not settled when Ohio regulators shut the bank. The receiver said it had begun contacting potential bidders for Meridian's deposits and branches and expected to announce a resolution within days. Insured deposits remain available on Monday as planned.",
+   "publishedAt": "2026-09-13T10:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/meridian-withdrawals-reached-6-billion-dollars-before-closur",
+   "event": "meridian_collapse",
+   "forecasts": []
+  },
+  {
+   "title": "Northgate Bank to buy Meridian deposits and branches from FDIC",
+   "body": "The FDIC said on Sunday night that Northgate Bank had agreed to assume all deposits of failed Meridian Bank, including uninsured balances, and to buy its 41 branches. Northgate, based in Pittsburgh, will pay a premium of 1.2 percent on the deposits and take on about 15 billion dollars of Meridian's loans, with the FDIC sharing losses on the loan book. Branches will reopen under the Northgate name on Tuesday. The FDIC said the deal reduces its estimated cost to the insurance fund to about 1.5 billion dollars.",
+   "publishedAt": "2026-09-15T08:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/northgate-bank-to-buy-meridian-deposits-and-branches-from-fd",
+   "event": "meridian_sale",
+   "forecasts": []
+  },
+  {
+   "title": "Northgate wins auction for failed Meridian Bank",
+   "body": "Pittsburgh-based Northgate Bank emerged as the buyer of Meridian Bank's deposits and branches after a weekend auction run by the FDIC, the agency announced late on Sunday. Northgate will assume every deposit account, sparing uninsured customers any loss, and acquire around 15 billion dollars of loans under a loss-sharing agreement. It agreed to pay a 1.2 percent deposit premium. Chief executive Tom Okafor of Northgate said the purchase would nearly double the bank's branch network in Ohio. Meridian's 41 branches reopen on Tuesday as Northgate locations. Two other bidders took part in the auction, according to a person familiar with the process.",
+   "publishedAt": "2026-09-15T11:00:00Z",
+   "source": "Business Daily",
+   "url": "https://businessdaily.example/northgate-wins-auction-for-failed-meridian-bank",
+   "event": "meridian_sale",
+   "forecasts": []
+  },
+  {
+   "title": "Meridian branches reopen as Northgate, ending a tense week for depositors",
+   "body": "Former Meridian Bank branches opened on Tuesday morning under Northgate Bank signage, one day after the FDIC announced that Northgate would assume all of Meridian's deposits and buy its 41 branches. Customers found their accounts intact, including balances above the insurance limit. Northgate is paying a 1.2 percent premium on deposits and taking on about 15 billion dollars in loans with FDIC loss sharing. The FDIC now estimates the failure will cost the insurance fund about 1.5 billion dollars.",
+   "publishedAt": "2026-09-16T07:30:00Z",
+   "source": "Daily Ledger",
+   "url": "https://dailyledger.example/meridian-branches-reopen-as-northgate-ending-a-tense-week-fo",
+   "event": "meridian_sale",
+   "forecasts": []
+  },
+  {
+   "title": "Uninsured Meridian depositors made whole in Northgate deal",
+   "body": "Businesses that held more than the insured limit at Meridian Bank will not lose money after Northgate Bank agreed to assume all of the failed lender's deposits, the FDIC confirmed on Monday. The Pittsburgh bank is also buying Meridian's 41 branches and about 15 billion dollars of loans. The FDIC will share losses on those loans. The agency's estimated cost fell to about 1.5 billion dollars from an earlier 2 billion.",
+   "publishedAt": "2026-09-15T14:00:00Z",
+   "source": "Northern Herald",
+   "url": "https://northernherald.example/uninsured-meridian-depositors-made-whole-in-northgate-deal",
+   "event": "meridian_sale",
+   "forecasts": []
+  },
+  {
+   "title": "Senate panel grills regulators over Meridian collapse",
+   "body": "The Senate Banking Committee questioned Ohio and federal regulators on Tuesday about why Meridian Bank was allowed to build up large unhedged bond holdings before its September failure. Committee chair Marcus Hale called the supervision a failure and said examiners had flagged the bank's interest rate risk in 2025 without requiring action. Federal Reserve vice chair for supervision Anita Kowalski acknowledged that follow-up had been too slow. Ohio's top bank regulator, Luis Ferreira, said the state had relied on the Fed's assessment. The hearing lasted four hours.",
+   "publishedAt": "2026-10-06T20:00:00Z",
+   "source": "Capital Times",
+   "url": "https://capitaltimes.example/senate-panel-grills-regulators-over-meridian-collapse",
+   "event": "meridian_hearing",
+   "forecasts": []
+  },
+  {
+   "title": "Regulators admit slow response before Meridian failure",
+   "body": "Federal and state regulators told a Senate hearing on Tuesday that they had identified interest rate risk at Meridian Bank in 2025 but did not force the bank to fix it. Anita Kowalski, the Federal Reserve's vice chair for supervision, said the follow-up was too slow. Senator Marcus Hale, who chairs the Banking Committee, described the supervision as a failure. Luis Ferreira of Ohio's Division of Financial Institutions said state examiners deferred to the Fed. Hale said the committee would propose legislation on bank liquidity rules.",
+   "publishedAt": "2026-10-06T22:30:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/regulators-admit-slow-response-before-meridian-failure",
+   "event": "meridian_hearing",
+   "forecasts": []
+  },
+  {
+   "title": "Hale promises liquidity bill after Meridian hearing",
+   "body": "Senate Banking Committee chair Marcus Hale said on Tuesday he would introduce legislation tightening liquidity requirements for banks with more than 10 billion dollars in assets, after a hearing into the failure of Meridian Bank. Regulators at the hearing conceded they had known about the bank's exposure to rising rates a year before it collapsed. The Federal Reserve's Anita Kowalski said the central bank was reviewing its escalation procedures.",
+   "publishedAt": "2026-10-07T06:00:00Z",
+   "source": "Daily Ledger",
+   "url": "https://dailyledger.example/hale-promises-liquidity-bill-after-meridian-hearing",
+   "event": "meridian_hearing",
+   "forecasts": []
+  },
+  {
+   "title": "Meridian shareholders sue former executives over bond losses",
+   "body": "A group of former Meridian Bank shareholders filed a lawsuit on Monday in federal court in Columbus against chief executive Dana Whitfield, finance chief Robert Ng and seven former directors, accusing them of concealing the bank's interest rate exposure. The complaint seeks class action status and unspecified damages. It alleges that management knew by early 2025 that the bond portfolio's losses exceeded the bank's equity. Lawyers for Whitfield said the claims were without merit.",
+   "publishedAt": "2026-10-12T16:00:00Z",
+   "source": "Business Daily",
+   "url": "https://businessdaily.example/meridian-shareholders-sue-former-executives-over-bond-losses",
+   "event": "meridian_lawsuit",
+   "forecasts": []
+  },
+  {
+   "title": "Former Meridian executives face shareholder class action",
+   "body": "Shareholders of the failed Meridian Bank sued its former chief executive Dana Whitfield, chief financial officer Robert Ng and seven directors on Monday, alleging they hid the scale of losses on the bank's bond holdings. The suit, filed in the Southern District of Ohio, seeks class action status. It claims unrealised losses on the portfolio exceeded shareholder equity by early 2025. A lawyer for Whitfield called the claims meritless.",
+   "publishedAt": "2026-10-12T19:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/former-meridian-executives-face-shareholder-class-action",
+   "event": "meridian_lawsuit",
+   "forecasts": []
+  },
+  {
+   "title": "Federal Reserve raises rates by half a point",
+   "body": "The Federal Reserve raised its benchmark interest rate by half a percentage point on Wednesday to a range of 5.5 to 5.75 percent, its largest increase this year. Chair Elena Ruiz said inflation remained too high and that the committee was prepared to move again in September if price pressures did not ease. Two members of the committee dissented in favour of a quarter-point move. Stocks fell after the announcement, with the S&P 500 closing down 1.4 percent.",
+   "publishedAt": "2026-08-01T18:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/federal-reserve-raises-rates-by-half-a-point",
+   "event": "fed_rate_rise",
+   "forecasts": []
+  },
+  {
+   "title": "Fed delivers biggest hike of the year as inflation stays hot",
+   "body": "The Federal Open Market Committee lifted the federal funds target range by 50 basis points to 5.50 to 5.75 percent on Wednesday, the largest step since 2023. In her press conference, chair Elena Ruiz said recent inflation readings were \"unacceptably high\" and left open a further increase at the September meeting. The vote was 10 to 2, with governors Sam Lindqvist and Maria Costa preferring a quarter-point rise. Treasury yields rose across the curve.",
+   "publishedAt": "2026-08-01T20:30:00Z",
+   "source": "Capital Times",
+   "url": "https://capitaltimes.example/fed-delivers-biggest-hike-of-the-year-as-inflation-stays-hot",
+   "event": "fed_rate_rise",
+   "forecasts": []
+  },
+  {
+   "title": "Markets reprice after Fed half-point surprise",
+   "body": "Futures markets now assign a 70 percent probability to another Federal Reserve rate rise in September after Wednesday's half-point increase took the benchmark rate to 5.5 to 5.75 percent. Economists at three large banks raised their forecasts for the peak rate to 6 percent. The S&P 500 fell 1.4 percent on the day and the two-year Treasury yield climbed 18 basis points. Chair Elena Ruiz said the committee would act again if inflation did not ease.",
+   "publishedAt": "2026-08-02T06:00:00Z",
+   "source": "Business Daily",
+   "url": "https://businessdaily.example/markets-reprice-after-fed-half-point-surprise",
+   "event": "fed_rate_rise",
+   "forecasts": []
+  },
+  {
+   "title": "US central bank lifts rates 50 basis points",
+   "body": "The US Federal Reserve raised interest rates by 50 basis points on Wednesday, taking its target range to 5.5 to 5.75 percent. Chair Elena Ruiz said inflation was still too high. It was the largest increase of 2026 and came with two dissents in favour of a smaller move. The dollar strengthened against most major currencies after the decision.",
+   "publishedAt": "2026-08-01T19:00:00Z",
+   "source": "Global Dispatch",
+   "url": "https://globaldispatch.example/us-central-bank-lifts-rates-50-basis-points",
+   "event": "fed_rate_rise",
+   "forecasts": []
+  },
+  {
+   "title": "Fed hikes half a point; Ruiz warns more may come",
+   "body": "The Federal Reserve raised its benchmark interest rate by half a percentage point on Wednesday to a range of 5.5 to 5.75 percent,  its largest increase this year.\n\nChair Elena Ruiz said inflation remained too high and that the committee was prepared to move again in September if price pressures did not ease.\n\nTwo members of the committee dissented in favour of a quarter-point move.\n\nStocks fell after the announcement,  with the S&P 500 closing down 1.4 percent.",
+   "publishedAt": "2026-08-01T21:00:00Z",
+   "source": "Register-Sun",
+   "url": "https://registersun.example/fed-hikes-half-a-point-ruiz-warns-more-may-come",
+   "event": "fed_rate_rise",
+   "forecasts": []
+  },
+  {
+   "title": "Mortgage applications fall 12 percent after rate rise",
+   "body": "Applications for home loans fell 12 percent in the week to August 15, the Mortgage Lenders Council said on Wednesday, as the average 30-year fixed rate climbed to 7.4 percent following the Federal Reserve's half-point increase earlier this month. Refinancing applications dropped 19 percent and purchase applications 8 percent. The council's chief economist, Grace Okonjo, said the decline was the sharpest weekly fall since 2022. Council economists expect applications to keep falling through the autumn.",
+   "publishedAt": "2026-08-20T13:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/mortgage-applications-fall-12-percent-after-rate-rise",
+   "event": "mortgage_fall",
+   "forecasts": [
+    "Council economists expect applications to keep falling through the autumn."
+   ]
+  },
+  {
+   "title": "Home loan demand slumps as 30-year rate tops 7.4 percent",
+   "body": "Demand for mortgages fell sharply in mid-August, with the Mortgage Lenders Council's application index down 12 percent in the week ending August 15. The average rate on a 30-year fixed loan rose to 7.4 percent, its highest since November 2023, after the Federal Reserve raised its benchmark rate by half a point. Refinancing volume fell 19 percent. Grace Okonjo, the council's chief economist, called it the steepest weekly drop in four years.",
+   "publishedAt": "2026-08-20T15:00:00Z",
+   "source": "Business Daily",
+   "url": "https://businessdaily.example/home-loan-demand-slumps-as-30-year-rate-tops-7-4-percent",
+   "event": "mortgage_fall",
+   "forecasts": []
+  },
+  {
+   "title": "Rate shock hits homebuyers as applications drop",
+   "body": "Would-be homebuyers pulled back last week as mortgage rates jumped. The Mortgage Lenders Council reported a 12 percent fall in applications for the week to August 15, with purchase applications down 8 percent and refinancing down 19 percent. The average 30-year rate reached 7.4 percent. Real estate agents in several cities reported cancelled viewings and price cuts on listed homes.",
+   "publishedAt": "2026-08-21T08:00:00Z",
+   "source": "Metro Post",
+   "url": "https://metropost.example/rate-shock-hits-homebuyers-as-applications-drop",
+   "event": "mortgage_fall",
+   "forecasts": []
+  },
+  {
+   "title": "Fed holds rates steady, citing bank stress",
+   "body": "The Federal Reserve left its benchmark rate unchanged at 5.5 to 5.75 percent on Wednesday, pausing after August's half-point increase. Chair Elena Ruiz said the failure of Meridian Bank last week and tighter credit conditions argued for caution, though inflation remained above target. The decision was unanimous. Ruiz said the committee had not ruled out a further increase later this year.",
+   "publishedAt": "2026-09-17T18:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/fed-holds-rates-steady-citing-bank-stress",
+   "event": "fed_hold",
+   "forecasts": []
+  },
+  {
+   "title": "Ruiz pauses hikes after Meridian, keeps door open",
+   "body": "The Federal Open Market Committee held the federal funds rate at 5.50 to 5.75 percent on Wednesday in a unanimous vote. Chair Elena Ruiz pointed to the collapse of Meridian Bank and a tightening in lending standards as reasons to wait, while stressing that inflation was still too high. Markets had priced a 30 percent chance of a hike before the meeting. The committee's projections showed a majority still expecting one more increase in 2026.",
+   "publishedAt": "2026-09-17T20:00:00Z",
+   "source": "Capital Times",
+   "url": "https://capitaltimes.example/ruiz-pauses-hikes-after-meridian-keeps-door-open",
+   "event": "fed_hold",
+   "forecasts": []
+  },
+  {
+   "title": "US Fed pauses rate increases",
+   "body": "The US Federal Reserve kept interest rates on hold on Wednesday at a range of 5.5 to 5.75 percent. Chair Elena Ruiz cited stress in the banking system after the failure of Meridian Bank. The vote was unanimous. The dollar weakened slightly after the decision.",
+   "publishedAt": "2026-09-17T19:00:00Z",
+   "source": "Global Dispatch",
+   "url": "https://globaldispatch.example/us-fed-pauses-rate-increases",
+   "event": "fed_hold",
+   "forecasts": []
+  },
+  {
+   "title": "Cascadia Motors recalls 210,000 Volt-X SUVs over battery fire risk",
+   "body": "Cascadia Motors said on Wednesday it was recalling about 210,000 Volt-X electric SUVs from the 2024 and 2025 model years because a defect in the battery pack's cooling plate can cause coolant to leak onto cells and start a fire. The Portland-based carmaker said it knew of nine fires and no injuries. Owners are advised to park outside until a repair is available, which the company expects in September. The recall covers vehicles sold in the United States and Canada.",
+   "publishedAt": "2026-07-08T14:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/cascadia-motors-recalls-210-000-volt-x-suvs-over-battery-fir",
+   "event": "cascadia_recall",
+   "forecasts": []
+  },
+  {
+   "title": "Volt-X recall: what owners need to know",
+   "body": "Cascadia Motors is recalling roughly 210,000 Volt-X SUVs built for the 2024 and 2025 model years after linking a coolant leak in the battery pack to nine fires. The company said no one had been hurt. Until dealers can replace the cooling plate, expected to begin in September, owners should park outdoors and away from buildings. Cascadia said it would notify owners by mail from July 20. The Volt-X is the company's best-selling model.",
+   "publishedAt": "2026-07-08T16:30:00Z",
+   "source": "Tech Current",
+   "url": "https://techcurrent.example/volt-x-recall-what-owners-need-to-know",
+   "event": "cascadia_recall",
+   "forecasts": []
+  },
+  {
+   "title": "Cascadia shares fall 9 percent on Volt-X recall",
+   "body": "Shares in Cascadia Motors dropped 9 percent on Thursday, a day after the company recalled about 210,000 Volt-X electric SUVs over a battery cooling defect blamed for nine fires. Analysts at Cordell Securities estimated the repair would cost between 300 and 400 million dollars. Cascadia has not given a cost estimate. The Volt-X accounted for 58 percent of the company's deliveries last year.",
+   "publishedAt": "2026-07-09T07:00:00Z",
+   "source": "Business Daily",
+   "url": "https://businessdaily.example/cascadia-shares-fall-9-percent-on-volt-x-recall",
+   "event": "cascadia_recall",
+   "forecasts": [
+    "Analysts at Cordell Securities estimated the repair would cost between 300 and 400 million dollars."
+   ]
+  },
+  {
+   "title": "Electric SUV maker recalls 210,000 vehicles for fire risk",
+   "body": "Cascadia Motors said on Wednesday it was recalling about 210,000 Volt-X electric SUVs from the 2024 and 2025 model years because a defect in the battery pack's cooling plate can cause coolant to leak onto cells and start a fire.\n\nThe Portland-based carmaker said it knew of nine fires and no injuries.\n\nOwners are advised to park outside until a repair is available,  which the company expects in September.\n\nThe recall covers vehicles sold in the United States and Canada.",
+   "publishedAt": "2026-07-08T18:00:00Z",
+   "source": "Register-Sun",
+   "url": "https://registersun.example/electric-suv-maker-recalls-210-000-vehicles-for-fire-risk",
+   "event": "cascadia_recall",
+   "forecasts": []
+  },
+  {
+   "title": "Cascadia expands Volt-X recall to 260,000 vehicles",
+   "body": "Cascadia Motors widened its recall of Volt-X electric SUVs on Tuesday to about 260,000 vehicles, adding early 2026 models built with the same battery cooling plate. The company now says it is aware of 11 fires linked to the defect, up from nine. It repeated that no injuries had been reported and that repairs would begin in September.",
+   "publishedAt": "2026-07-15T12:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/cascadia-expands-volt-x-recall-to-260-000-vehicles",
+   "event": "cascadia_recall",
+   "forecasts": []
+  },
+  {
+   "title": "US safety regulator opens investigation into Cascadia Volt-X fires",
+   "body": "The National Highway Traffic Safety Administration said on Tuesday it had opened a formal investigation into fires in Cascadia Motors' Volt-X SUVs, two weeks after the company recalled the vehicles. The agency said it had received 14 reports of fires, including three in vehicles parked and switched off, and two reports of minor injuries. The probe covers about 260,000 vehicles. NHTSA said it would assess whether the company's recall remedy was adequate and whether it reported the defect in time.",
+   "publishedAt": "2026-07-22T15:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/us-safety-regulator-opens-investigation-into-cascadia-volt-x",
+   "event": "cascadia_probe",
+   "forecasts": []
+  },
+  {
+   "title": "NHTSA questions whether Cascadia reported Volt-X defect quickly enough",
+   "body": "The National Highway Traffic Safety Administration opened an investigation on Tuesday into battery fires in about 260,000 Cascadia Motors Volt-X SUVs. The agency cited 14 fire reports and two minor injuries. It said it would examine whether Cascadia met the legal deadline to report the defect after learning of it. Cascadia said it was cooperating fully. Carmakers must notify NHTSA within five business days of determining that a safety defect exists.",
+   "publishedAt": "2026-07-22T17:00:00Z",
+   "source": "Tech Current",
+   "url": "https://techcurrent.example/nhtsa-questions-whether-cascadia-reported-volt-x-defect-quic",
+   "event": "cascadia_probe",
+   "forecasts": []
+  },
+  {
+   "title": "Cascadia faces federal probe as Volt-X fire count rises to 14",
+   "body": "Federal regulators have opened an investigation into Cascadia Motors after the number of reported fires in its Volt-X electric SUV rose to 14, including two that caused minor injuries. The National Highway Traffic Safety Administration said on Tuesday the inquiry would look at the timeliness of Cascadia's defect report and the adequacy of its recall repair. Cascadia's shares fell a further 5 percent.",
+   "publishedAt": "2026-07-23T09:00:00Z",
+   "source": "Capital Times",
+   "url": "https://capitaltimes.example/cascadia-faces-federal-probe-as-volt-x-fire-count-rises-to-1",
+   "event": "cascadia_probe",
+   "forecasts": []
+  },
+  {
+   "title": "Regulator probes Cascadia over SUV fires",
+   "body": "The National Highway Traffic Safety Administration is investigating Cascadia Motors over 14 fires in Volt-X SUVs, the agency said on Tuesday, two of which caused minor injuries. The investigation covers roughly 260,000 vehicles already under recall. The company said it was cooperating.",
+   "publishedAt": "2026-07-23T12:00:00Z",
+   "source": "Daily Ledger",
+   "url": "https://dailyledger.example/regulator-probes-cascadia-over-suv-fires",
+   "event": "cascadia_probe",
+   "forecasts": []
+  },
+  {
+   "title": "Cascadia Motors chief executive Priya Natarajan resigns",
+   "body": "Priya Natarajan resigned as chief executive of Cascadia Motors on Wednesday, five weeks after the electric carmaker recalled 260,000 Volt-X SUVs and three weeks after federal regulators opened an investigation into whether the company reported the battery defect on time. The board named chief operating officer Hank Delgado as interim chief executive. Natarajan, who had led Cascadia since 2021, said in a statement that the company needed a fresh start. The board said it had commissioned an independent review of the company's safety reporting.",
+   "publishedAt": "2026-08-12T13:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/cascadia-motors-chief-executive-priya-natarajan-resigns",
+   "event": "cascadia_ceo",
+   "forecasts": []
+  },
+  {
+   "title": "Natarajan out at Cascadia as recall fallout deepens",
+   "body": "Cascadia Motors' board accepted the resignation of chief executive Priya Natarajan on Wednesday, ending a five-year tenure that made the Portland company the third-largest electric vehicle seller in North America. Chief operating officer Hank Delgado takes over on an interim basis. The departure follows the recall of about 260,000 Volt-X SUVs and a federal investigation into the company's handling of battery fires. Cascadia shares rose 3 percent on the news.",
+   "publishedAt": "2026-08-12T15:30:00Z",
+   "source": "Business Daily",
+   "url": "https://businessdaily.example/natarajan-out-at-cascadia-as-recall-fallout-deepens",
+   "event": "cascadia_ceo",
+   "forecasts": []
+  },
+  {
+   "title": "Cascadia names Delgado interim CEO after Natarajan exit",
+   "body": "Hank Delgado, Cascadia Motors' chief operating officer, became interim chief executive on Wednesday after Priya Natarajan resigned amid the Volt-X recall and a federal safety investigation. The board said an outside law firm would review how the company handled reports of battery fires. Natarajan joined Cascadia as chief executive in 2021.",
+   "publishedAt": "2026-08-12T18:00:00Z",
+   "source": "Tech Current",
+   "url": "https://techcurrent.example/cascadia-names-delgado-interim-ceo-after-natarajan-exit",
+   "event": "cascadia_ceo",
+   "forecasts": []
+  },
+  {
+   "title": "Dockworkers strike shuts Port of Halvern",
+   "body": "About 6,500 dockworkers at the Port of Halvern walked off the job at 6 a.m. on Monday after talks between the Harbor Workers Union and the Halvern Terminal Operators Association broke down over automation and pay. The port, the country's third busiest container gateway, handles about 9 million containers a year. The union is seeking a 32 percent pay rise over four years and a ban on fully automated cranes. The operators' last offer was 19 percent. Twelve container ships were anchored outside the harbour by Monday evening.",
+   "publishedAt": "2026-08-25T12:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/dockworkers-strike-shuts-port-of-halvern",
+   "event": "halvern_strike",
+   "forecasts": []
+  },
+  {
+   "title": "Halvern port strike threatens supply chains ahead of holiday season",
+   "body": "A strike by 6,500 members of the Harbor Workers Union halted container operations at the Port of Halvern on Monday. The union wants a 32 percent raise over four years and limits on automated equipment; the Halvern Terminal Operators Association has offered 19 percent. Retailers said a stoppage lasting more than a week would delay holiday inventory. Halvern handles around 9 million containers annually. Economists at Cordell Securities estimated the strike could cost the economy 400 million dollars a day.",
+   "publishedAt": "2026-08-25T16:00:00Z",
+   "source": "Business Daily",
+   "url": "https://businessdaily.example/halvern-port-strike-threatens-supply-chains-ahead-of-holiday",
+   "event": "halvern_strike",
+   "forecasts": [
+    "Economists at Cordell Securities estimated the strike could cost the economy 400 million dollars a day."
+   ]
+  },
+  {
+   "title": "Picket lines up at Halvern as ships queue offshore",
+   "body": "Hundreds of dockworkers picketed the gates of the Port of Halvern on Tuesday, the second day of a strike by the Harbor Workers Union over pay and automation. Port officials said 18 container ships were waiting at anchor. The union's president, Rosa Valdez, said members would stay out until the operators dropped plans for automated cranes. The Halvern Terminal Operators Association said it remained open to talks.",
+   "publishedAt": "2026-08-26T07:00:00Z",
+   "source": "Coastal Gazette",
+   "url": "https://coastalgazette.example/picket-lines-up-at-halvern-as-ships-queue-offshore",
+   "event": "halvern_strike",
+   "forecasts": []
+  },
+  {
+   "title": "Halvern strike enters fifth day with 40 ships waiting",
+   "body": "The strike at the Port of Halvern entered its fifth day on Friday with about 40 container ships anchored offshore, port officials said. Mediated talks between the Harbor Workers Union and the Halvern Terminal Operators Association resumed on Thursday under a federal mediator. Neither side reported progress. Some importers have begun diverting cargo to ports on the opposite coast.",
+   "publishedAt": "2026-08-29T15:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/halvern-strike-enters-fifth-day-with-40-ships-waiting",
+   "event": "halvern_strike",
+   "forecasts": []
+  },
+  {
+   "title": "Halvern dockworkers reach deal, ending eight-day strike",
+   "body": "The Harbor Workers Union and the Halvern Terminal Operators Association reached a tentative four-year agreement early on Tuesday, ending an eight-day strike that shut the Port of Halvern. The deal provides a 27 percent pay rise over four years and requires the operators to consult the union before introducing automated cranes, while allowing semi-automated equipment. Union president Rosa Valdez said members would vote on the agreement within two weeks. Work resumed at 7 a.m. Port officials said clearing the backlog of about 50 ships would take three weeks.",
+   "publishedAt": "2026-09-02T04:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/halvern-dockworkers-reach-deal-ending-eight-day-strike",
+   "event": "halvern_deal",
+   "forecasts": []
+  },
+  {
+   "title": "Port of Halvern reopens after union accepts 27 percent raise",
+   "body": "Container operations at the Port of Halvern restarted on Tuesday morning after the Harbor Workers Union and terminal operators agreed a tentative contract. The four-year deal includes a 27 percent wage increase and a consultation requirement before fully automated cranes are introduced. About 50 ships were waiting offshore when the strike ended. Port officials expect the backlog to clear in around three weeks. The agreement still needs approval from union members.",
+   "publishedAt": "2026-09-02T09:00:00Z",
+   "source": "Business Daily",
+   "url": "https://businessdaily.example/port-of-halvern-reopens-after-union-accepts-27-percent-raise",
+   "event": "halvern_deal",
+   "forecasts": []
+  },
+  {
+   "title": "Relief on the docks as Halvern strike ends",
+   "body": "Dockworkers returned to the Port of Halvern on Tuesday after eight days on strike, following a tentative agreement reached overnight between the Harbor Workers Union and the Halvern Terminal Operators Association. The contract offers a 27 percent raise over four years and gives the union a say before automated cranes are brought in. Rosa Valdez, the union president, called it a fair outcome. A ratification vote is expected within two weeks.",
+   "publishedAt": "2026-09-02T12:00:00Z",
+   "source": "Coastal Gazette",
+   "url": "https://coastalgazette.example/relief-on-the-docks-as-halvern-strike-ends",
+   "event": "halvern_deal",
+   "forecasts": []
+  },
+  {
+   "title": "Major US port strike ends with tentative contract",
+   "body": "An eight-day strike at the Port of Halvern, one of the largest container ports in the United States, ended on Tuesday after the dockworkers' union and terminal operators reached a tentative four-year deal including a 27 percent pay rise. Around 50 ships had been waiting outside the port. Officials estimated three weeks to clear the backlog.",
+   "publishedAt": "2026-09-02T14:00:00Z",
+   "source": "Global Dispatch",
+   "url": "https://globaldispatch.example/major-us-port-strike-ends-with-tentative-contract",
+   "event": "halvern_deal",
+   "forecasts": []
+  },
+  {
+   "title": "Hurricane Odile makes landfall in Louisiana as Category 3 storm",
+   "body": "Hurricane Odile made landfall near Grand Isle, Louisiana, at 6 a.m. on Sunday as a Category 3 storm with sustained winds of 120 miles per hour, the National Hurricane Center said. Storm surge of up to 12 feet flooded coastal parishes and more than 600,000 customers lost power. Three deaths had been confirmed by midday, including two people killed by a falling tree in Houma. Governor Claire Boudreaux said about 90,000 people had evacuated. Odile is the strongest hurricane to hit the state since 2021.",
+   "publishedAt": "2026-09-20T14:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/hurricane-odile-makes-landfall-in-louisiana-as-category-3-st",
+   "event": "odile_landfall",
+   "forecasts": []
+  },
+  {
+   "title": "Odile slams Louisiana coast; surge swamps Grand Isle",
+   "body": "Hurricane Odile came ashore near Grand Isle on Sunday morning with 120 mile per hour winds, pushing a storm surge of as much as 12 feet into low-lying parishes. Officials confirmed three deaths by early afternoon. Power was out for more than 600,000 homes and businesses. Governor Claire Boudreaux said roughly 90,000 residents had left the coast before the storm. Rescue crews in boats were pulling people from flooded homes in Lafitte.",
+   "publishedAt": "2026-09-20T18:00:00Z",
+   "source": "Coastal Gazette",
+   "url": "https://coastalgazette.example/odile-slams-louisiana-coast-surge-swamps-grand-isle",
+   "event": "odile_landfall",
+   "forecasts": []
+  },
+  {
+   "title": "Hurricane Odile death toll rises to nine",
+   "body": "The death toll from Hurricane Odile rose to nine on Monday as search teams reached flooded communities in southern Louisiana, state officials said. The Category 3 storm came ashore near Grand Isle on Sunday with winds of 120 miles per hour. About 480,000 customers remained without power on Monday morning. Odile weakened to a tropical storm over Mississippi.",
+   "publishedAt": "2026-09-21T09:00:00Z",
+   "source": "Global Dispatch",
+   "url": "https://globaldispatch.example/hurricane-odile-death-toll-rises-to-nine",
+   "event": "odile_landfall",
+   "forecasts": []
+  },
+  {
+   "title": "Odile toll reaches 14 as floodwaters recede",
+   "body": "Louisiana officials said on Tuesday that 14 people had died as a result of Hurricane Odile, up from nine on Monday, after more bodies were found in flooded homes in Terrebonne and Lafourche parishes. The storm made landfall on Sunday as a Category 3 hurricane. Power had been restored to about half of the 600,000 customers who lost it. Governor Claire Boudreaux said damage assessments were continuing.",
+   "publishedAt": "2026-09-22T16:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/odile-toll-reaches-14-as-floodwaters-recede",
+   "event": "odile_landfall",
+   "forecasts": []
+  },
+  {
+   "title": "Lafitte residents return to find homes destroyed by Odile",
+   "body": "Residents of Lafitte, Louisiana, returned on Monday to find much of the town under water after Hurricane Odile's storm surge overtopped levees on Sunday. The storm hit as a Category 3 hurricane with 120 mile per hour winds. State officials put the death toll at nine on Monday. More than 480,000 customers were still without electricity. Local officials said at least 300 homes in the town were uninhabitable.",
+   "publishedAt": "2026-09-21T12:00:00Z",
+   "source": "Metro Post",
+   "url": "https://metropost.example/lafitte-residents-return-to-find-homes-destroyed-by-odile",
+   "event": "odile_landfall",
+   "forecasts": []
+  },
+  {
+   "title": "Category 3 hurricane hits Louisiana, three dead",
+   "body": "Hurricane Odile made landfall near Grand Isle,  Louisiana,  at 6 a.m.\n\non Sunday as a Category 3 storm with sustained winds of 120 miles per hour,  the National Hurricane Center said.\n\nStorm surge of up to 12 feet flooded coastal parishes and more than 600,000 customers lost power.\n\nThree deaths had been confirmed by midday,  including two people killed by a falling tree in Houma.\n\nGovernor Claire Boudreaux said about 90,000 people had evacuated.\n\nOdile is the strongest hurricane to hit the state since 2021.",
+   "publishedAt": "2026-09-20T16:00:00Z",
+   "source": "Register-Sun",
+   "url": "https://registersun.example/category-3-hurricane-hits-louisiana-three-dead",
+   "event": "odile_landfall",
+   "forecasts": []
+  },
+  {
+   "title": "President declares major disaster in Louisiana after Odile",
+   "body": "President Alan Marsh signed a major disaster declaration for 14 Louisiana parishes on Tuesday, freeing federal funds for individuals and local governments hit by Hurricane Odile. The declaration covers temporary housing, home repairs and low-cost loans. FEMA administrator Denise Park said 1,200 federal personnel were in the state. Governor Claire Boudreaux had requested the declaration on Monday.",
+   "publishedAt": "2026-09-22T21:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/president-declares-major-disaster-in-louisiana-after-odile",
+   "event": "odile_disaster",
+   "forecasts": []
+  },
+  {
+   "title": "Federal disaster aid approved for 14 parishes hit by Odile",
+   "body": "The White House approved a major disaster declaration on Tuesday for 14 parishes in Louisiana damaged by Hurricane Odile, making residents eligible for federal grants for housing and repairs. The declaration came a day after Governor Claire Boudreaux's request. FEMA said it had 1,200 staff deployed in the state and had opened six disaster recovery centres.",
+   "publishedAt": "2026-09-23T08:00:00Z",
+   "source": "Capital Times",
+   "url": "https://capitaltimes.example/federal-disaster-aid-approved-for-14-parishes-hit-by-odile",
+   "event": "odile_disaster",
+   "forecasts": []
+  },
+  {
+   "title": "Insurers put Odile losses at 11 billion dollars",
+   "body": "Insured losses from Hurricane Odile will reach about 11 billion dollars, catastrophe modelling firm Ravenscroft Analytics estimated on Monday, making it the costliest US storm since 2022. Most of the losses are from wind damage and storm surge in coastal Louisiana. Shares in two large Gulf Coast insurers fell about 4 percent. Ravenscroft said the estimate excluded flood losses covered by the National Flood Insurance Program.",
+   "publishedAt": "2026-09-28T10:00:00Z",
+   "source": "Business Daily",
+   "url": "https://businessdaily.example/insurers-put-odile-losses-at-11-billion-dollars",
+   "event": "odile_losses",
+   "forecasts": []
+  },
+  {
+   "title": "Hurricane Odile to cost insurers about 11 billion dollars, modeller says",
+   "body": "Ravenscroft Analytics estimated on Monday that insured losses from Hurricane Odile, which struck Louisiana on September 20, would total roughly 11 billion dollars, excluding federally insured flood claims. The firm said the storm would be the most expensive in the United States since 2022. Insurance stocks fell after the estimate was published.",
+   "publishedAt": "2026-09-28T13:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/hurricane-odile-to-cost-insurers-about-11-billion-dollars-mo",
+   "event": "odile_losses",
+   "forecasts": []
+  },
+  {
+   "title": "Veridian obesity pill cuts weight 18 percent in late-stage trial",
+   "body": "Veridian Pharma said on Wednesday that its once-daily oral obesity drug, orlavatide, reduced body weight by an average of 18.2 percent over 68 weeks in a phase 3 trial of 2,400 adults, compared with 2.1 percent for placebo. The most common side effects were nausea and diarrhoea, and 9 percent of participants stopped treatment because of side effects. The company said it would file for approval in the United States by the end of September. Analysts at Cordell Securities said the drug could reach annual sales of 10 billion dollars by 2030.",
+   "publishedAt": "2026-06-24T11:00:00Z",
+   "source": "Health Wire",
+   "url": "https://healthwire.example/veridian-obesity-pill-cuts-weight-18-percent-in-late-stage-t",
+   "event": "veridian_trial",
+   "forecasts": [
+    "Analysts at Cordell Securities said the drug could reach annual sales of 10 billion dollars by 2030."
+   ]
+  },
+  {
+   "title": "Veridian shares soar 32 percent on obesity drug data",
+   "body": "Shares in Veridian Pharma jumped 32 percent on Wednesday after the company reported that its oral obesity drug orlavatide produced 18.2 percent average weight loss in a 2,400-patient phase 3 trial, against 2.1 percent on placebo. Nine percent of patients discontinued because of side effects, mainly gastrointestinal. Veridian plans to submit the drug to the FDA by the end of September. Some analysts predicted the pill would take a large share of the injectable obesity market within three years.",
+   "publishedAt": "2026-06-24T14:00:00Z",
+   "source": "Business Daily",
+   "url": "https://businessdaily.example/veridian-shares-soar-32-percent-on-obesity-drug-data",
+   "event": "veridian_trial",
+   "forecasts": [
+    "Some analysts predicted the pill would take a large share of the injectable obesity market within three years."
+   ]
+  },
+  {
+   "title": "Veridian reports positive phase 3 results for oral obesity drug",
+   "body": "Veridian Pharma's experimental pill orlavatide helped patients lose 18.2 percent of their body weight on average over 68 weeks in a phase 3 study, the company said on Wednesday. The trial enrolled 2,400 adults with obesity; placebo patients lost 2.1 percent. Nausea and diarrhoea were the most frequent side effects and 9 percent of participants dropped out because of them. Veridian said it expects to file with the FDA by the end of September.",
+   "publishedAt": "2026-06-24T12:30:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/veridian-reports-positive-phase-3-results-for-oral-obesity-d",
+   "event": "veridian_trial",
+   "forecasts": []
+  },
+  {
+   "title": "Oral obesity drug matches injectables in trial",
+   "body": "An experimental pill from Veridian Pharma produced weight loss of 18.2 percent in a late-stage trial, the company said on Wednesday, a result comparable to leading injectable treatments. The 68-week study involved 2,400 adults. Veridian intends to seek US approval by the end of September.",
+   "publishedAt": "2026-06-25T06:00:00Z",
+   "source": "Global Dispatch",
+   "url": "https://globaldispatch.example/oral-obesity-drug-matches-injectables-in-trial",
+   "event": "veridian_trial",
+   "forecasts": []
+  },
+  {
+   "title": "FDA advisers back Veridian obesity pill 11 to 2",
+   "body": "A Food and Drug Administration advisory committee voted 11 to 2 on Wednesday that the benefits of Veridian Pharma's oral obesity drug orlavatide outweigh its risks. Panel members said the 18 percent weight loss seen in the phase 3 trial was clinically meaningful but asked the agency to require a study of long-term liver safety after three trial participants showed elevated liver enzymes. The FDA is not bound by the vote and is expected to decide by December 15.",
+   "publishedAt": "2026-09-09T22:00:00Z",
+   "source": "Health Wire",
+   "url": "https://healthwire.example/fda-advisers-back-veridian-obesity-pill-11-to-2",
+   "event": "veridian_fda_vote",
+   "forecasts": []
+  },
+  {
+   "title": "Panel recommends approval of Veridian weight-loss pill",
+   "body": "Outside advisers to the US Food and Drug Administration recommended approval of Veridian Pharma's weight-loss pill orlavatide on Wednesday by a vote of 11 to 2. The panel urged a post-approval study of liver safety after three patients in the trial had raised liver enzymes. The FDA's decision deadline is December 15. Veridian shares rose 8 percent in after-hours trading.",
+   "publishedAt": "2026-09-10T00:30:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/panel-recommends-approval-of-veridian-weight-loss-pill",
+   "event": "veridian_fda_vote",
+   "forecasts": []
+  },
+  {
+   "title": "Veridian clears key hurdle as FDA panel votes for approval",
+   "body": "Veridian Pharma's obesity pill moved closer to market on Wednesday after an FDA advisory committee voted 11 to 2 in its favour. The panel asked for a liver safety study as a condition of approval. The agency is due to make a final decision by December 15. Veridian's stock gained 8 percent after hours.",
+   "publishedAt": "2026-09-10T07:00:00Z",
+   "source": "Business Daily",
+   "url": "https://businessdaily.example/veridian-clears-key-hurdle-as-fda-panel-votes-for-approval",
+   "event": "veridian_fda_vote",
+   "forecasts": []
+  },
+  {
+   "title": "Norland opposition wins election but falls short of majority",
+   "body": "Norland's opposition Liberal Alliance won the most seats in Sunday's parliamentary election, taking 71 of 175 seats, but fell short of a majority, near-complete results showed. The governing Social Democrats of prime minister Ingrid Halvorsen dropped to 52 seats from 68. The Green Party won 22 seats and the Centre Party 18. Liberal Alliance leader Erik Lund said he would seek talks with the Greens and the Centre Party. Turnout was 81 percent.",
+   "publishedAt": "2026-09-06T23:00:00Z",
+   "source": "Global Dispatch",
+   "url": "https://globaldispatch.example/norland-opposition-wins-election-but-falls-short-of-majority",
+   "event": "norland_election",
+   "forecasts": []
+  },
+  {
+   "title": "Lund claims victory as Halvorsen concedes in Norland",
+   "body": "Erik Lund's Liberal Alliance emerged as the largest party in Norland's election on Sunday with 71 seats in the 175-seat parliament. Prime minister Ingrid Halvorsen conceded defeat after her Social Democrats fell to 52 seats. The Greens took 22 seats and the Centre Party 18, making both potential coalition partners. Lund said coalition talks would begin this week. Turnout of 81 percent was the highest since 2009.",
+   "publishedAt": "2026-09-07T06:00:00Z",
+   "source": "Northern Herald",
+   "url": "https://northernherald.example/lund-claims-victory-as-halvorsen-concedes-in-norland",
+   "event": "norland_election",
+   "forecasts": []
+  },
+  {
+   "title": "Norland election leaves Liberal Alliance seeking partners",
+   "body": "Norland's Liberal Alliance won 71 of 175 seats in Sunday's election, according to the final count released on Monday, leaving leader Erik Lund 17 seats short of a majority. The Social Democrats of outgoing prime minister Ingrid Halvorsen won 52, the Greens 22, the Centre Party 18 and smaller parties 12. Lund said he would open talks with the Greens and the Centre Party.",
+   "publishedAt": "2026-09-07T08:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/norland-election-leaves-liberal-alliance-seeking-partners",
+   "event": "norland_election",
+   "forecasts": []
+  },
+  {
+   "title": "Norland votes for change after 12 years of Social Democrat rule",
+   "body": "Voters in Norland ended 12 years of Social Democrat government on Sunday, handing Erik Lund's Liberal Alliance 71 seats, the most of any party, in the 175-member parliament. Ingrid Halvorsen's Social Democrats won 52 seats. With the Greens on 22 and the Centre Party on 18, Lund needs at least one of them to govern. Turnout reached 81 percent.",
+   "publishedAt": "2026-09-07T11:00:00Z",
+   "source": "Capital Times",
+   "url": "https://capitaltimes.example/norland-votes-for-change-after-12-years-of-social-democrat-r",
+   "event": "norland_election",
+   "forecasts": []
+  },
+  {
+   "title": "Norland's Lund forms three-party coalition government",
+   "body": "Erik Lund was sworn in as Norland's prime minister on Saturday at the head of a coalition of his Liberal Alliance, the Green Party and the Centre Party, three weeks after an election in which his party won the most seats but no majority. The coalition holds 111 of 175 seats. Under the agreement, the Greens take the environment and energy ministries and the Centre Party the agriculture ministry. The government's programme promises a carbon tax increase and income tax cuts.",
+   "publishedAt": "2026-09-27T15:00:00Z",
+   "source": "Global Dispatch",
+   "url": "https://globaldispatch.example/norland-s-lund-forms-three-party-coalition-government",
+   "event": "norland_coalition",
+   "forecasts": []
+  },
+  {
+   "title": "Lund sworn in as prime minister with Greens and Centre in cabinet",
+   "body": "Norland's new prime minister Erik Lund took office on Saturday leading a three-party government with a 111-seat majority in the 175-seat parliament. The Green Party's leader, Sofia Berg, becomes energy minister, and the Centre Party's Anders Vik takes agriculture. The coalition agreement, signed on Friday, includes a higher carbon tax and cuts to income tax.",
+   "publishedAt": "2026-09-27T17:00:00Z",
+   "source": "Northern Herald",
+   "url": "https://northernherald.example/lund-sworn-in-as-prime-minister-with-greens-and-centre-in-ca",
+   "event": "norland_coalition",
+   "forecasts": []
+  },
+  {
+   "title": "Three-party coalition takes office in Norland",
+   "body": "A coalition of the Liberal Alliance, the Greens and the Centre Party took office in Norland on Saturday with Erik Lund as prime minister. The three parties control 111 of parliament's 175 seats. The coalition deal was signed on Friday after three weeks of talks following the September 6 election.",
+   "publishedAt": "2026-09-27T16:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/three-party-coalition-takes-office-in-norland",
+   "event": "norland_coalition",
+   "forecasts": []
+  },
+  {
+   "title": "Lumen Health says hackers accessed records of 2.1 million patients",
+   "body": "Lumen Health, a hospital operator with 34 facilities in six states, said on Thursday that attackers had gained access to a patient database in June and taken records of about 2.1 million people, including names, dates of birth, insurance details and in some cases diagnoses. The company said it discovered the intrusion on July 2 and that the attackers were in its systems for about three weeks. It is offering two years of credit monitoring. Lumen said it had notified the Department of Health and Human Services.",
+   "publishedAt": "2026-07-30T15:00:00Z",
+   "source": "Tech Current",
+   "url": "https://techcurrent.example/lumen-health-says-hackers-accessed-records-of-2-1-million-pa",
+   "event": "lumen_breach",
+   "forecasts": []
+  },
+  {
+   "title": "Hospital chain Lumen Health discloses data breach affecting 2.1 million",
+   "body": "Lumen Health disclosed on Thursday that hackers stole personal and medical information of roughly 2.1 million patients in a breach it detected on July 2. The intruders had access for about three weeks, the company said. Stolen data included insurance information and, for some patients, diagnoses. Lumen operates 34 hospitals. It has reported the incident to federal regulators and is offering credit monitoring.",
+   "publishedAt": "2026-07-30T17:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/hospital-chain-lumen-health-discloses-data-breach-affecting-",
+   "event": "lumen_breach",
+   "forecasts": []
+  },
+  {
+   "title": "Lumen Health raises breach count to 3.4 million patients",
+   "body": "Lumen Health said on Thursday that its June data breach affected about 3.4 million patients, up from the 2.1 million it reported last week, after a review found a second database had been accessed. The additional records include contact details and appointment histories. The company said the attackers had access for about three weeks before the intrusion was found on July 2.",
+   "publishedAt": "2026-08-06T12:00:00Z",
+   "source": "Health Wire",
+   "url": "https://healthwire.example/lumen-health-raises-breach-count-to-3-4-million-patients",
+   "event": "lumen_breach",
+   "forecasts": []
+  },
+  {
+   "title": "Patients of Lumen hospitals warned after cyberattack",
+   "body": "Patients at Lumen Health's 34 hospitals were urged on Friday to watch for fraud after the company revealed that hackers had taken records of about 2.1 million people. The breach, detected on July 2, exposed names, birth dates, insurance numbers and some diagnoses. Lumen is offering free credit monitoring for two years. The company has not said who was behind the attack.",
+   "publishedAt": "2026-07-31T08:00:00Z",
+   "source": "Daily Ledger",
+   "url": "https://dailyledger.example/patients-of-lumen-hospitals-warned-after-cyberattack",
+   "event": "lumen_breach",
+   "forecasts": []
+  },
+  {
+   "title": "Regulator fines Lumen Health 4.5 million dollars over breach",
+   "body": "The Department of Health and Human Services fined Lumen Health 4.5 million dollars on Thursday for failing to protect patient data in a breach that exposed records of about 3.4 million people earlier this year. The department's Office for Civil Rights said Lumen had not encrypted the affected databases and had not conducted a risk assessment since 2022. Lumen agreed to a two-year corrective action plan. The company said it had since encrypted all patient databases.",
+   "publishedAt": "2026-10-01T16:00:00Z",
+   "source": "Health Wire",
+   "url": "https://healthwire.example/regulator-fines-lumen-health-4-5-million-dollars-over-breach",
+   "event": "lumen_fine",
+   "forecasts": []
+  },
+  {
+   "title": "Lumen Health hit with 4.5 million dollar penalty for unencrypted patient data",
+   "body": "Federal health regulators penalised Lumen Health 4.5 million dollars on Thursday over the breach of 3.4 million patient records disclosed in July. The HHS Office for Civil Rights found the databases were unencrypted and that the company had skipped required risk assessments since 2022. Lumen accepted a corrective action plan lasting two years.",
+   "publishedAt": "2026-10-01T18:30:00Z",
+   "source": "Tech Current",
+   "url": "https://techcurrent.example/lumen-health-hit-with-4-5-million-dollar-penalty-for-unencry",
+   "event": "lumen_fine",
+   "forecasts": []
+  },
+  {
+   "title": "Passenger train derails in Colorado, killing five",
+   "body": "A Copperline Rail passenger train derailed on Monday afternoon near Salida, Colorado, killing five people and injuring 62, state police said. The train, carrying 210 passengers from Denver to Durango, left the tracks on a curve at about 3:40 p.m. Four of its eight cars overturned. Copperline said the cause was not yet known. The National Transportation Safety Board said it was sending investigators to the site.",
+   "publishedAt": "2026-08-03T22:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/passenger-train-derails-in-colorado-killing-five",
+   "event": "copperline_crash",
+   "forecasts": []
+  },
+  {
+   "title": "Five dead after Copperline train leaves tracks near Salida",
+   "body": "Five passengers were killed and 62 people injured when a Copperline Rail train derailed on a curve near Salida, Colorado, on Monday afternoon, authorities said. The Denver-to-Durango service was carrying 210 passengers. Four carriages overturned. The National Transportation Safety Board dispatched a team to investigate. Copperline suspended service on the line.",
+   "publishedAt": "2026-08-04T07:00:00Z",
+   "source": "Daily Ledger",
+   "url": "https://dailyledger.example/five-dead-after-copperline-train-leaves-tracks-near-salida",
+   "event": "copperline_crash",
+   "forecasts": []
+  },
+  {
+   "title": "Survivors describe chaos as Colorado train overturned",
+   "body": "Passengers on the Copperline Rail train that derailed near Salida on Monday described being thrown across carriages as four of the train's eight cars rolled onto their sides. Five people died and 62 were hurt, 11 of them seriously. The train was travelling from Denver to Durango with 210 people aboard. Federal investigators arrived at the scene on Tuesday morning.",
+   "publishedAt": "2026-08-04T12:00:00Z",
+   "source": "Metro Post",
+   "url": "https://metropost.example/survivors-describe-chaos-as-colorado-train-overturned",
+   "event": "copperline_crash",
+   "forecasts": []
+  },
+  {
+   "title": "Train that derailed in Colorado was travelling at twice the speed limit, NTSB says",
+   "body": "The Copperline Rail train that derailed near Salida, Colorado, on August 3, killing five people, was travelling at 68 miles per hour on a curve with a 30 mile per hour limit, the National Transportation Safety Board said in a preliminary report on Thursday. Data from the locomotive's recorder showed the brakes were applied four seconds before the derailment. The board said the line was not equipped with automatic speed enforcement. It has not determined why the train was speeding.",
+   "publishedAt": "2026-08-20T19:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/train-that-derailed-in-colorado-was-travelling-at-twice-the-",
+   "event": "copperline_findings",
+   "forecasts": []
+  },
+  {
+   "title": "NTSB: Copperline train hit curve at 68 mph in 30 mph zone",
+   "body": "Federal investigators said on Thursday that the Copperline Rail train that derailed near Salida on August 3 entered a 30 mile per hour curve at 68 miles per hour. The National Transportation Safety Board's preliminary report said the engineer applied the brakes four seconds before the crash and that the route lacked automatic speed control. Five people died in the derailment.",
+   "publishedAt": "2026-08-21T08:00:00Z",
+   "source": "Capital Times",
+   "url": "https://capitaltimes.example/ntsb-copperline-train-hit-curve-at-68-mph-in-30-mph-zone",
+   "event": "copperline_findings",
+   "forecasts": []
+  },
+  {
+   "title": "Harbor Trust Bank fails after depositors flee",
+   "body": "Harbor Trust Bank of Reno, Nevada, was closed by state regulators on Friday after depositors withdrew about 900 million dollars in a week, following losses on its bond portfolio. The FDIC was appointed receiver and said Sierra Community Bank would assume all deposits and reopen the bank's 12 branches on Monday. Harbor Trust had 5.1 billion dollars in assets. It is the first US bank failure of 2026.",
+   "publishedAt": "2026-06-13T22:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/harbor-trust-bank-fails-after-depositors-flee",
+   "event": "harbor_failure",
+   "forecasts": []
+  },
+  {
+   "title": "Nevada's Harbor Trust becomes first bank failure of 2026",
+   "body": "Regulators shut Harbor Trust Bank on Friday evening after a week-long run drained about 900 million dollars in deposits from the Reno lender, which had taken losses on long-dated bonds. Sierra Community Bank agreed with the FDIC to take over all deposits and the bank's 12 branches. Harbor Trust held 5.1 billion dollars in assets at the end of March.",
+   "publishedAt": "2026-06-14T08:00:00Z",
+   "source": "Business Daily",
+   "url": "https://businessdaily.example/nevada-s-harbor-trust-becomes-first-bank-failure-of-2026",
+   "event": "harbor_failure",
+   "forecasts": []
+  },
+  {
+   "title": "Reno bank closed by regulators; branches to reopen Monday",
+   "body": "Harbor Trust Bank's 12 branches will reopen on Monday as Sierra Community Bank offices after Nevada regulators closed Harbor Trust on Friday. Depositors had pulled roughly 900 million dollars from the 5.1 billion dollar bank over the previous week amid concerns about losses on its bond holdings. The FDIC said no depositor would lose money.",
+   "publishedAt": "2026-06-14T12:00:00Z",
+   "source": "Register-Sun",
+   "url": "https://registersun.example/reno-bank-closed-by-regulators-branches-to-reopen-monday",
+   "event": "harbor_failure",
+   "forecasts": []
+  },
+  {
+   "title": "Magnitude 6.1 earthquake strikes off coast of Chile",
+   "body": "A magnitude 6.1 earthquake struck off the coast of northern Chile on Sunday at 4:12 a.m. local time, the national seismology centre said. The quake was centred 45 kilometres west of Antofagasta at a depth of 30 kilometres. No damage or injuries were reported and no tsunami warning was issued. Residents in Antofagasta reported strong shaking lasting about 20 seconds.",
+   "publishedAt": "2026-07-05T09:00:00Z",
+   "source": "Global Dispatch",
+   "url": "https://globaldispatch.example/magnitude-6-1-earthquake-strikes-off-coast-of-chile",
+   "event": "chile_quake",
+   "forecasts": []
+  },
+  {
+   "title": "Strong quake off northern Chile causes no damage",
+   "body": "A 6.1 magnitude earthquake shook northern Chile early on Sunday, according to the country's seismology centre, which located it 45 kilometres offshore from Antofagasta at a depth of 30 kilometres. Authorities reported no injuries or damage. No tsunami alert was issued.",
+   "publishedAt": "2026-07-05T11:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/strong-quake-off-northern-chile-causes-no-damage",
+   "event": "chile_quake",
+   "forecasts": []
+  },
+  {
+   "title": "Earthquake of magnitude 5.8 shakes central Japan",
+   "body": "A magnitude 5.8 earthquake shook central Japan early on Friday, the Japan Meteorological Agency said. The quake struck at 5:51 a.m. at a depth of 40 kilometres in Nagano prefecture. Bullet train services between Tokyo and Nagano were halted for about an hour for track inspections. There were no reports of injuries or damage, and no tsunami warning was issued.",
+   "publishedAt": "2026-07-24T02:00:00Z",
+   "source": "Global Dispatch",
+   "url": "https://globaldispatch.example/earthquake-of-magnitude-5-8-shakes-central-japan",
+   "event": "japan_quake",
+   "forecasts": []
+  },
+  {
+   "title": "Nagano quake briefly halts bullet trains",
+   "body": "A 5.8 magnitude earthquake in Nagano prefecture on Friday morning stopped Shinkansen services between Tokyo and Nagano for about an hour while tracks were inspected, the Japan Meteorological Agency and the rail operator said. The quake struck at a depth of 40 kilometres. No injuries or damage were reported.",
+   "publishedAt": "2026-07-24T04:30:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/nagano-quake-briefly-halts-bullet-trains",
+   "event": "japan_quake",
+   "forecasts": []
+  },
+  {
+   "title": "Orbital Systems to cut 3,000 jobs, 12 percent of staff",
+   "body": "Satellite internet company Orbital Systems said on Thursday it would cut about 3,000 jobs, or 12 percent of its workforce, and close its manufacturing plant in Tucson, Arizona, as it consolidates production in Texas. Chief executive Lena Marsh said the cuts would save about 450 million dollars a year. The company reported a second-quarter loss of 310 million dollars. Affected employees will be notified by the end of August.",
+   "publishedAt": "2026-08-06T14:00:00Z",
+   "source": "Tech Current",
+   "url": "https://techcurrent.example/orbital-systems-to-cut-3-000-jobs-12-percent-of-staff",
+   "event": "orbital_layoffs",
+   "forecasts": []
+  },
+  {
+   "title": "Orbital Systems slashes workforce after widening loss",
+   "body": "Orbital Systems will lay off roughly 3,000 employees, about 12 percent of its staff, and shut its Tucson factory, the company announced on Thursday alongside a 310 million dollar quarterly loss. Production will be concentrated at its Austin, Texas, plant. Chief executive Lena Marsh said the restructuring would save around 450 million dollars annually. Shares rose 6 percent.",
+   "publishedAt": "2026-08-06T16:00:00Z",
+   "source": "Business Daily",
+   "url": "https://businessdaily.example/orbital-systems-slashes-workforce-after-widening-loss",
+   "event": "orbital_layoffs",
+   "forecasts": []
+  },
+  {
+   "title": "Satellite firm Orbital Systems cuts 3,000 jobs, closes Arizona plant",
+   "body": "Orbital Systems announced 3,000 job cuts on Thursday, about 12 percent of its workforce, and said it would close its Tucson, Arizona, manufacturing facility. The company posted a 310 million dollar loss for the second quarter. Chief executive Lena Marsh said the measures would save about 450 million dollars a year.",
+   "publishedAt": "2026-08-06T15:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/satellite-firm-orbital-systems-cuts-3-000-jobs-closes-arizon",
+   "event": "orbital_layoffs",
+   "forecasts": []
+  },
+  {
+   "title": "Kestrel Air to buy Skyline Airways for 4.2 billion dollars",
+   "body": "Kestrel Air agreed on Thursday to acquire rival low-cost carrier Skyline Airways for 4.2 billion dollars in cash and stock, creating the fourth-largest airline in the United States by passengers. Skyline shareholders will receive 18 dollars a share, a 41 percent premium to Wednesday's close. The combined airline would operate 520 aircraft. Kestrel chief executive Marcus Bell said the deal was expected to close by mid-2027, subject to regulatory approval. Analysts said the Justice Department was likely to scrutinise overlapping routes on the East Coast.",
+   "publishedAt": "2026-09-03T11:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/kestrel-air-to-buy-skyline-airways-for-4-2-billion-dollars",
+   "event": "kestrel_merger",
+   "forecasts": [
+    "Analysts said the Justice Department was likely to scrutinise overlapping routes on the East Coast."
+   ]
+  },
+  {
+   "title": "Kestrel-Skyline deal would create fourth-largest US airline",
+   "body": "Kestrel Air's 4.2 billion dollar agreement to buy Skyline Airways, announced on Thursday, would combine two low-cost carriers into an airline with 520 planes and about 12 percent of the domestic market. Skyline investors get 18 dollars per share in cash and Kestrel stock, a 41 percent premium. The companies aim to complete the transaction by mid-2027. Skyline shares jumped 38 percent; Kestrel fell 5 percent.",
+   "publishedAt": "2026-09-03T13:30:00Z",
+   "source": "Business Daily",
+   "url": "https://businessdaily.example/kestrel-skyline-deal-would-create-fourth-largest-us-airline",
+   "event": "kestrel_merger",
+   "forecasts": []
+  },
+  {
+   "title": "Airline merger faces antitrust test",
+   "body": "Kestrel Air's agreed 4.2 billion dollar takeover of Skyline Airways, announced on Thursday, will test the Justice Department's approach to airline consolidation. The two carriers overlap on 46 routes, mostly along the East Coast. Kestrel's chief executive Marcus Bell said the merger would lower fares by adding capacity. The deal values Skyline at 18 dollars a share and is targeted to close by mid-2027.",
+   "publishedAt": "2026-09-04T07:00:00Z",
+   "source": "Capital Times",
+   "url": "https://capitaltimes.example/airline-merger-faces-antitrust-test",
+   "event": "kestrel_merger",
+   "forecasts": []
+  },
+  {
+   "title": "US budget airlines Kestrel and Skyline agree to merge",
+   "body": "US low-cost carriers Kestrel Air and Skyline Airways agreed to merge on Thursday in a deal valuing Skyline at 4.2 billion dollars. Skyline shareholders receive 18 dollars a share. The combined carrier would fly 520 aircraft. Completion is expected by mid-2027 pending regulatory approval.",
+   "publishedAt": "2026-09-03T15:00:00Z",
+   "source": "Global Dispatch",
+   "url": "https://globaldispatch.example/us-budget-airlines-kestrel-and-skyline-agree-to-merge",
+   "event": "kestrel_merger",
+   "forecasts": []
+  },
+  {
+   "title": "Wildfire forces 20,000 to evacuate in California's Sierra foothills",
+   "body": "A fast-moving wildfire in the Sierra Nevada foothills east of Fresno had burned about 15,000 acres by Tuesday evening and forced the evacuation of some 20,000 people from the towns of Pine Ridge and Auberry, Cal Fire said. The Ridge Fire started on Monday afternoon and was zero percent contained. At least 40 homes had been destroyed. Winds gusting to 35 miles per hour pushed the fire north overnight. The cause is under investigation.",
+   "publishedAt": "2026-08-18T20:00:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/wildfire-forces-20-000-to-evacuate-in-california-s-sierra-fo",
+   "event": "sierra_wildfire",
+   "forecasts": []
+  },
+  {
+   "title": "Ridge Fire grows to 28,000 acres; 120 homes lost",
+   "body": "The Ridge Fire east of Fresno grew to about 28,000 acres on Wednesday, Cal Fire said, and had destroyed at least 120 homes. Containment stood at 5 percent. About 20,000 people remained under evacuation orders in Pine Ridge, Auberry and surrounding areas. More than 2,000 firefighters were assigned to the blaze, which began on Monday.",
+   "publishedAt": "2026-08-19T14:00:00Z",
+   "source": "Coastal Gazette",
+   "url": "https://coastalgazette.example/ridge-fire-grows-to-28-000-acres-120-homes-lost",
+   "event": "sierra_wildfire",
+   "forecasts": []
+  },
+  {
+   "title": "Firefighters battle Ridge Fire as winds ease",
+   "body": "Crews made some progress on the Ridge Fire in California's Sierra foothills on Wednesday as winds dropped, but the blaze had still grown to roughly 28,000 acres and destroyed about 120 homes, according to Cal Fire. Containment was 5 percent. The fire, which started on Monday near Pine Ridge, has forced around 20,000 residents from their homes.",
+   "publishedAt": "2026-08-19T18:00:00Z",
+   "source": "Metro Post",
+   "url": "https://metropost.example/firefighters-battle-ridge-fire-as-winds-ease",
+   "event": "sierra_wildfire",
+   "forecasts": []
+  },
+  {
+   "title": "Norland central bank cuts rates to 3 percent",
+   "body": "The Bank of Norland cut its policy rate by a quarter point to 3 percent on Thursday, its second reduction this year, citing inflation that has fallen to 1.9 percent and weak growth. Governor Hanna Solberg said further cuts were possible if the economy continued to slow. The krone fell 0.6 percent against the euro.",
+   "publishedAt": "2026-08-27T10:00:00Z",
+   "source": "Global Dispatch",
+   "url": "https://globaldispatch.example/norland-central-bank-cuts-rates-to-3-percent",
+   "event": "norland_rate_cut",
+   "forecasts": []
+  },
+  {
+   "title": "Bank of Norland lowers rate again as inflation cools",
+   "body": "Norland's central bank reduced its main interest rate to 3 percent from 3.25 percent on Thursday. Governor Hanna Solberg said inflation at 1.9 percent was below the 2 percent target and that growth had stalled. It was the second cut of 2026.",
+   "publishedAt": "2026-08-27T12:00:00Z",
+   "source": "Northern Herald",
+   "url": "https://northernherald.example/bank-of-norland-lowers-rate-again-as-inflation-cools",
+   "event": "norland_rate_cut",
+   "forecasts": []
+  },
+  {
+   "title": "Kipsang breaks marathon world record in Berlin",
+   "body": "Kenya's Daniel Kipsang broke the men's marathon world record on Sunday, winning the Berlin Marathon in 2 hours 0 minutes 12 seconds and taking 23 seconds off the previous mark. Kipsang, 27, ran the second half faster than the first. Ethiopia's Tsehay Bekele won the women's race in 2:15:40. About 48,000 runners took part.",
+   "publishedAt": "2026-10-04T12:00:00Z",
+   "source": "Sports Ledger",
+   "url": "https://sportsledger.example/kipsang-breaks-marathon-world-record-in-berlin",
+   "event": "marathon_record",
+   "forecasts": []
+  },
+  {
+   "title": "Daniel Kipsang sets marathon world record of 2:00:12",
+   "body": "Daniel Kipsang of Kenya set a men's marathon world record of 2:00:12 at the Berlin Marathon on Sunday, improving the previous record by 23 seconds. The 27-year-old negative-split the race. Tsehay Bekele of Ethiopia took the women's title in 2:15:40.",
+   "publishedAt": "2026-10-04T13:30:00Z",
+   "source": "Wire One",
+   "url": "https://wire.one/daniel-kipsang-sets-marathon-world-record-of-2-00-12",
+   "event": "marathon_record",
+   "forecasts": []
+  },
+  {
+   "title": "Aurora-3 lunar probe launches successfully",
+   "body": "The Aurora-3 spacecraft lifted off from Vandenberg Space Force Base at 1:14 a.m. Pacific time on Thursday aboard a Stellar Launch Falcon-9 class rocket, beginning a five-day journey to the Moon. The 1,200 kilogram probe, built by the Pacific Space Agency, will orbit the lunar south pole for two years to map water ice deposits. The launch had been delayed twice by weather. Mission director Yuki Tanaka said all systems were nominal.",
+   "publishedAt": "2026-09-25T09:00:00Z",
+   "source": "Tech Current",
+   "url": "https://techcurrent.example/aurora-3-lunar-probe-launches-successfully",
+   "event": "aurora_launch",
+   "forecasts": []
+  },
+  {
+   "title": "Lunar ice-mapping mission lifts off from California",
+   "body": "The Pacific Space Agency's Aurora-3 probe launched from Vandenberg on Thursday after two weather delays. The 1,200 kilogram spacecraft will reach lunar orbit in about five days and spend two years mapping water ice near the Moon's south pole. Mission director Yuki Tanaka reported a nominal ascent.",
+   "publishedAt": "2026-09-25T11:00:00Z",
+   "source": "Global Dispatch",
+   "url": "https://globaldispatch.example/lunar-ice-mapping-mission-lifts-off-from-california",
+   "event": "aurora_launch",
+   "forecasts": []
+  }
+ ],
+ "links": [
+  {
+   "src": "fed_rate_rise",
+   "dst": "mortgage_fall",
+   "type": "causes"
+  },
+  {
+   "src": "fed_rate_rise",
+   "dst": "meridian_collapse",
+   "type": "background_for"
+  },
+  {
+   "src": "meridian_collapse",
+   "dst": "fed_hold",
+   "type": "causes"
+  },
+  {
+   "src": "fed_hold",
+   "dst": "meridian_collapse",
+   "type": "reacts_to"
+  },
+  {
+   "src": "fed_rate_rise",
+   "dst": "fed_hold",
+   "type": "background_for"
+  },
+  {
+   "src": "meridian_sale",
+   "dst": "meridian_collapse",
+   "type": "reacts_to"
+  },
+  {
+   "src": "meridian_collapse",
+   "dst": "meridian_sale",
+   "type": "causes"
+  },
+  {
+   "src": "meridian_hearing",
+   "dst": "meridian_collapse",
+   "type": "reacts_to"
+  },
+  {
+   "src": "meridian_collapse",
+   "dst": "meridian_hearing",
+   "type": "background_for"
+  },
+  {
+   "src": "meridian_lawsuit",
+   "dst": "meridian_collapse",
+   "type": "reacts_to"
+  },
+  {
+   "src": "meridian_collapse",
+   "dst": "meridian_lawsuit",
+   "type": "background_for"
+  },
+  {
+   "src": "meridian_collapse",
+   "dst": "meridian_lawsuit",
+   "type": "causes"
+  },
+  {
+   "src": "harbor_failure",
+   "dst": "meridian_collapse",
+   "type": "background_for"
+  },
+  {
+   "src": "cascadia_recall",
+   "dst": "cascadia_probe",
+   "type": "causes"
+  },
+  {
+   "src": "cascadia_probe",
+   "dst": "cascadia_recall",
+   "type": "reacts_to"
+  },
+  {
+   "src": "cascadia_recall",
+   "dst": "cascadia_probe",
+   "type": "background_for"
+  },
+  {
+   "src": "cascadia_probe",
+   "dst": "cascadia_ceo",
+   "type": "causes"
+  },
+  {
+   "src": "cascadia_ceo",
+   "dst": "cascadia_probe",
+   "type": "reacts_to"
+  },
+  {
+   "src": "cascadia_recall",
+   "dst": "cascadia_ceo",
+   "type": "causes"
+  },
+  {
+   "src": "cascadia_ceo",
+   "dst": "cascadia_recall",
+   "type": "reacts_to"
+  },
+  {
+   "src": "cascadia_recall",
+   "dst": "cascadia_ceo",
+   "type": "background_for"
+  },
+  {
+   "src": "halvern_deal",
+   "dst": "halvern_strike",
+   "type": "reacts_to"
+  },
+  {
+   "src": "halvern_strike",
+   "dst": "halvern_deal",
+   "type": "background_for"
+  },
+  {
+   "src": "halvern_strike",
+   "dst": "halvern_deal",
+   "type": "causes"
+  },
+  {
+   "src": "odile_landfall",
+   "dst": "odile_disaster",
+   "type": "causes"
+  },
+  {
+   "src": "odile_disaster",
+   "dst": "odile_landfall",
+   "type": "reacts_to"
+  },
+  {
+   "src": "odile_landfall",
+   "dst": "odile_losses",
+   "type": "causes"
+  },
+  {
+   "src": "odile_landfall",
+   "dst": "odile_losses",
+   "type": "background_for"
+  },
+  {
+   "src": "veridian_trial",
+   "dst": "veridian_fda_vote",
+   "type": "background_for"
+  },
+  {
+   "src": "veridian_trial",
+   "dst": "veridian_fda_vote",
+   "type": "causes"
+  },
+  {
+   "src": "veridian_fda_vote",
+   "dst": "veridian_trial",
+   "type": "reacts_to"
+  },
+  {
+   "src": "norland_election",
+   "dst": "norland_coalition",
+   "type": "causes"
+  },
+  {
+   "src": "norland_election",
+   "dst": "norland_coalition",
+   "type": "background_for"
+  },
+  {
+   "src": "norland_coalition",
+   "dst": "norland_election",
+   "type": "reacts_to"
+  },
+  {
+   "src": "lumen_breach",
+   "dst": "lumen_fine",
+   "type": "causes"
+  },
+  {
+   "src": "lumen_fine",
+   "dst": "lumen_breach",
+   "type": "reacts_to"
+  },
+  {
+   "src": "lumen_breach",
+   "dst": "lumen_fine",
+   "type": "background_for"
+  },
+  {
+   "src": "copperline_crash",
+   "dst": "copperline_findings",
+   "type": "background_for"
+  },
+  {
+   "src": "copperline_findings",
+   "dst": "copperline_crash",
+   "type": "reacts_to"
+  },
+  {
+   "src": "copperline_crash",
+   "dst": "copperline_findings",
+   "type": "causes"
+  }
+ ],
+ "storylines": [
+  [
+   "meridian_collapse",
+   "meridian_sale",
+   "meridian_hearing",
+   "meridian_lawsuit"
+  ],
+  [
+   "fed_rate_rise",
+   "mortgage_fall",
+   "fed_hold"
+  ],
+  [
+   "cascadia_recall",
+   "cascadia_probe",
+   "cascadia_ceo"
+  ],
+  [
+   "halvern_strike",
+   "halvern_deal"
+  ],
+  [
+   "odile_landfall",
+   "odile_disaster",
+   "odile_losses"
+  ],
+  [
+   "veridian_trial",
+   "veridian_fda_vote"
+  ],
+  [
+   "norland_election",
+   "norland_coalition"
+  ],
+  [
+   "lumen_breach",
+   "lumen_fine"
+  ],
+  [
+   "copperline_crash",
+   "copperline_findings"
+  ]
+ ],
+ "questions": [
+  {
+   "question": "Why did mortgage applications fall in August?",
+   "events": [
+    "mortgage_fall",
+    "fed_rate_rise"
+   ],
+   "facts": [
+    "Applications fell 12 percent in the week to August 15",
+    "The 30-year rate climbed to 7.4 percent after the Fed raised rates by half a point"
+   ]
+  },
+  {
+   "question": "Who took over Meridian Bank's deposits and did uninsured depositors lose money?",
+   "events": [
+    "meridian_sale"
+   ],
+   "facts": [
+    "Northgate Bank assumed all deposits including uninsured balances"
+   ]
+  },
+  {
+   "question": "How many people died in Hurricane Odile?",
+   "events": [
+    "odile_landfall"
+   ],
+   "facts": [
+    "14 deaths as of September 22"
+   ]
+  },
+  {
+   "question": "How did the Meridian Bank story unfold after the collapse?",
+   "events": [
+    "meridian_collapse",
+    "meridian_sale",
+    "meridian_hearing",
+    "meridian_lawsuit"
+   ],
+   "facts": [
+    "Closed September 10",
+    "Northgate bought deposits and branches",
+    "Senate hearing October 6",
+    "Shareholder lawsuit October 12"
+   ]
+  },
+  {
+   "question": "Why did the chief executive of Cascadia Motors resign?",
+   "events": [
+    "cascadia_ceo",
+    "cascadia_probe",
+    "cascadia_recall"
+   ],
+   "facts": [
+    "Resigned after the Volt-X recall and NHTSA investigation"
+   ]
+  },
+  {
+   "question": "Has a bank failed in a similar way to Meridian Bank recently?",
+   "events": [
+    "harbor_failure",
+    "meridian_collapse"
+   ],
+   "facts": [
+    "Harbor Trust Bank failed in June after a deposit run following bond losses"
+   ]
+  },
+  {
+   "question": "What did the Federal Reserve decide in September and why?",
+   "events": [
+    "fed_hold",
+    "meridian_collapse"
+   ],
+   "facts": [
+    "Held rates at 5.5 to 5.75 percent citing Meridian Bank failure and tighter credit"
+   ]
+  },
+  {
+   "question": "How was the Port of Halvern strike resolved?",
+   "events": [
+    "halvern_deal",
+    "halvern_strike"
+   ],
+   "facts": [
+    "Tentative four-year deal with a 27 percent raise and consultation on automation ended the eight-day strike"
+   ]
+  },
+  {
+   "question": "How many patient records were exposed in the Lumen Health breach?",
+   "events": [
+    "lumen_breach",
+    "lumen_fine"
+   ],
+   "facts": [
+    "About 3.4 million, revised up from 2.1 million"
+   ]
+  },
+  {
+   "question": "Who won the Norland election and who ended up forming the government?",
+   "events": [
+    "norland_election",
+    "norland_coalition"
+   ],
+   "facts": [
+    "Liberal Alliance won 71 seats",
+    "Erik Lund formed a coalition with the Greens and Centre Party"
+   ]
+  },
+  {
+   "question": "What sales do analysts predict for Veridian's obesity pill?",
+   "events": [
+    "veridian_trial"
+   ],
+   "facts": [
+    "Cordell Securities analysts said it could reach 10 billion dollars by 2030 (speculation)"
+   ]
+  },
+  {
+   "question": "What did the FDA advisory panel decide about orlavatide?",
+   "events": [
+    "veridian_fda_vote"
+   ],
+   "facts": [
+    "Voted 11 to 2 that benefits outweigh risks; asked for a liver safety study"
+   ]
+  },
+  {
+   "question": "How fast was the Copperline train going when it derailed?",
+   "events": [
+    "copperline_findings",
+    "copperline_crash"
+   ],
+   "facts": [
+    "68 mph on a 30 mph curve"
+   ]
+  },
+  {
+   "question": "What was the estimated insured loss from Hurricane Odile?",
+   "events": [
+    "odile_losses"
+   ],
+   "facts": [
+    "About 11 billion dollars per Ravenscroft Analytics"
+   ]
+  }
+ ]
+}

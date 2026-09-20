@@ -1,0 +1,29 @@
+# Decisions where the design doc is silent
+
+- LLM is DeepSeek (`deepseek-chat`) through the `openai` SDK; DeepSeek has no embedding endpoint, so embeddings come from OpenAI `text-embedding-3-small` (1536 dims) through the same SDK. Keys: `DEEPSEEK_API_KEY`, `OPENAI_API_KEY`.
+- `src/db.ts` exists beyond the section 3 file list: it holds the pool, the transaction helper, `applySchema()` (substitutes `EMBED_DIM`), and the section 4 derived definitions as SQL fragments (`liveClaim`, `hiddenClaim`, `documentDate`) so each is written once.
+- SimHash covers the normalized body only, using word frequencies as features; the title is covered by `content_hash`. A 64-bit SimHash at 3 bits tolerates well under 1% feature change, so including the headline would defeat the near-duplicate test.
+- The dedup gate ignores failed documents and matches only originals (`duplicate_of is null`), so a failed document can be re-ingested and `duplicate_of` always points at an original.
+- Steps 2 to 7 run in one transaction; on any error only the document row remains, with `error` set. Entities created in step 3 roll back with it.
+- Id validity is enforced by building each reply schema with the prompt's ids as enums, so an invented id gets the same single retry as any other invalid reply; other prompt rules that code can check (one link per candidate, storyline title only for a candidate without one, speculation never superseding a fact) are schema refinements too.
+- Consolidate candidates list non-superseded claims only, with `[hidden]` and `[speculation]` marks; superseded claims stay out so the agent points at current facts.
+- The claim guard compares a new claim with non-superseded, non-hidden claims of the same kind (facts against live facts, speculation against speculation).
+- Link candidates are ordered: step 5 rejects, then events sharing an entity within `LINK_WINDOW_DAYS` of the new event's `occurred_at` (most recent first), then nearest neighbours by `content_embedding`; deduplicated and capped at `LINK_CANDIDATE_MAX`.
+- `event_entities` upsert keeps the first role recorded.
+- `detachDocument` re-runs from step 2 because extractions are not stored. It leaves `event_entities` alone (no column records which document added an entity) and deletes the old event only when no claims and no documents reference it.
+- The query agent sees prefixed ids (`E17`, `C101`, `S4`) in tool results and may pass either form back; `get_event` omits links and documents so URLs never reach the agent.
+- `search_events` full text ORs the query's lexemes; reciprocal rank fusion uses k=60 over the top 2k of each ranking.
+- DeepSeek JSON mode is requested only when a message mentions JSON (6.1 does); reply parsing takes the outermost `{...}` so a stray fence fails nothing while validation stays strict.
+- Token usage is published on diagnostics channel `insights-db:llm` (used by `eval/`) and printed with `NODE_DEBUG=insights-db`.
+- Source files import with `.ts` specifiers and `rewriteRelativeImportExtensions`, so `eval/run.ts` runs on Node's type stripping with no build step while `dist/` keeps `.js` imports.
+- `eval/` refuses a database that already holds documents rather than wiping it.
+- `setGuidance` rejects empty text; `null` removes a step's guidance.
+- Events with no claims have no activity and never become step 4 candidates.
+- Milestone 7 (verification, `listClaims`, `search_claims`) is not built; `VERIFY_*` config and the hidden-claim predicate exist because the live-claim definition depends on them.
+- The eval set is a fictional but realistic corpus written for this project (104 articles, 32 events); the doc asked for real articles, which cannot be redistributed. Link labels list every defensible (src, dst, type) reading so precision is not penalised for choosing between equivalent types.
+- After the first eval run the owner approved editing the prompts. Changes (2026-09-19): consolidate.md names resolutions, hearings and agreements as separate events with a later-day test; link.md fixes link direction by time and narrows storylines to one specific matter with a title-fit check; extract.md says attribution does not make a forecast a claim. `link.ts` also rejects a causes/background_for link whose src is later than its dst (and a reacts_to the other way) so an inverted reply is retried.
+- Chat calls run at temperature 0: the eval flipped merge decisions between identical runs at DeepSeek's default of 1.0, and every step is a classification.
+- Eval runs 2–6 (2026-09-19) drove further prompt rules, each stated generally: reports and disclosures are dated when made public; `supersedes` needs a changed value (code also rejects two N claims superseding one C); a link needs evidence in the claims shown; a new occurrence stays new even when it updates a candidate's figures; the candidate's `event_type` is shown in consolidate. Word-limit errors report the count.
+- `LLM_MODEL_BY_STEP` sends the link step to `deepseek-reasoner`: replaying identical link prompts showed deepseek-chat adding unsupported links that no wording removed, while the reasoner returned exactly the labeled ones. Reasoning tokens are excluded from the output budgets.
+- The eval's "questions answered" credits a question only when every cited claim sits on an expected event, so a wrong merge upstream also fails the question that depends on it.
+- A second corpus, `eval/set2.json` (96 fictional articles, 36 events, non-financial domains), guards against tuning to one set. Its first run (2026-09-20) showed weekly updates falling just outside `CANDIDATE_WINDOW_DAYS = 7`, so it is now 14, and consolidate.md says that an actor carrying out a step already announced is not a new occurrence. Over-splits that remain (a ratification vote, a launch article whose main event was the bug) are left: the doc weights precision above recall and links connect the halves.
