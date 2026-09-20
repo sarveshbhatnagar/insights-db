@@ -2,6 +2,10 @@
 
 Dates are release dates. Decisions behind each change are in [DECISIONS.md](DECISIONS.md).
 
+## 0.3.2 — 2026-09-20
+
+- Documentation: README rewritten as a short entry point, with concepts, quickstart, CLI, library and read API, guidance, configuration and operations under `docs/`, which now ships in the package along with this changelog. The design doc moves to `docs/design.md`.
+
 ## 0.3.1 — 2026-09-20
 
 - `storylineId` (one id or several) joins the read filters, so `events.list`, `events.similar` and the `events.entities` catalog can be limited to a storyline.
