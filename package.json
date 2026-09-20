@@ -1,6 +1,6 @@
 {
   "name": "insights-db",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Ingests documents, stores each real-world event once with its facts, links related events, and answers questions over the result.",
   "keywords": [
     "events",

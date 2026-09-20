@@ -106,6 +106,39 @@ describe('events read API', () => {
     expect(await items({ asOf: new Date('2026-09-11T08:00:00Z') })).toEqual([harbor, quake, rate, mortgage, bank]);
   });
 
+  it('list, similar and entities filter by storyline', async () => {
+    // The bank failure and its sale in one storyline; an earthquake outside it.
+    fake.reply('extract', f.bankExtraction);
+    const bank = (await db.ingest(f.bankArticle)).eventId!;
+    fake.reply('extract', f.saleExtraction);
+    fake.reply('consolidate', { event_id: null, claims: [] });
+    fake.reply('link', { continues: `E${bank}`, storyline_title: 'Meridian Bank collapse and aftermath',
+      links: [{ src: 'E2', dst: `E${bank}`, type: 'reacts_to', reason: 'r' }] });
+    const sale = (await db.ingest(f.saleArticle)).eventId!;
+    fake.reply('extract', f.quakeExtraction1);
+    fake.reply('link', f.noLinks);
+    const quake = (await db.ingest(f.quakeArticle1)).eventId!;
+    const [s] = await q<{ id: string }>('select id from storylines');
+    const storylineId = s!.id;
+    expect((await db.events.getMany([bank, quake])).map((e) => e.storylineId)).toEqual([storylineId, null]);
+
+    const items = async (query: Parameters<typeof db.events.list>[0]) => ids((await db.events.list(query)).items);
+    expect(await items({ storylineId })).toEqual([bank, sale]);
+    expect(await items({ storylineId: [storylineId] })).toEqual([bank, sale]);
+    expect(await items({ storylineId, eventType: 'bank_acquisition' })).toEqual([sale]);
+    expect(await items({ storylineId: '999999' })).toEqual([]);
+    expect(await items({})).toEqual([quake, bank, sale]);
+
+    expect(ids(await db.events.similar({ eventId: bank, k: 5, filters: { storylineId } }))).toEqual([sale]);
+    expect(ids(await db.events.similar({ eventId: quake, k: 5, filters: { storylineId } })).sort()).toEqual([bank, sale].sort());
+    expect(await db.events.similar({ eventId: bank, k: 5, filters: { storylineId: '999999' } })).toEqual([]);
+
+    // No alias for FDIC, so the two spellings stay separate entities.
+    expect((await db.events.entities({ storylineId })).map((n) => [n.name, n.count]))
+      .toEqual([['Meridian Bank', 2], ['Dana Whitfield', 1], ['FDIC', 1], ['Federal Deposit Insurance Corporation', 1], ['Northgate Bank', 1]]);
+    expect(await db.events.entities({ storylineId: '999999' })).toEqual([]);
+  });
+
   it('asOf hands out each event as it stood then: claims asserted by then, supersession not yet known', async () => {
     const { bank, superseded } = await seed();
     const now = (await db.events.getMany([bank]))[0]!;

@@ -49,6 +49,8 @@ export type EventFilters = {
   to?: Date | string | undefined;
   asOf?: AsOf | undefined;
   excludeIds?: string[] | undefined;
+  // Events in any of these storylines.
+  storylineId?: string | string[] | undefined;
 };
 
 export type ListQuery = EventFilters & {
@@ -77,13 +79,14 @@ type EventRow = {
 const EVENT = (e: string): string =>
   `${e}.id, ${e}.title, ${e}.event_type, ${e}.pattern, ${e}.occurred_at, ${e}.storyline_id, ${observedAt(e)} as observed_at`;
 
-// The filters as one predicate over alias e, bound to $1..$6 in this order.
+// The filters as one predicate over alias e, bound to $1..$7 in this order.
 const FILTERS = `($1::text[] is null or e.event_type = any($1))
   and ($2::bigint[] is null or exists (select 1 from event_entities ee where ee.event_id = e.id and ee.entity_id = any($2)))
   and ($3::date is null or e.occurred_at >= $3)
   and ($4::date is null or e.occurred_at <= $4)
   and ($5::timestamptz is null or ${observedAt('e')} <= $5)
-  and ($6::bigint[] is null or e.id <> all($6))`;
+  and ($6::bigint[] is null or e.id <> all($6))
+  and ($7::bigint[] is null or e.storyline_id = any($7))`;
 
 const filterParams = (f: EventFilters): unknown[] => [
   f.eventType === undefined ? null : [f.eventType].flat(),
@@ -92,6 +95,7 @@ const filterParams = (f: EventFilters): unknown[] => [
   f.to === undefined ? null : isoDate(f.to),
   f.asOf ?? null,
   f.excludeIds ?? null,
+  f.storylineId === undefined ? null : [f.storylineId].flat(),
 ];
 
 const LIMIT = 50;
@@ -175,8 +179,8 @@ export async function list(conn: Connection, query: ListQuery = {}): Promise<Pag
   const [after, afterId] = query.cursor ? decodeCursor(query.cursor) : [null, null];
   const { rows } = await conn.pool.query<EventRow>(
     `select ${EVENT('e')} from events e
-     where ${FILTERS} and ($7::date is null or (e.occurred_at, e.id) ${desc ? '<' : '>'} ($7, $8::bigint))
-     order by e.occurred_at ${desc ? 'desc' : 'asc'}, e.id ${desc ? 'desc' : 'asc'} limit $9`,
+     where ${FILTERS} and ($8::date is null or (e.occurred_at, e.id) ${desc ? '<' : '>'} ($8, $9::bigint))
+     order by e.occurred_at ${desc ? 'desc' : 'asc'}, e.id ${desc ? 'desc' : 'asc'} limit $10`,
     [...filterParams(query), after, afterId, limit + 1],
   );
   const page = rows.slice(0, limit);
@@ -199,9 +203,9 @@ export async function similar(conn: Connection, query: SimilarQuery, vector: Vec
     filters.excludeIds = [...(filters.excludeIds ?? []), query.eventId];
   } else v = vec(query.embedding);
   const { rows } = await conn.pool.query<EventRow & { score: number }>(
-    `select ${EVENT('e')}, 1 - (e.${column} <=> $7::vector) as score from events e
-     where ${FILTERS} and ($9::float is null or 1 - (e.${column} <=> $7::vector) >= $9)
-     order by e.${column} <=> $7::vector, e.id limit $8`,
+    `select ${EVENT('e')}, 1 - (e.${column} <=> $8::vector) as score from events e
+     where ${FILTERS} and ($10::float is null or 1 - (e.${column} <=> $8::vector) >= $10)
+     order by e.${column} <=> $8::vector, e.id limit $9`,
     [...filterParams(filters), v, query.k ?? 5, query.minScore ?? null],
   );
   const records = await hydrate(conn, rows, filters.asOf);
@@ -218,19 +222,24 @@ export async function types(conn: Connection): Promise<TypeStats[]> {
 }
 
 // The entities in use, most frequent first, with the span of their events'
-// occurredAt; optionally counting only events of some types or dates.
+// occurredAt; optionally counting only events of some types, dates or storylines.
 export async function entities(
   conn: Connection,
-  query: { eventType?: string | string[] | undefined; from?: Date | string | undefined; to?: Date | string | undefined; limit?: number | undefined } = {},
+  query: {
+    eventType?: string | string[] | undefined; from?: Date | string | undefined; to?: Date | string | undefined;
+    storylineId?: string | string[] | undefined; limit?: number | undefined;
+  } = {},
 ): Promise<EntityStats[]> {
   const { rows } = await conn.pool.query<{ id: string; name: string; type: string; count: string; from: string; to: string }>(
     `select n.id, n.name, n.type, count(*) as count, min(e.occurred_at) as "from", max(e.occurred_at) as "to"
      from entities n join event_entities ee on ee.entity_id = n.id join events e on e.id = ee.event_id
      where ($1::text[] is null or e.event_type = any($1))
        and ($2::date is null or e.occurred_at >= $2) and ($3::date is null or e.occurred_at <= $3)
-     group by n.id order by count(*) desc, n.name, n.id limit $4`,
+       and ($4::bigint[] is null or e.storyline_id = any($4))
+     group by n.id order by count(*) desc, n.name, n.id limit $5`,
     [query.eventType === undefined ? null : [query.eventType].flat(),
-      query.from === undefined ? null : isoDate(query.from), query.to === undefined ? null : isoDate(query.to), query.limit ?? 1000],
+      query.from === undefined ? null : isoDate(query.from), query.to === undefined ? null : isoDate(query.to),
+      query.storylineId === undefined ? null : [query.storylineId].flat(), query.limit ?? 1000],
   );
   return rows.map((r) => ({ id: r.id, name: r.name, type: r.type, count: Number(r.count), from: r.from, to: r.to }));
 }
