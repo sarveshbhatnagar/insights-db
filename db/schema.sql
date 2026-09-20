@@ -1,6 +1,6 @@
 create extension if not exists vector;
 
-create table entities (
+create table if not exists entities (
   id         bigserial primary key,
   name       text not null,
   type       text not null check (type in ('person','org','place','other')),
@@ -8,12 +8,12 @@ create table entities (
   embedding  vector(EMBED_DIM) not null          -- embed(name)
 );
 
-create table storylines (
+create table if not exists storylines (
   id     bigserial primary key,
   title  text not null                           -- <= 8 words, set once at creation
 );
 
-create table events (
+create table if not exists events (
   id                 bigserial primary key,
   storyline_id       bigint references storylines(id),  -- null = stands alone
   title              text not null,              -- <= 15 words
@@ -24,7 +24,7 @@ create table events (
   pattern_embedding  vector(EMBED_DIM) not null  -- embed(pattern)
 );
 
-create table documents (
+create table if not exists documents (
   id            bigserial primary key,
   url           text,
   source        text,
@@ -39,14 +39,14 @@ create table documents (
   ingested_at   timestamptz not null default now()
 );
 
-create table event_entities (
+create table if not exists event_entities (
   event_id   bigint not null references events(id),
   entity_id  bigint not null references entities(id),
   role       text not null,                      -- <= 3 words
   primary key (event_id, entity_id)
 );
 
-create table claims (
+create table if not exists claims (
   id              bigserial primary key,
   event_id        bigint not null references events(id),
   document_id     bigint not null references documents(id),  -- first document to assert it
@@ -62,7 +62,7 @@ create table claims (
   tsv             tsvector generated always as (to_tsvector('english', text)) stored
 );
 
-create table links (
+create table if not exists links (
   id      bigserial primary key,
   src     bigint not null references events(id),
   dst     bigint not null references events(id),
@@ -73,16 +73,16 @@ create table links (
   check (src <> dst)
 );
 
-create table guidance (
+create table if not exists guidance (
   step        text primary key check (step in
                 ('domain','extract','resolve_entity','consolidate','verify','link','query')),
   text        text not null,                     -- <= 150 words
   updated_at  timestamptz not null default now()
 );
 
-create index on documents (content_hash);
-create index on entities using hnsw (embedding vector_cosine_ops);
-create index on events using hnsw (content_embedding vector_cosine_ops);
-create index on events using hnsw (pattern_embedding vector_cosine_ops);
-create index on claims using hnsw (embedding vector_cosine_ops);
-create index on claims using gin (tsv);
+create index if not exists documents_content_hash_idx on documents (content_hash);
+create index if not exists entities_embedding_idx on entities using hnsw (embedding vector_cosine_ops);
+create index if not exists events_content_embedding_idx on events using hnsw (content_embedding vector_cosine_ops);
+create index if not exists events_pattern_embedding_idx on events using hnsw (pattern_embedding vector_cosine_ops);
+create index if not exists claims_embedding_idx on claims using hnsw (embedding vector_cosine_ops);
+create index if not exists claims_tsv_idx on claims using gin (tsv);

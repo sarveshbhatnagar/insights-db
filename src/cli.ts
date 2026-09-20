@@ -2,25 +2,47 @@
 import { readFileSync } from 'node:fs';
 import { parseArgs } from 'node:util';
 import { pool } from './db.ts';
-import { ask, ingest, setGuidance, similarEvents } from './index.ts';
+import { ask, ingestMany, init, listClaims, listEntities, relink, retryFailed, searchEvents, setGuidance, similarEvents } from './index.ts';
 
 const usage = `usage:
-  insights-db ingest <file.jsonl>   one DocumentIn per line
+  insights-db init                             create or update the schema
+  insights-db ingest <file.jsonl> [--concurrency 4]   one DocumentIn per line
+  insights-db retry [--concurrency 4]          re-run failed documents
   insights-db ask "<question>"
+  insights-db search "<query>" [--k 8]         events, no LLM
+  insights-db claims "<query>" [--speculation] [--k 20]
+  insights-db entities "<query>" [--k 20]
   insights-db similar <eventId> [--k 5]
-  insights-db guidance <file.json>  {step: text}; null removes a step's guidance`;
+  insights-db relink <eventId>                 re-judge an event's links
+  insights-db guidance <file.json>             {step: text}; null removes a step's guidance`;
+
+const json = (v: unknown): void => console.log(JSON.stringify(v, null, 2));
 
 async function main(argv: string[]): Promise<number> {
-  const { positionals, values } = parseArgs({ args: argv, allowPositionals: true, options: { k: { type: 'string' } } });
+  const { positionals, values } = parseArgs({
+    args: argv,
+    allowPositionals: true,
+    options: { k: { type: 'string' }, concurrency: { type: 'string' }, speculation: { type: 'boolean' } },
+  });
   const [command, arg] = positionals;
+  const k = values.k ? Number(values.k) : undefined;
+  const concurrency = values.concurrency ? Number(values.concurrency) : undefined;
+  switch (command) {
+    case 'init':
+      await init();
+      return 0;
+    case 'retry':
+      json(await retryFailed({ concurrency }));
+      return 0;
+  }
   if (!command || !arg) {
     console.error(usage);
     return 2;
   }
   switch (command) {
     case 'ingest': {
-      const lines = readFileSync(arg, 'utf8').split('\n').filter((l) => l.trim());
-      for (const line of lines) console.log(JSON.stringify(await ingest(JSON.parse(line))));
+      const docs = readFileSync(arg, 'utf8').split('\n').filter((l) => l.trim()).map((l) => JSON.parse(l));
+      for (const r of await ingestMany(docs, { concurrency })) console.log(JSON.stringify(r));
       return 0;
     }
     case 'ask': {
@@ -31,8 +53,20 @@ async function main(argv: string[]): Promise<number> {
       }
       return 0;
     }
+    case 'search':
+      json(await searchEvents(arg, { k }));
+      return 0;
+    case 'claims':
+      json(await listClaims({ query: arg, k, speculation: values.speculation ? true : undefined }));
+      return 0;
+    case 'entities':
+      json(await listEntities({ query: arg, k }));
+      return 0;
     case 'similar':
-      console.log(JSON.stringify(await similarEvents(arg, values.k ? Number(values.k) : 5), null, 2));
+      json(await similarEvents(arg, k ?? 5));
+      return 0;
+    case 'relink':
+      json({ newLinks: await relink(arg) });
       return 0;
     case 'guidance': {
       const steps = JSON.parse(readFileSync(arg, 'utf8')) as Record<string, string | null>;

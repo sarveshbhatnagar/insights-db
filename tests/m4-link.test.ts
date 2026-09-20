@@ -59,9 +59,9 @@ describe('milestone 4: links', () => {
     await ingest(f.mortgageArticle);
 
     fake.reply('link', { continues: null, storyline_title: null, links: [link] });
-    expect(await linkEvent(pool, '2', [])).toBe(0);
+    expect(await linkEvent('2', [])).toBe(0);
     fake.reply('link', { continues: null, storyline_title: null, links: [{ ...link, src: 'E2', dst: `E${rateId}`, type: 'reacts_to' }] });
-    expect(await linkEvent(pool, '2', [])).toBe(0);
+    expect(await linkEvent('2', [])).toBe(0);
     expect(await links()).toHaveLength(1);
     expect(await q('select id from storylines')).toHaveLength(0);
   });
@@ -78,7 +78,7 @@ describe('milestone 4: links', () => {
     fake.reply('link',
       { continues: null, storyline_title: null, links: [{ src: `E${rate.eventId}`, dst: 'E2', type: 'reacts_to', reason: 'r' }] },
       { continues: null, storyline_title: null, links: [{ src: `E${rate.eventId}`, dst: 'E2', type: 'reacts_to', reason: 'r' }] });
-    await expect(linkEvent(pool, '2', [])).rejects.toThrow(/invalid reply after retry/);
+    await expect(linkEvent('2', [])).rejects.toThrow(/invalid reply after retry/);
     expect(await links()).toHaveLength(1);
   });
 
@@ -91,16 +91,19 @@ describe('milestone 4: links', () => {
     fake.reply('extract', f.mortgageExtraction);
     fake.reply('link', { continues: null, storyline_title: null, links: [{ src: 'E1', dst: 'E2', type: 'causes', reason: 'r' }] },
       { continues: null, storyline_title: null, links: [{ src: 'E9', dst: 'E3', type: 'causes', reason: 'r' }] });
-    expect((await ingest(f.mortgageArticle)).outcome).toBe('failed');
-    // The rolled-back event still consumed id 3, so the retry's event is E4.
+    // A link failure keeps the event and records the error on the document.
+    const first = await ingest(f.mortgageArticle);
+    expect(first).toMatchObject({ outcome: 'new', eventId: '3', newLinks: 0 });
     fake.reply('link', { continues: null, storyline_title: null, links: [{ src: 'E4', dst: 'E4', type: 'causes', reason: 'r' }] },
       { continues: null, storyline_title: null, links: [{ src: 'E4', dst: 'E2', type: 'causes', reason: 'r' }, { src: 'E2', dst: 'E4', type: 'background_for', reason: 'r' }] });
     fake.reply('extract', f.mortgageExtraction);
-    expect((await ingest({ ...f.mortgageArticle, body: `${f.mortgageArticle.body} Updated.` })).outcome).toBe('failed');
-    const errors = await q<{ error: string }>('select error from documents where error is not null order by id');
-    expect(errors.map((e) => e.error)).toEqual([expect.stringMatching(/link: invalid reply/), expect.stringMatching(/at most one link per candidate/)]);
+    fake.reply('consolidate', { event_id: null, claims: [] });
+    expect((await ingest({ ...f.mortgageArticle, body: `${f.mortgageArticle.body} Updated.` })).outcome).toBe('new');
+    const errors = await q<{ error: string; event_id: string }>('select error, event_id from documents where error is not null order by id');
+    expect(errors.map((e) => e.error)).toEqual([expect.stringMatching(/^link: .*invalid reply/), expect.stringMatching(/at most one link per candidate/)]);
+    expect(errors.map((e) => e.event_id)).toEqual(['3', '4']);
     expect(await links()).toEqual([]);
-    expect(await q('select id from events')).toHaveLength(2);
+    expect(await q('select id from events')).toHaveLength(4);
   });
 });
 
@@ -159,16 +162,19 @@ describe('milestone 4: storylines', () => {
     fake.reply('link', { continues: `E${sale}`, storyline_title: 'Meridian hearings', links: [] },
       { continues: `E${sale}`, storyline_title: 'Meridian hearings', links: [] });
     const hearing = await ingest(f.hearingArticle);
-    expect(hearing.outcome).toBe('failed');
+    expect(hearing).toMatchObject({ outcome: 'new', newLinks: 0 });
     const [doc] = await q<{ error: string }>('select error from documents order by id desc limit 1');
-    expect(doc!.error).toMatch(/link: invalid reply/);
+    expect(doc!.error).toMatch(/^link: .*invalid reply/);
     expect(await q('select id from storylines')).toHaveLength(1);
-    expect(await q('select id from events')).toHaveLength(2);
+    expect((await getEvent(hearing.eventId!)).storyline).toBeNull();
 
     fake.reply('extract', f.quakeExtraction1);
-    await ingest(f.quakeArticle1);
+    fake.reply('link', f.noLinks);
+    const quake = await ingest(f.quakeArticle1);
     fake.reply('extract', f.quakeExtraction2);
-    fake.reply('link', { continues: 'E3', storyline_title: null, links: [] }, { continues: 'E3', storyline_title: null, links: [] });
-    expect((await ingest(f.quakeArticle2)).outcome).toBe('failed');
+    fake.reply('link', { continues: `E${quake.eventId}`, storyline_title: null, links: [] }, { continues: `E${quake.eventId}`, storyline_title: null, links: [] });
+    const quake2 = await ingest(f.quakeArticle2);
+    expect(quake2.outcome).toBe('new');
+    expect((await q<{ error: string }>('select error from documents where id = $1', [quake2.documentId]))[0]!.error).toMatch(/storyline_title is required/);
   });
 });

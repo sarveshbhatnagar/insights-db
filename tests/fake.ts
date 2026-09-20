@@ -45,8 +45,9 @@ class Completions {
     const user = req.messages[1]?.content ?? '';
     const step = stepOf(String(system), String(user));
     fake.calls.push({ step, messages: req.messages, tools: req.tools });
-    const queue = fake.replies.get(step) ?? [];
-    const reply = queue.shift();
+    // Keyed replies first (needed when calls arrive in any order), then the FIFO queue.
+    const keyed = (fake.keyed.get(step) ?? []).find((k) => String(user).includes(k.includes) && k.replies.length > 0);
+    const reply = keyed ? keyed.replies.shift() : (fake.replies.get(step) ?? []).shift();
     if (reply === undefined) throw new Error(`fake LLM: no reply queued for step ${step}`);
     const message: Record<string, unknown> = { role: 'assistant', content: null };
     if (typeof reply === 'string') message.content = reply;
@@ -79,17 +80,23 @@ class FakeOpenAI {
 export const fake = {
   OpenAI: FakeOpenAI,
   replies: new Map<string, FakeReply[]>(),
+  keyed: new Map<string, { includes: string; replies: FakeReply[] }[]>(),
   calls: [] as Call[],
   embedded: [] as string[],
   aliases: new Map<string, string>(),
   reply(step: string, ...replies: FakeReply[]): void {
     fake.replies.set(step, [...(fake.replies.get(step) ?? []), ...replies]);
   },
+  // Replies served to any call of `step` whose prompt contains `includes`.
+  when(step: string, includes: string, ...replies: FakeReply[]): void {
+    fake.keyed.set(step, [...(fake.keyed.get(step) ?? []), { includes, replies }]);
+  },
   alias(from: string, to: string): void {
     fake.aliases.set(from, to);
   },
   reset(): void {
     fake.replies.clear();
+    fake.keyed.clear();
     fake.calls.length = 0;
     fake.embedded.length = 0;
     fake.aliases.clear();

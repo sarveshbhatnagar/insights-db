@@ -26,9 +26,22 @@ export async function withTransaction<T>(fn: (client: pg.PoolClient) => Promise<
   }
 }
 
-export async function applySchema(): Promise<void> {
+// schema.sql is written with "if not exists" throughout, so init is safe to
+// re-run and is the place future migrations append to.
+export async function init(): Promise<void> {
   const sql = readFileSync(new URL('../db/schema.sql', import.meta.url), 'utf8');
   await pool.query(sql.replaceAll('EMBED_DIM', String(EMBED_DIM)));
+}
+export const applySchema = init;
+
+// One writer at a time for the steps that decide whether two documents are the
+// same event; everything slow (LLM calls) happens outside it.
+const WRITE_LOCK = 724_100;
+export async function locked<T>(fn: (client: pg.PoolClient) => Promise<T>): Promise<T> {
+  return withTransaction(async (client) => {
+    await client.query('select pg_advisory_xact_lock($1)', [WRITE_LOCK]);
+    return fn(client);
+  });
 }
 
 export const vec = (v: number[]): string => pgvector.toSql(v) as string;

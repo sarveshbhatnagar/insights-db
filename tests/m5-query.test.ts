@@ -50,7 +50,7 @@ describe('milestone 5: query agent', () => {
     // The system prompt is 6.6 and the question is the user message.
     expect(String(fake.calls[0]!.messages[0]!.content)).toMatch(/^You answer questions from insights_db/);
     expect(fake.calls[0]!.messages[1]!.content).toBe('Why did mortgage applications fall?');
-    expect(fake.calls[0]!.tools!.map((t) => t.function.name)).toEqual(['search_events', 'get_event', 'get_storyline', 'get_neighbors', 'find_similar']);
+    expect(fake.calls[0]!.tools!.map((t) => t.function.name)).toEqual(['search_events', 'get_event', 'get_storyline', 'get_neighbors', 'find_similar', 'search_claims']);
   });
 
   it('returns empty claim_ids for an unanswerable question', async () => {
@@ -124,7 +124,10 @@ describe('milestone 5: similar events and package', () => {
   });
 
   it('exports the public functions', () => {
-    expect(Object.keys(api).sort()).toEqual(['ask', 'detachDocument', 'getEvent', 'getGuidance', 'getStoryline', 'ingest', 'mergeEntities', 'setGuidance', 'similarEvents']);
+    expect(Object.keys(api).sort()).toEqual([
+      'ask', 'detachDocument', 'getEvent', 'getGuidance', 'getStoryline', 'ingest', 'ingestMany', 'init', 'listClaims',
+      'listEntities', 'mergeEntities', 'relink', 'retryFailed', 'searchEvents', 'setGuidance', 'similarEvents',
+    ]);
   });
 
   it('npm pack produces a package whose bin runs', async () => {

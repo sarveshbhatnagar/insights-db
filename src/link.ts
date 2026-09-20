@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { LINK_CANDIDATE_MAX, LINK_WINDOW_DAYS } from './config.ts';
-import { type Db, liveClaim } from './db.ts';
+import { type Db, liveClaim, locked, pool } from './db.ts';
 import { completeJson } from './llm.ts';
 import { idEnum, maxWords, pid, render, unpid } from './prompts.ts';
 
@@ -28,9 +28,11 @@ async function loadEvents(db: Db, ids: string[]): Promise<EventView[]> {
   return ids.map((id) => rows.find((r) => r.id === id)!);
 }
 
-// Step 7. Returns the number of links inserted.
-export async function linkEvent(db: Db, eventId: string, rejected: string[]): Promise<number> {
-  const related = await db.query<{ id: string }>(
+// Step 7 for a new event, or a re-run when an existing event gained claims.
+// A re-run considers only events not already connected to it, so it costs
+// nothing when there is nothing new to judge. Returns the links inserted.
+export async function linkEvent(eventId: string, rejected: string[], relink = false): Promise<number> {
+  const related = await pool.query<{ id: string }>(
     `(select e.id from events e
       where e.id <> $1
         and e.occurred_at between (select occurred_at from events where id = $1) - $2::int
@@ -43,13 +45,21 @@ export async function linkEvent(db: Db, eventId: string, rejected: string[]): Pr
       order by e.content_embedding <=> (select content_embedding from events where id = $1) limit $3)`,
     [eventId, LINK_WINDOW_DAYS, LINK_CANDIDATE_MAX],
   );
-  const candidateIds = [...new Set([...rejected.filter((id) => id !== eventId), ...related.rows.map((r) => r.id)])].slice(
-    0,
-    LINK_CANDIDATE_MAX,
-  );
+  let candidateIds = [...new Set([...rejected.filter((id) => id !== eventId), ...related.rows.map((r) => r.id)])];
+  if (relink) {
+    const known = await pool.query<{ id: string }>(
+      `select case when src = $1 then dst else src end as id from links where src = $1 or dst = $1
+       union
+       select id from events where storyline_id = (select storyline_id from events where id = $1) and id <> $1`,
+      [eventId],
+    );
+    const skip = new Set(known.rows.map((r) => r.id));
+    candidateIds = candidateIds.filter((id) => !skip.has(id));
+  }
+  candidateIds = candidateIds.slice(0, LINK_CANDIDATE_MAX);
   if (candidateIds.length === 0) return 0;
 
-  const [event, ...candidates] = await loadEvents(db, [eventId, ...candidateIds]);
+  const [event, ...candidates] = await loadEvents(pool, [eventId, ...candidateIds]);
   const newId = pid('E', eventId);
   const user = await render('link', {
     'E-id': newId,
@@ -99,24 +109,29 @@ export async function linkEvent(db: Db, eventId: string, rejected: string[]): Pr
     });
   const reply = await completeJson(await render('shared'), user, schema);
 
-  let inserted = 0;
-  for (const link of reply.links) {
-    const res = await db.query(
-      `insert into links (src, dst, type, reason)
-       select $1, $2, $3, $4
-       where not exists (select 1 from links where (src, dst) in (($1, $2), ($2, $1)))`,
-      [unpid(link.src), unpid(link.dst), link.type, link.reason],
-    );
-    inserted += res.rowCount ?? 0;
-  }
-  if (reply.continues) {
-    const continued = unpid(reply.continues);
-    if (storylineOf.get(reply.continues)) {
-      await db.query('update events set storyline_id = $2 where id = $1', [eventId, storylineOf.get(reply.continues)]);
-    } else {
-      const s = await db.query<{ id: string }>('insert into storylines (title) values ($1) returning id', [reply.storyline_title]);
-      await db.query('update events set storyline_id = $1 where id = any($2::bigint[])', [s.rows[0]!.id, [eventId, continued]]);
+  return locked(async (db) => {
+    let inserted = 0;
+    for (const link of reply.links) {
+      const res = await db.query(
+        `insert into links (src, dst, type, reason)
+         select $1, $2, $3, $4
+         where not exists (select 1 from links where (src, dst) in (($1, $2), ($2, $1)))`,
+        [unpid(link.src), unpid(link.dst), link.type, link.reason],
+      );
+      inserted += res.rowCount ?? 0;
     }
-  }
-  return inserted;
+    // An event already in a storyline stays there; a re-run can only place one that has none.
+    if (reply.continues && (!relink || event!.storyline_id === null)) {
+      const continued = unpid(reply.continues);
+      const current = await db.query<{ storyline_id: string | null }>('select storyline_id from events where id = $1', [continued]);
+      const storylineId = current.rows[0]?.storyline_id ?? null;
+      if (storylineId) {
+        await db.query('update events set storyline_id = $2 where id = $1 and storyline_id is null', [eventId, storylineId]);
+      } else {
+        const s = await db.query<{ id: string }>('insert into storylines (title) values ($1) returning id', [reply.storyline_title]);
+        await db.query('update events set storyline_id = $1 where id = any($2::bigint[]) and storyline_id is null', [s.rows[0]!.id, [eventId, continued]]);
+      }
+    }
+    return inserted;
+  });
 }

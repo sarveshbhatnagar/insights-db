@@ -135,18 +135,22 @@ export async function similarEvents(eventId: string, k = 5): Promise<SimilarEven
   return similarByVector(rows[0].v, k, eventId);
 }
 
-type EventHit = { event_id: string; title: string; occurred_at: string };
+// The query's lexemes ORed together, so partial matches still rank.
+const TSQUERY = `to_tsquery('english', nullif(array_to_string(array(
+  select '''' || replace(l, '''', '''''') || ''''
+  from unnest(tsvector_to_array(to_tsvector('english', $2))) l), ' | '), ''))`;
+
+export type EventHit = { eventId: string; title: string; occurredAt: string };
 
 // Hybrid: vector rank and full-text rank fused with reciprocal rank fusion.
-async function searchEvents(query: string, k: number, dateFrom?: string, dateTo?: string): Promise<EventHit[]> {
+export async function searchEvents(
+  query: string,
+  opts: { k?: number | undefined; dateFrom?: string | undefined; dateTo?: string | undefined } = {},
+): Promise<EventHit[]> {
+  const k = opts.k ?? 8;
   const [v] = await embed([query]);
   const { rows } = await pool.query<{ id: string; title: string; occurred_at: string }>(
-    `with q as (
-       select $1::vector as v,
-              to_tsquery('english', nullif(array_to_string(array(
-                select '''' || replace(l, '''', '''''') || ''''
-                from unnest(tsvector_to_array(to_tsvector('english', $2))) l), ' | '), '')) as tsq
-     ),
+    `with q as (select $1::vector as v, ${TSQUERY} as tsq),
      scope as (
        select e.* from events e
        where ($3::date is null or e.occurred_at >= $3) and ($4::date is null or e.occurred_at <= $4)
@@ -170,9 +174,82 @@ async function searchEvents(query: string, k: number, dateFrom?: string, dateTo?
      where vec.id is not null or fts.id is not null
      order by coalesce(1.0 / (60 + vec.r), 0) + coalesce(1.0 / (60 + fts.r), 0) desc, e.id
      limit $6`,
-    [vec(v!), query, dateFrom ?? null, dateTo ?? null, k * 2, k],
+    [vec(v!), query, opts.dateFrom ?? null, opts.dateTo ?? null, k * 2, k],
   );
-  return rows.map((r) => ({ event_id: pid('E', r.id), title: r.title, occurred_at: r.occurred_at }));
+  return rows.map((r) => ({ eventId: r.id, title: r.title, occurredAt: r.occurred_at }));
+}
+
+export type ClaimHit = {
+  claimId: string;
+  eventId: string;
+  text: string;
+  kind: 'fact' | 'speculation';
+  assertedAt: Date;
+  verdict: 'refuted' | 'unsupported' | null;
+  against: string[];
+  disputedWith: string[];
+  evidenceUrl: string | null;
+  hidden: boolean;
+};
+
+// Single claims, hidden ones included: the way to find speculation and claims
+// that failed verification. Same hybrid ranking as searchEvents; without a
+// query, newest first.
+export async function listClaims(
+  opts: { query?: string | undefined; speculation?: boolean | undefined; verdict?: 'refuted' | 'unsupported' | undefined; k?: number | undefined } = {},
+): Promise<ClaimHit[]> {
+  const k = opts.k ?? 20;
+  const kind = opts.speculation === undefined ? null : opts.speculation ? 'speculation' : 'fact';
+  const v = opts.query ? vec((await embed([opts.query]))[0]!) : null;
+  const { rows } = await pool.query<{
+    id: string; event_id: string; text: string; kind: 'fact' | 'speculation'; asserted_at: Date;
+    verdict: ClaimHit['verdict']; against: string[]; disputed_with: string[]; evidence_url: string | null; hidden: boolean;
+  }>(
+    `with q as (select $1::vector as v, ${TSQUERY} as tsq),
+     scope as (
+       select c.* from claims c
+       where ($3::text is null or c.kind = $3) and ($4::text is null or c.verdict = $4)
+     ),
+     vec as (
+       select c.id, row_number() over (order by c.embedding <=> q.v) as r
+       from scope c, q where q.v is not null order by c.embedding <=> q.v limit $5
+     ),
+     fts as (
+       select c.id, row_number() over (order by ts_rank(c.tsv, q.tsq) desc) as r
+       from scope c, q where c.tsv @@ q.tsq limit $5
+     )
+     select c.id, c.event_id, c.text, c.kind, c.asserted_at, c.verdict, c.against, c.evidence_url,
+            (${hiddenClaim('c')}) as hidden,
+            array(select o.id from claims o where o.id = c.conflicts_with or o.conflicts_with = c.id order by o.id) as disputed_with
+     from scope c left join vec on vec.id = c.id left join fts on fts.id = c.id
+     where $2::text is null or vec.id is not null or fts.id is not null
+     order by coalesce(1.0 / (60 + vec.r), 0) + coalesce(1.0 / (60 + fts.r), 0) desc, c.asserted_at desc, c.id desc
+     limit $6`,
+    [v, opts.query ?? null, kind, opts.verdict ?? null, k * 2, k],
+  );
+  return rows.map((r) => ({
+    claimId: r.id, eventId: r.event_id, text: r.text, kind: r.kind, assertedAt: r.asserted_at, verdict: r.verdict,
+    against: r.against, disputedWith: r.disputed_with, evidenceUrl: r.evidence_url, hidden: r.hidden,
+  }));
+}
+
+export type EntityHit = { entityId: string; name: string; type: string; aliases: string[]; events: number };
+
+// Entities by name or alias, nearest first; the way to spot duplicates for mergeEntities.
+export async function listEntities(opts: { query?: string | undefined; type?: string | undefined; k?: number | undefined } = {}): Promise<EntityHit[]> {
+  const v = opts.query ? vec((await embed([opts.query]))[0]!) : null;
+  const { rows } = await pool.query<{ id: string; name: string; type: string; aliases: string[]; events: string }>(
+    `select n.id, n.name, n.type, n.aliases, (select count(*) from event_entities ee where ee.entity_id = n.id) as events
+     from entities n
+     where ($2::text is null or n.type = $2)
+     order by ($1::text is not null and (n.name ilike '%' || $1 || '%'
+                or exists (select 1 from unnest(n.aliases) a where a ilike '%' || $1 || '%'))) desc,
+              case when $3::vector is null then 0 else n.embedding <=> $3::vector end,
+              n.id
+     limit $4`,
+    [opts.query ?? null, opts.type ?? null, v, opts.k ?? 20],
+  );
+  return rows.map((r) => ({ entityId: r.id, name: r.name, type: r.type, aliases: r.aliases, events: Number(r.events) }));
 }
 
 const toolClaim = (c: Claim) => ({
@@ -194,8 +271,10 @@ function queryTools(seen: Set<string>): Tool[] {
         date_from: z.string().optional(),
         date_to: z.string().optional(),
       }),
-      run: (a: { query: string; k: number; date_from?: string; date_to?: string }) =>
-        searchEvents(a.query, a.k, a.date_from, a.date_to),
+      run: async (a: { query: string; k: number; date_from?: string; date_to?: string }) =>
+        (await searchEvents(a.query, { k: a.k, dateFrom: a.date_from, dateTo: a.date_to })).map((e) => ({
+          event_id: pid('E', e.eventId), title: e.title, occurred_at: e.occurredAt,
+        })),
     },
     {
       name: 'get_event',
@@ -245,6 +324,26 @@ function queryTools(seen: Set<string>): Tool[] {
           ? await similarEvents(rawId(a.event_id), a.k)
           : await similarByVector(vec((await embed([a.pattern!]))[0]!), a.k, null);
         return hits.map((h) => ({ event_id: pid('E', h.eventId), title: h.title, occurred_at: h.occurredAt, pattern: h.pattern }));
+      },
+    },
+    {
+      name: 'search_claims',
+      description: 'Find single claims, including speculation and claims that failed verification.',
+      parameters: z.strictObject({
+        query: z.string(),
+        speculation: z.boolean().optional(),
+        verdict: z.enum(['refuted', 'unsupported']).optional(),
+        k: z.number().int().min(1).max(20).default(10),
+      }),
+      run: async (a: { query: string; speculation?: boolean; verdict?: 'refuted' | 'unsupported'; k: number }) => {
+        const hits = await listClaims({ query: a.query, k: a.k, speculation: a.speculation, verdict: a.verdict });
+        for (const h of hits) seen.add(pid('C', h.claimId));
+        return hits.map((h) => ({
+          claim_id: pid('C', h.claimId), event_id: pid('E', h.eventId), text: h.text, kind: h.kind,
+          ...(h.verdict ? { verdict: h.verdict } : {}),
+          ...(h.against.length ? { against: h.against.map((id) => pid('C', id)) } : {}),
+          ...(h.evidenceUrl ? { evidence_url: h.evidenceUrl } : {}),
+        }));
       },
     },
   ];

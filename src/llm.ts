@@ -1,3 +1,4 @@
+import { AsyncLocalStorage } from 'node:async_hooks';
 import { channel } from 'node:diagnostics_channel';
 import { debuglog } from 'node:util';
 import OpenAI from 'openai';
@@ -13,10 +14,35 @@ export type Tool = {
   run: (args: never) => Promise<unknown>;
 };
 
-// Token usage goes out on a diagnostics channel so eval/ can total it without
-// this module exporting anything beyond its three functions.
+export type Usage = { calls: number; inputTokens: number; outputTokens: number; reasoningTokens: number };
+
+// Token usage goes out on a diagnostics channel (eval/ totals it) and into the
+// Usage of the enclosing trackUsage scope, so a batch of concurrent documents
+// can each report their own cost.
 const usage = channel('insights-db:llm');
+const scope = new AsyncLocalStorage<Usage>();
 const log = debuglog('insights-db');
+
+function record(step: string, inputTokens: number, outputTokens: number, reasoningTokens: number): void {
+  usage.publish({ step, inputTokens, outputTokens, reasoningTokens });
+  const u = scope.getStore();
+  if (u) {
+    u.calls++;
+    u.inputTokens += inputTokens;
+    u.outputTokens += outputTokens;
+    u.reasoningTokens += reasoningTokens;
+  }
+}
+
+export async function trackUsage<T>(fn: () => Promise<T>): Promise<{ result: T; usage: Usage }> {
+  const u: Usage = { calls: 0, inputTokens: 0, outputTokens: 0, reasoningTokens: 0 };
+  const result = await scope.run(u, fn);
+  return { result, usage: u };
+}
+
+// The SDK retries 408/409/429/5xx and connection errors with backoff and
+// honours retry-after; the reasoning model can take a couple of minutes.
+const CLIENT = { maxRetries: 5, timeout: 180_000 };
 
 const missing = (name: string): never => {
   throw new Error(`${name} is not set`);
@@ -24,9 +50,9 @@ const missing = (name: string): never => {
 let chatClient: OpenAI | undefined;
 let embedClient: OpenAI | undefined;
 const chat = (): OpenAI =>
-  (chatClient ??= new OpenAI({ apiKey: process.env.DEEPSEEK_API_KEY ?? missing('DEEPSEEK_API_KEY'), baseURL: LLM_BASE_URL }));
+  (chatClient ??= new OpenAI({ apiKey: process.env.DEEPSEEK_API_KEY ?? missing('DEEPSEEK_API_KEY'), baseURL: LLM_BASE_URL, ...CLIENT }));
 const embedder = (): OpenAI =>
-  (embedClient ??= new OpenAI({ apiKey: process.env.OPENAI_API_KEY ?? missing('OPENAI_API_KEY') }));
+  (embedClient ??= new OpenAI({ apiKey: process.env.OPENAI_API_KEY ?? missing('OPENAI_API_KEY'), ...CLIENT }));
 
 async function complete(step: string, messages: ChatCompletionMessageParam[], tools?: ChatCompletionTool[]) {
   const wantsJson = messages.some((m) => typeof m.content === 'string' && /json/i.test(m.content));
@@ -39,7 +65,7 @@ async function complete(step: string, messages: ChatCompletionMessageParam[], to
   const inputTokens = res.usage?.prompt_tokens ?? 0;
   const reasoningTokens = res.usage?.completion_tokens_details?.reasoning_tokens ?? 0;
   const outputTokens = (res.usage?.completion_tokens ?? 0) - reasoningTokens;
-  usage.publish({ step, inputTokens, outputTokens, reasoningTokens });
+  record(step, inputTokens, outputTokens, reasoningTokens);
   log('%s in=%d out=%d reasoning=%d', step, inputTokens, outputTokens, reasoningTokens);
   const message = res.choices[0]?.message;
   if (!message) throw new Error(`${step}: empty completion`);
@@ -134,6 +160,6 @@ export async function runTools<T>(
 export async function embed(texts: string[]): Promise<number[][]> {
   if (texts.length === 0) return [];
   const res = await embedder().embeddings.create({ model: EMBED_MODEL, input: texts, dimensions: EMBED_DIM });
-  usage.publish({ step: 'embed', inputTokens: res.usage.prompt_tokens, outputTokens: 0 });
+  record('embed', res.usage.prompt_tokens, 0, 0);
   return res.data.sort((a, b) => a.index - b.index).map((d) => d.embedding);
 }
