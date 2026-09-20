@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { normalize } from '../src/dedup.ts';
-import { ingest } from '../src/ingest.ts';
+import { ingest } from '../src/index.ts';
 import { bankArticle, bankExtraction } from './fixtures/index.ts';
 import { fake, freshDb, q } from './helpers.ts';
 

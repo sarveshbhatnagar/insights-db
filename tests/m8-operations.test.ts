@@ -1,10 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { init, pool } from '../src/db.ts';
-import { ingest, ingestMany } from '../src/ingest.ts';
-import { relink, retryFailed } from '../src/maintain.ts';
-import { ask, getEvent, listClaims, listEntities, searchEvents } from '../src/query.ts';
+import { ask, getEvent, ingest, ingestMany, init, listClaims, listEntities, relink, retryFailed, searchEvents } from '../src/index.ts';
 import * as f from './fixtures/index.ts';
-import { fake, freshDb, q } from './helpers.ts';
+import { db, fake, freshDb, q } from './helpers.ts';
 
 freshDb();
 
@@ -122,7 +119,7 @@ describe('relink', () => {
 
   it('makes no LLM call when every related event is already connected', async () => {
     const { quake, rate } = await rateMortgageQuake();
-    await pool.query('insert into links (src, dst, type, reason) values ($1, $2, $3, $4)', [quake, rate, 'background_for', 'r']);
+    await db.pool.query('insert into links (src, dst, type, reason) values ($1, $2, $3, $4)', [quake, rate, 'background_for', 'r']);
     expect(await relink(rate)).toBe(0);
     expect(fake.calls).toHaveLength(0);
   });

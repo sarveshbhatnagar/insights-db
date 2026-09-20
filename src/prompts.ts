@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { z } from 'zod';
-import { pool } from './db.ts';
+import type { Connection } from './db.ts';
 
 export const STEPS = ['domain', 'extract', 'resolve_entity', 'consolidate', 'verify', 'link', 'query'] as const;
 export type Step = (typeof STEPS)[number];
@@ -39,8 +39,8 @@ const SLOT = /\{([A-Za-z][A-Za-z0-9_ -]*)\}/g;
 
 export type Slots = Record<string, string | undefined>;
 
-export async function render(name: PromptName, slots: Slots = {}): Promise<string> {
-  const guidance = await getGuidance();
+export async function render(db: Connection, name: PromptName, slots: Slots = {}): Promise<string> {
+  const guidance = await getGuidance(db);
   let text = templates[name];
   for (const [literal, slot] of REGIONS[name] ?? []) {
     if (!text.includes(literal)) throw new Error(`prompt ${name}: list template not found`);
@@ -85,23 +85,23 @@ export const unpid = (s: string): string => s.slice(1);
 // z.enum needs at least one value; with none, nothing may be named.
 export const idEnum = (ids: string[]) => (ids.length > 0 ? z.enum(ids as [string, ...string[]]) : z.never());
 
-export async function setGuidance(step: string, text: string | null): Promise<void> {
+export async function setGuidance(db: Connection, step: string, text: string | null): Promise<void> {
   if (!(STEPS as readonly string[]).includes(step)) throw new Error(`unknown guidance step: ${step}`);
   if (text === null) {
-    await pool.query('delete from guidance where step = $1', [step]);
+    await db.pool.query('delete from guidance where step = $1', [step]);
     return;
   }
   const words = wordCount(text);
   if (words === 0) throw new Error('guidance text is empty; pass null to remove it');
   if (words > 150) throw new Error(`guidance for ${step} is ${words} words; the limit is 150`);
-  await pool.query(
+  await db.pool.query(
     `insert into guidance (step, text) values ($1, $2)
      on conflict (step) do update set text = excluded.text, updated_at = now()`,
     [step, text.trim()],
   );
 }
 
-export async function getGuidance(): Promise<Partial<Record<Step, string>>> {
-  const { rows } = await pool.query<{ step: Step; text: string }>('select step, text from guidance');
+export async function getGuidance(db: Connection): Promise<Partial<Record<Step, string>>> {
+  const { rows } = await db.pool.query<{ step: Step; text: string }>('select step, text from guidance');
   return Object.fromEntries(rows.map((r) => [r.step, r.text]));
 }

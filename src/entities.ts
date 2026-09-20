@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { ENTITY_NEIGHBOR_MIN } from './config.ts';
-import { type Db, vec } from './db.ts';
+import { type Connection, type Db, vec } from './db.ts';
 import type { Extraction } from './extract.ts';
 import { completeJson, embed } from './llm.ts';
 import { idEnum, pid, render, unpid } from './prompts.ts';
@@ -8,6 +8,7 @@ import { idEnum, pid, render, unpid } from './prompts.ts';
 type ExtractedEntity = Extraction['entities'][number];
 
 export async function resolveEntities(
+  conn: Connection,
   db: Db,
   entities: ExtractedEntity[],
   eventTitle: string,
@@ -15,13 +16,13 @@ export async function resolveEntities(
   // Two extracted names may resolve to one entity; the first role wins.
   const roles = new Map<string, string>();
   for (const entity of entities) {
-    const id = await resolveEntity(db, entity, eventTitle);
+    const id = await resolveEntity(conn, db, entity, eventTitle);
     if (!roles.has(id)) roles.set(id, entity.role);
   }
   return [...roles].map(([entityId, role]) => ({ entityId, role }));
 }
 
-async function resolveEntity(db: Db, entity: ExtractedEntity, eventTitle: string): Promise<string> {
+async function resolveEntity(conn: Connection, db: Db, entity: ExtractedEntity, eventTitle: string): Promise<string> {
   const exact = await db.query<{ id: string }>(
     `select id from entities
      where type = $1 and (lower(name) = lower($2)
@@ -44,13 +45,13 @@ async function resolveEntity(db: Db, entity: ExtractedEntity, eventTitle: string
     const candidates = near.rows
       .map((r) => `${pid('T', r.id)} | ${r.name} | ${entity.type} | also known as: ${r.aliases.join(', ')}`)
       .join('\n');
-    const user = await render('resolve_entity', {
+    const user = await render(conn, 'resolve_entity', {
       name: entity.name,
       type: entity.type,
       event_title: eventTitle,
       candidates,
     });
-    const reply = await completeJson(await render('shared'), user, z.strictObject({ match: idEnum(ids).nullable() }));
+    const reply = await completeJson(await render(conn, 'shared'), user, z.strictObject({ match: idEnum(ids).nullable() }));
     if (reply.match) {
       const id = unpid(reply.match);
       await db.query(

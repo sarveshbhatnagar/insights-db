@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { CANDIDATE_MAX, CANDIDATE_MIN_COSINE, CANDIDATE_WINDOW_DAYS } from './config.ts';
-import { type Db, hiddenClaim, vec } from './db.ts';
+import { type Connection, type Db, hiddenClaim, vec } from './db.ts';
 import type { Extraction } from './extract.ts';
 import { completeJson } from './llm.ts';
 import { idEnum, isoDate, pid, render } from './prompts.ts';
@@ -62,13 +62,14 @@ export type ConsolidateReply = {
 };
 
 export async function consolidate(
+  conn: Connection,
   extraction: Extraction,
   entityNames: string[],
   documentDate: Date,
   newClaims: NewClaim[],
   candidates: Candidate[],
 ): Promise<ConsolidateReply> {
-  const user = await render('consolidate', {
+  const user = await render(conn, 'consolidate', {
     title: extraction.title,
     event_type: extraction.event_type,
     occurred_at: extraction.occurred_at,
@@ -121,5 +122,5 @@ export async function consolidate(
         }),
       'supersedes and conflicts_with must point at a claim of the chosen event, and speculation only at speculation',
     );
-  return completeJson(await render('shared'), user, schema);
+  return completeJson(await render(conn, 'shared'), user, schema);
 }

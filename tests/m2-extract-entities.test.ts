@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { pool } from '../src/db.ts';
 import { resolveEntities } from '../src/entities.ts';
 import { extract } from '../src/extract.ts';
-import { getGuidance, render, setGuidance } from '../src/prompts.ts';
+import { getGuidance, setGuidance } from '../src/index.ts';
+import { render } from '../src/prompts.ts';
 import { bankArticle, bankExtraction } from './fixtures/index.ts';
-import { fake, freshDb, q } from './helpers.ts';
+import { db, fake, freshDb, q } from './helpers.ts';
 
 freshDb();
 
@@ -19,7 +19,7 @@ const doc = {
 describe('milestone 2: extraction', () => {
   it('yields a valid extraction from a fixture article', async () => {
     fake.reply('extract', bankExtraction);
-    const result = await extract(doc);
+    const result = await extract(db, doc);
     expect(result).toEqual(bankExtraction);
     const prompt = String(fake.calls[0]!.messages[1]!.content);
     expect(prompt).toContain('<document source="Wire One" date="2026-09-11">');
@@ -29,7 +29,7 @@ describe('milestone 2: extraction', () => {
 
   it('omits the source attribute and title line when the document has none', async () => {
     fake.reply('extract', bankExtraction);
-    await extract({ ...doc, title: null, source: null });
+    await extract(db, { ...doc, title: null, source: null });
     const prompt = String(fake.calls[0]!.messages[1]!.content);
     expect(prompt).toContain(`<document date="2026-09-11">\n${bankArticle.body}\n</document>`);
   });
@@ -37,7 +37,7 @@ describe('milestone 2: extraction', () => {
   it('rejects a reply with an extra field', async () => {
     const bad = { ...bankExtraction, confidence: 0.9 };
     fake.reply('extract', bad, bad);
-    await expect(extract(doc)).rejects.toThrow(/invalid reply after retry/);
+    await expect(extract(db, doc)).rejects.toThrow(/invalid reply after retry/);
     expect(fake.calls).toHaveLength(2);
     expect(String(fake.calls[1]!.messages.at(-1)!.content)).toMatch(/invalid/);
   });
@@ -45,24 +45,24 @@ describe('milestone 2: extraction', () => {
   it('rejects 11 claims', async () => {
     const bad = { ...bankExtraction, claims: Array.from({ length: 11 }, (_, i) => `Claim number ${i} is stated.`) };
     fake.reply('extract', bad, bad);
-    await expect(extract(doc)).rejects.toThrow(/invalid reply/);
+    await expect(extract(db, doc)).rejects.toThrow(/invalid reply/);
   });
 
   it('rejects a 40-word claim', async () => {
     const bad = { ...bankExtraction, claims: [Array.from({ length: 40 }, (_, i) => `w${i}`).join(' ')] };
     fake.reply('extract', bad, bad);
-    await expect(extract(doc)).rejects.toThrow(/over 30 words/);
+    await expect(extract(db, doc)).rejects.toThrow(/over 30 words/);
   });
 
   it('accepts a corrected reply on the single retry', async () => {
     fake.reply('extract', { ...bankExtraction, notes: 'x' }, bankExtraction);
-    expect(await extract(doc)).toEqual(bankExtraction);
+    expect(await extract(db, doc)).toEqual(bankExtraction);
   });
 });
 
 describe('milestone 2: entity resolution', () => {
   const resolve = (name: string, type: 'person' | 'org' | 'place' | 'other') =>
-    resolveEntities(pool, [{ name, type, role: 'actor' }], 'Rate decision');
+    resolveEntities(db, db.pool, [{ name, type, role: 'actor' }], 'Rate decision');
 
   it('reuses an entity on an exact or alias match without an LLM call', async () => {
     const [a] = await resolve('Federal Reserve', 'org');
@@ -116,19 +116,19 @@ describe('milestone 2: entity resolution', () => {
 
 describe('milestone 2: owner guidance', () => {
   it('renders guidance inside its tagged block and drops the block when absent', async () => {
-    const without = await render('extract', { document_date: '2026-09-11', body: 'b' });
+    const without = await render(db, 'extract', { document_date: '2026-09-11', body: 'b' });
     expect(without).not.toContain('<owner_guidance>');
     expect(without.endsWith('as it appears in "entities".\n')).toBe(true);
-    const shared = await render('shared');
+    const shared = await render(db, 'shared');
     expect(shared).not.toContain('<domain>\n');
     expect(shared.endsWith('the schema and rules win.\n')).toBe(true);
 
     await setGuidance('extract', 'Ignore the outlet.');
     await setGuidance('domain', 'News articles.');
-    const withIt = await render('extract', { document_date: '2026-09-11', body: 'b' });
+    const withIt = await render(db, 'extract', { document_date: '2026-09-11', body: 'b' });
     expect(withIt.endsWith('as it appears in "entities".\n\n<owner_guidance>\nIgnore the outlet.\n</owner_guidance>\n')).toBe(true);
-    expect((await render('shared')).endsWith('rules win.\n\n<domain>\nNews articles.\n</domain>\n')).toBe(true);
-    const query = await render('query');
+    expect((await render(db, 'shared')).endsWith('rules win.\n\n<domain>\nNews articles.\n</domain>\n')).toBe(true);
+    const query = await render(db, 'query');
     expect(query).toContain('<domain>\nNews articles.\n</domain>');
     expect(query).not.toContain('<owner_guidance>\n');
     expect(await getGuidance()).toEqual({ extract: 'Ignore the outlet.', domain: 'News articles.' });
@@ -145,8 +145,8 @@ describe('milestone 2: owner guidance', () => {
   });
 
   it('leaves no unfilled slot in any rendered prompt', async () => {
-    const shared = await render('shared');
-    const query = await render('query');
+    const shared = await render(db, 'shared');
+    const query = await render(db, 'query');
     for (const text of [shared, query]) expect(text).not.toMatch(/\{[a-z_]+\}/);
   });
 });

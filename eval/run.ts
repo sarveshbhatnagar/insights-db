@@ -15,8 +15,8 @@
 import { subscribe } from 'node:diagnostics_channel';
 import { readFileSync } from 'node:fs';
 import { CLAIM_DUP_COSINE } from '../src/config.ts';
-import { applySchema, liveClaim, pool, vec } from '../src/db.ts';
-import { ask, ingest, setGuidance, type DocumentIn } from '../src/index.ts';
+import { liveClaim, vec } from '../src/db.ts';
+import { type DocumentIn, openInsights } from '../src/index.ts';
 import { embed } from '../src/llm.ts';
 
 type Article = DocumentIn & { event: string; forecasts?: string[] };
@@ -37,22 +37,23 @@ subscribe('insights-db:llm', (msg) => {
   tokens.set(step, [...(tokens.get(step) ?? []), outputTokens]);
 });
 
-const tables = await pool.query("select 1 from information_schema.tables where table_name = 'documents'");
-if (tables.rowCount === 0) await applySchema();
-else if (((await pool.query('select count(*) as n from documents')).rows[0] as { n: string }).n !== '0') {
+const db = openInsights();
+const tables = await db.pool.query("select 1 from information_schema.tables where table_name = 'documents'");
+if (tables.rowCount === 0) await db.init();
+else if (((await db.pool.query('select count(*) as n from documents')).rows[0] as { n: string }).n !== '0') {
   console.error('eval needs an empty database; point DATABASE_URL at a scratch one');
   process.exit(2);
 }
 
 const preset = JSON.parse(readFileSync(new URL('../presets/news.json', import.meta.url), 'utf8')) as Record<string, string>;
-for (const [step, text] of Object.entries(preset)) await setGuidance(step, text);
+for (const [step, text] of Object.entries(preset)) await db.setGuidance(step, text);
 
 const labelOfEvent = new Map<string, Map<string, number>>();
 const docs: { label: string; eventId: string }[] = [];
 const sorted = [...set.articles].sort((a, b) => String(a.publishedAt ?? '').localeCompare(String(b.publishedAt ?? '')));
 for (const article of sorted) {
   const { event: label, forecasts: _, ...doc } = article;
-  const result = await ingest(doc);
+  const result = await db.ingest(doc);
   console.error(`${result.outcome.padEnd(9)} ${label.padEnd(20)} ${article.title ?? ''}`);
   if (result.outcome === 'failed' || !result.eventId) continue;
   docs.push({ label, eventId: result.eventId });
@@ -76,18 +77,18 @@ for (let i = 0; i < docs.length; i++) {
 }
 const ratio = (a: number, b: number): number => (b === 0 ? 1 : a / b);
 
-const redundant = await pool.query(
+const redundant = await db.pool.query(
   `select count(*) as n from claims a join claims b on a.event_id = b.event_id and a.id < b.id
    where ${liveClaim('a')} and ${liveClaim('b')} and 1 - (a.embedding <=> b.embedding) >= $1`,
   [CLAIM_DUP_COSINE],
 );
 
-const links = await pool.query<{ src: string; dst: string; type: string }>('select src, dst, type from links');
+const links = await db.pool.query<{ src: string; dst: string; type: string }>('select src, dst, type from links');
 const linkOk = links.rows.filter((l) =>
   set.links.some((x) => x.src === eventLabel(l.src) && x.dst === eventLabel(l.dst) && x.type === l.type),
 ).length;
 
-const storyPairs = await pool.query<{ a: string; b: string }>(
+const storyPairs = await db.pool.query<{ a: string; b: string }>(
   'select a.id as a, b.id as b from events a join events b on a.storyline_id = b.storyline_id and a.id < b.id',
 );
 const storyOk = storyPairs.rows.filter((p) =>
@@ -97,8 +98,8 @@ const storyOk = storyPairs.rows.filter((p) =>
 let answered = 0;
 for (const question of set.questions) {
   try {
-    const { citations } = await ask(question.question);
-    const events = await pool.query<{ event_id: string }>('select event_id from claims where id = any($1::bigint[])', [
+    const { citations } = await db.ask(question.question);
+    const events = await db.pool.query<{ event_id: string }>('select event_id from claims where id = any($1::bigint[])', [
       citations.map((c) => c.claimId),
     ]);
     const relevant = citations.length > 0 && events.rows.every((r) => question.events.includes(eventLabel(r.event_id)));
@@ -114,7 +115,7 @@ const forecasts = set.articles.flatMap((a) => a.forecasts ?? []);
 if (forecasts.length > 0) {
   const embeddings = await embed(forecasts);
   for (const e of embeddings) {
-    const hit = await pool.query(
+    const hit = await db.pool.query(
       `select 1 from claims c where ${liveClaim('c')} and 1 - (c.embedding <=> $1::vector) >= $2 limit 1`,
       [vec(e), CLAIM_DUP_COSINE],
     );
@@ -141,5 +142,5 @@ const width = Math.max(...rows.map((r) => r[0].length));
 for (const [metric, value, target, pass] of rows) {
   console.log(`${pass ? 'PASS' : 'MISS'}  ${metric.padEnd(width)}  ${value.padEnd(22)}  ${target}`);
 }
-await pool.end();
+await db.end();
 process.exit(rows.every((r) => r[3]) ? 0 : 1);

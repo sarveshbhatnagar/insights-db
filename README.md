@@ -26,7 +26,9 @@ A throwaway database for development:
     npx insights-db search "bank failure"   # events, no LLM;  claims "<q>" [--speculation];  entities "<q>"
     npx insights-db similar <eventId>       # analogous events by pattern;  relink <eventId> re-judges links
 
-Library: `import { init, ingest, ingestMany, retryFailed, ask, searchEvents, listClaims, listEntities, similarEvents, getEvent, getStoryline, relink, setGuidance, getGuidance, mergeEntities, detachDocument } from 'insights-db'`. Every ingest result carries its LLM `usage`. Set `NODE_DEBUG=insights-db` to trace prompts and replies.
+Library: `const db = openInsights({ connectionString })` (or `{ pool }`; defaults to `DATABASE_URL`) gives a handle with `init, ingest, ingestMany, retryFailed, ask, searchEvents, listClaims, listEntities, similarEvents, getEvent, getStoryline, relink, setGuidance, getGuidance, mergeEntities, detachDocument, end`. The same functions are also exported directly and run against `DATABASE_URL`. Every ingest result carries its LLM `usage`. Set `NODE_DEBUG=insights-db` to trace prompts and replies.
+
+Read API, no LLM, for a system that keeps its own context per event: `db.events.getMany(ids, { asOf? })`, `db.events.list({ eventType?, entityIds?, from?, to?, asOf?, excludeIds?, limit?, cursor?, order? })` (keyset page on `occurredAt, id`), `db.events.similar({ eventId | embedding, k?, minScore?, filters? }, 'pattern' | 'content')`, `db.events.types()`, `db.events.entities({ eventType?, from?, to?, limit? })`. Each record carries `occurredAt` (the event's calendar day, `YYYY-MM-DD`, read it as 00:00 UTC) and `observedAt` (the earliest of its documents' dates). `asOf` returns only events observed by then, as they stood then: claims asserted by `asOf`, a supersession counted only once the superseding claim was asserted. `getEvent(id, { asOf })` does the same. Events are never deleted in cascade with another store; `getMany` returns only the ids that exist, so sweep with it.
 
 ## Test and eval
 

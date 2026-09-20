@@ -1,5 +1,5 @@
 import { CLAIM_DUP_COSINE, NEAR_DUP_WINDOW_DAYS, SIMHASH_MAX_HAMMING } from './config.ts';
-import { type Db, documentDate, hiddenClaim, liveClaim, locked, pool, vec } from './db.ts';
+import { type Connection, type Db, documentDate, hiddenClaim, liveClaim, vec } from './db.ts';
 import { type Candidate, consolidate, type ConsolidateReply, findCandidates, type NewClaim } from './consolidate.ts';
 import { fromSigned64, hamming, normalize, sha256, simhash, toSigned64 } from './dedup.ts';
 import { resolveEntities } from './entities.ts';
@@ -56,15 +56,15 @@ export async function recomputeContentEmbedding(db: Db, eventId: string): Promis
   await db.query('update events set content_embedding = $2::vector where id = $1', [eventId, vec(embedding!)]);
 }
 
-export async function ingest(doc: DocumentIn): Promise<IngestResult> {
-  const [result] = await ingestMany([doc], { concurrency: 1 });
+export async function ingest(conn: Connection, doc: DocumentIn): Promise<IngestResult> {
+  const [result] = await ingestMany(conn, [doc], { concurrency: 1 });
   return result!;
 }
 
 // Step 1 runs for every document in order under the write lock, so a repeat
 // inside one batch is a duplicate of the first copy; steps 2 to 7 then run
 // concurrently. Invalid input rejects the whole batch before anything is stored.
-export async function ingestMany(docs: DocumentIn[], opts: IngestOptions = {}): Promise<IngestResult[]> {
+export async function ingestMany(conn: Connection, docs: DocumentIn[], opts: IngestOptions = {}): Promise<IngestResult[]> {
   const concurrency = Math.max(1, opts.concurrency ?? 4);
   const parsed = docs.map((doc, i) => {
     if (typeof doc.body !== 'string' || !doc.body.trim()) throw new Error(`document ${i}: body is required and must be non-empty`);
@@ -78,7 +78,7 @@ export async function ingestMany(docs: DocumentIn[], opts: IngestOptions = {}): 
   const results = new Array<IngestResult>(docs.length);
   const pending: { index: number; row: DocumentRow }[] = [];
   for (const [i, doc] of docs.entries()) {
-    const admitted = await admit(doc, parsed[i]!);
+    const admitted = await admit(conn, doc, parsed[i]!);
     if ('duplicate' in admitted) results[i] = admitted.duplicate;
     else pending.push({ index: i, row: admitted.row });
   }
@@ -88,7 +88,7 @@ export async function ingestMany(docs: DocumentIn[], opts: IngestOptions = {}): 
     Array.from({ length: Math.min(concurrency, pending.length) }, async () => {
       while (next < pending.length) {
         const { index, row } = pending[next++]!;
-        results[index] = await runPipeline(row);
+        results[index] = await runPipeline(conn, row);
       }
     }),
   );
@@ -96,7 +96,7 @@ export async function ingestMany(docs: DocumentIn[], opts: IngestOptions = {}): 
   // A duplicate admitted while its original was still in flight has no event yet.
   const dupIds = results.filter((r) => r.outcome === 'duplicate' && r.eventId === null).map((r) => r.documentId);
   if (dupIds.length > 0) {
-    const { rows } = await pool.query<{ id: string; event_id: string | null }>(
+    const { rows } = await conn.pool.query<{ id: string; event_id: string | null }>(
       `update documents d set event_id = o.event_id from documents o
        where d.id = any($1::bigint[]) and o.id = d.duplicate_of and o.event_id is not null
        returning d.id, d.event_id`,
@@ -111,12 +111,13 @@ export async function ingestMany(docs: DocumentIn[], opts: IngestOptions = {}): 
 }
 
 async function admit(
+  conn: Connection,
   doc: DocumentIn,
   publishedAt: Date | null,
 ): Promise<{ duplicate: IngestResult } | { row: DocumentRow }> {
   const hash = sha256(normalize(`${doc.title ?? ''} ${doc.body}`));
   const sim = simhash(normalize(doc.body));
-  return locked(async (db) => {
+  return conn.locked(async (db) => {
     // Failed documents are not originals, so they can be re-ingested.
     const stored = await db.query<{ id: string; event_id: string | null; simhash: string; exact: boolean }>(
       `select id, event_id, simhash, content_hash = $1 as exact from documents
@@ -148,23 +149,23 @@ async function admit(
 // Steps 2 to 7 for one stored document. Extraction and the consolidate and
 // link judgments run outside the write lock; the write itself re-checks the
 // candidates under the lock and asks again if another document changed them.
-export async function runPipeline(row: DocumentRow, excludeEventId?: string): Promise<IngestResult> {
+export async function runPipeline(conn: Connection, row: DocumentRow, excludeEventId?: string): Promise<IngestResult> {
   const { result, usage } = await trackUsage(async (): Promise<Omit<IngestResult, 'documentId' | 'usage'>> => {
     let written: Written;
     try {
-      written = await consolidateAndWrite(row, excludeEventId);
+      written = await consolidateAndWrite(conn, row, excludeEventId);
     } catch (err) {
-      await pool.query('update documents set error = $2 where id = $1', [row.id, (err as Error).message]);
+      await conn.pool.query('update documents set error = $2 where id = $1', [row.id, (err as Error).message]);
       return { eventId: null, outcome: 'failed', newClaims: 0, newLinks: 0 };
     }
     // The event is stored either way; a link failure is recorded, not fatal.
     let newLinks = 0;
     try {
-      if (written.outcome === 'new') newLinks = await linkEvent(written.eventId, written.rejected);
-      else if (written.newClaims > 0) newLinks = await linkEvent(written.eventId, [], true);
-      await pool.query('update documents set error = null where id = $1', [row.id]);
+      if (written.outcome === 'new') newLinks = await linkEvent(conn, written.eventId, written.rejected);
+      else if (written.newClaims > 0) newLinks = await linkEvent(conn, written.eventId, [], true);
+      await conn.pool.query('update documents set error = null where id = $1', [row.id]);
     } catch (err) {
-      await pool.query('update documents set error = $2 where id = $1', [row.id, `link: ${(err as Error).message}`]);
+      await conn.pool.query('update documents set error = $2 where id = $1', [row.id, `link: ${(err as Error).message}`]);
     }
     return { eventId: written.eventId, outcome: written.outcome, newClaims: written.newClaims, newLinks };
   });
@@ -176,9 +177,9 @@ type Written = { eventId: string; outcome: 'new' | 'merged'; newClaims: number; 
 const fingerprint = (candidates: Candidate[]): string =>
   candidates.map((c) => `${c.id}:${c.claims.map((x) => x.id).join(',')}`).sort().join('|');
 
-async function consolidateAndWrite(row: DocumentRow, excludeEventId: string | undefined): Promise<Written> {
-  const extraction = await extract(row);
-  const entities = await locked((db) => resolveEntities(db, extraction.entities, extraction.title));
+async function consolidateAndWrite(conn: Connection, row: DocumentRow, excludeEventId: string | undefined): Promise<Written> {
+  const extraction = await extract(conn, row);
+  const entities = await conn.locked((db) => resolveEntities(conn, db, extraction.entities, extraction.title));
   const newClaims: NewClaim[] = [
     ...extraction.claims.map((text) => ({ text, kind: 'fact' as const })),
     ...extraction.speculation.map((text) => ({ text, kind: 'speculation' as const })),
@@ -196,13 +197,13 @@ async function consolidateAndWrite(row: DocumentRow, excludeEventId: string | un
   };
   const decide = (candidates: Candidate[]): Promise<ConsolidateReply> =>
     candidates.length > 0
-      ? consolidate(extraction, extraction.entities.map((e) => e.name), row.documentDate, newClaims, candidates)
+      ? consolidate(conn, extraction, extraction.entities.map((e) => e.name), row.documentDate, newClaims, candidates)
       : Promise.resolve({ event_id: null, claims: [] });
 
-  let candidates = await findCandidates(pool, search);
+  let candidates = await findCandidates(conn.pool, search);
   let reply = await decide(candidates);
 
-  return locked(async (db) => {
+  return conn.locked(async (db) => {
     const current = await findCandidates(db, search);
     if (fingerprint(current) !== fingerprint(candidates)) {
       candidates = current;

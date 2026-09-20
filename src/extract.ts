@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import type { Connection } from './db.ts';
 import { completeJson } from './llm.ts';
 import { isoDate, maxWords, render } from './prompts.ts';
 
@@ -25,12 +26,12 @@ export type DocumentRow = {
   documentDate: Date;
 };
 
-export async function extract(doc: DocumentRow): Promise<Extraction> {
-  const user = await render('extract', {
+export async function extract(db: Connection, doc: DocumentRow): Promise<Extraction> {
+  const user = await render(db, 'extract', {
     source: doc.source ?? undefined,
     document_date: isoDate(doc.documentDate),
     title: doc.title ?? undefined,
     body: doc.body,
   });
-  return completeJson(await render('shared'), user, ExtractionSchema);
+  return completeJson(await render(db, 'shared'), user, ExtractionSchema);
 }
