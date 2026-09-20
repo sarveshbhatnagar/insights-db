@@ -17,9 +17,7 @@ A throwaway database for development:
 
 ## Install
 
-    npm install insights-db
-
-From a checkout: `npm install`.
+    npm install insights-db        # or, from a checkout: npm install
 
 ## Setup
 
