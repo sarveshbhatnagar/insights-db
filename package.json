@@ -2,13 +2,43 @@
   "name": "insights-db",
   "version": "0.1.0",
   "description": "Ingests documents, stores each real-world event once with its facts, links related events, and answers questions over the result.",
+  "keywords": [
+    "events",
+    "knowledge-base",
+    "news",
+    "entity-resolution",
+    "deduplication",
+    "pgvector",
+    "postgres",
+    "llm",
+    "rag"
+  ],
+  "homepage": "https://github.com/sarveshbhatnagar/insights-db#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarveshbhatnagar/insights-db.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sarveshbhatnagar/insights-db/issues"
+  },
   "type": "module",
   "license": "MIT",
-  "engines": { "node": ">=22" },
-  "bin": { "insights-db": "dist/cli.js" },
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "insights-db": "dist/cli.js"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist", "db", "prompts", "presets"],
+  "files": [
+    "dist",
+    "db",
+    "prompts",
+    "presets",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",

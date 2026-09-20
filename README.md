@@ -15,9 +15,14 @@ A throwaway database for development:
     docker run -d --name insights-db-pg -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=insights_db -p 5433:5432 pgvector/pgvector:pg16
     export DATABASE_URL=postgres://postgres:postgres@localhost:5433/insights_db
 
+## Install
+
+    npm install insights-db
+
+From a checkout: `npm install`.
+
 ## Setup
 
-    npm install
     sed "s/EMBED_DIM/1536/" db/schema.sql | psql "$DATABASE_URL"   # or applySchema() from src/db.ts
     npm run build
 
